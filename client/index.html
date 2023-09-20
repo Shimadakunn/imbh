@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-shop</title>
+    <style>
+      @font-face {
+        font-family: 'Satoshi';
+        src: url('./fonts/Satoshi.ttf') format('woff');
+      }
+      @font-face {
+        font-family: 'Neue';
+        src: url('./fonts/Neue.otf') format('woff');
+      }
+      @font-face {
+        font-family: 'Dirty';
+        src: url('./fonts/Dirty.otf') format('woff');
+      }
+      @font-face {
+        font-family: 'Human';
+        src: url('./fonts/Human.ttf') format('woff');
+      }
+      @font-face {
+        font-family: 'Baunk';
+        src: url('./fonts/Baunk.otf') format('woff');
+      }
+      *{
+        margin:0 0;
+        padding: 0 0;
+      }
+      html{
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+      }
+      html::-webkit-scrollbar{
+        display: none;
+      }
+      body {
+        background-color: #10100e;
+        color: white;
+        font-family: ABCPermanent,Arial,sans-serif;
+      }
+    </style>
+  </head>
+  <body data-cart = "false">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
