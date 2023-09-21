@@ -27,7 +27,20 @@ const Page=styled.div`
     z-index: 3;
 `
 const Close=styled.button`
-    height: 5%;
+    height: 4vh;
+    width: 4vw;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 775;
+    cursor: pointer;
+    transition: 400ms;
+    &:hover {
+      color: #10100e;
+      background-color: white;
+      border-radius: 5px;
+    }
 `
 const Articles=styled.div`
     height: 70%;
@@ -40,7 +53,6 @@ const Article=styled.div`
     border-bottom: 1px solid white;
     position: relative;
     img{
-        border: 1px solid white;
         aspect-ratio: 1/1;
         height: 100%;
         object-fit: cover;
@@ -48,29 +60,43 @@ const Article=styled.div`
     text{
         position: absolute;
         &.name{
-            top: 0;
+            top: 15%;
+            margin-left: 1rem;
         }
         &.price{
-            top: 0;
+            top: 15%;
             right: 0;
         }
         &.quantity{
-            bottom: 10%;
-            right: 70%;
+            bottom: 11%;
+            right: 68%;
         }
     }
     button{
+        cursor: pointer;
         position: absolute;
+        border: none;
+        background-color: transparent;
+        color: white;
+        font-size: 1.2rem;
         &.minus{
             bottom: 10%;
+            margin-left: 0.5rem;
+            height: 1.5rem;
+            width: 1.5rem;
         }
         &.plus{
             bottom: 10%;
-            right: 66.5%;
+            right: 60%;
+            height: 1.5rem;
+            width: 1.5rem;
         }
         &.remove{
+            font-size: 0.8rem;
             bottom: 10%;
             right: 0;
+            height: 3vh;
+            width: 3vw;
         }
     }
 `
@@ -89,7 +115,18 @@ right: 0;
 const Checkout=styled.button`
     height: 5%;
     width: 100%;
-    background-color: blue;
+    background-color: white;
+    border: none;
+    color: #10100e;
+    font-size: 1rem;
+    font-weight: 775;
+    cursor: pointer;
+    transition: 400ms;
+    &:hover {
+      color: white;
+      background-color: #10100e;
+      border-radius: 5px;
+    }
 `
 function Cart(){
     const {cartItems, setCartItems} = useContext(CartContext);
@@ -110,19 +147,40 @@ function Cart(){
   const calculateTotal = () => {
     return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
   };
+  const calculateNumberProduct = () => {
+    return cartItems.reduce((total, item) => total + item.quantity, 0);
+  };
+  const Pay = () => {
+    fetch('https://imbh-server.vercel.app/create-checkout-session', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ 
+        items: cartItems.map((item) => ({
+          id: item.id,
+          quantity: item.quantity
+        })),
+      }),
+    }).then(async res => {
+      if (res.ok) return res.json()
+      const json = await res.json()
+      return await Promise.reject(json)
+    }).then(({ url }) => {
+      window.location = url
+    }).catch(e => {console.error(e.error)})
+  }
     return(
         <>
-        <Back onClick={() => {document.body.dataset.cart = "false";}}>
-
-        </Back>
+        <Back onClick={() => {document.body.dataset.cart = "false";}}></Back>
         <Page>
             <Close onClick={() => {document.body.dataset.cart = "false";}}>
-                X Cart 1
+                X CART [{calculateNumberProduct()}]
             </Close>
             <Articles>
                 {cartItems.map((item) => (
                     <Article key={item.id}>
-                        <img src="./img/1.png"/>
+                        <img src={`./img/${item.id}_1.png`}/>
                         <text className="name">{item.name}</text>
                         <text className="price">${item.price*item.quantity}</text>
                         <button className="minus" onClick={() => updateQuantity(item, item.quantity - 1)}>-</button>
@@ -134,11 +192,11 @@ function Cart(){
                 ))}
             </Articles>
             <Total>
-                <TotalText>Total</TotalText>
+                <TotalText>TOTAL</TotalText>
                 <TotalPrice>${calculateTotal()}</TotalPrice>
             </Total>
-            <Checkout>
-                Checkout
+            <Checkout onClick={() => Pay()}>
+                CHECKOUT
             </Checkout>
         </Page>
         </>

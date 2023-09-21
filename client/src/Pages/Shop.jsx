@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext} from 'react';
-import {CartContext} from '../CartProvider.jsx';
+import {CartContext} from '../Components/CartProvider.jsx';
 import styled from "styled-components"
 
 const initialHoverState = {
@@ -22,13 +22,16 @@ const AddedProduct = styled.div`
   position: fixed;
   top: 6.5vh;
   right:2rem;
-  // position: absolute;
-  // right:2rem;
-  // top: 8vh;
   transform: scale(0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: transform 0.75s cubic-bezier(0,1,1,1);
   &.show {
     transform: scale(1);
+  }
+  .img {
+    width: 90%;
   }
   .close {
     position: absolute;
@@ -96,7 +99,7 @@ const ProductFrame = styled.div`
 }
 `
 const ProcuctImg = styled.img`
-  width: 40%;
+  width: 60%;
    pointer-events: none;
 `
 const ShootImg = styled.img`
@@ -114,6 +117,8 @@ const ProductName = styled.div`
   bottom:5%;
   left:5%;
   transition: bottom 0.5s ease;
+  Font-size: 0.75rem;
+  font-weight: 600;
   bottom: ${({ show }) => (show ? '10%' : '5%')};
 `
 const ProductPrice = styled.div`
@@ -174,11 +179,14 @@ function Shop() {
             setAddedItemClassName('show');
           const timer = setTimeout(() => {
             setShowAddedItem(false);
-          }, 5000);
+          }, 2000);
           const timer2 = setTimeout(() => {
             setAddedItemClassName('erase');
-          }, 4750);
-          return () => clearTimeout(timer);
+          }, 1750);
+          return () => {
+            clearTimeout(timer);
+            clearTimeout(timer2);
+          };
         }
       }, [showAddedItem]);
       const [isHovered, setIsHovered] = useState(initialHoverState);
@@ -199,6 +207,7 @@ function Shop() {
             {showAddedItem && (
               <AddedProduct  className={`${addedItemClassName}`} onClick={() => {document.body.dataset.cart = "true";}}>
                 <button onClick={() => {setShowAddedItem(false)}} className="close">X</button>
+                <img className="img" src={`./img/${lastItem.id}_1.png`}/>
                 <p className="added">ADDED TO YOUR CART</p>
                 <p className="name">{lastItem.name}</p>
                 <p className="price">${lastItem.price}</p>
@@ -206,56 +215,56 @@ function Shop() {
             )}
             <Grid>
                 <ProductFrame className="product1" onMouseEnter={() =>handleMouseEnter(0)} onMouseLeave={() =>handleMouseLeave(0)}>
-                    <ProcuctImg src="./img/1.png"/>
-                    <ShootImg show={isHovered[0]} src="./img/2.webp"/>
-                    <ProductName show={isHovered[0]}>Product A</ProductName>
-                    <ProductPrice show={isHovered[0]}>$10</ProductPrice>
+                    <ProcuctImg src="./img/1_1.png"/>
+                    <ShootImg show={isHovered[0]} src="./img/1_2.jpg"/>
+                    <ProductName show={isHovered[0]}>LOST ARCHIVE</ProductName>
+                    <ProductPrice show={isHovered[0]}>$60</ProductPrice>
                     <ProductBar show={isHovered[0]}>
-                      <Button onClick={() => {addToCart({ id: 1, name: 'Product A', price: 10})}}>
+                      <Button onClick={() => {addToCart({ id: 1, name: 'LOST ARCHIVE', price: 60})}}>
                         ADD TO CART
                       </Button>
                     </ProductBar>
                 </ProductFrame>
                 <ProductFrame className="product2" onMouseEnter={() =>handleMouseEnter(1)} onMouseLeave={() =>handleMouseLeave(1)}>
-                <ProcuctImg src="./img/1.png"/>
-                    <ShootImg show={isHovered[1]} src="./img/2.webp"/>
-                    <ProductName show={isHovered[1]}>Product A</ProductName>
-                    <ProductPrice show={isHovered[1]}>$10</ProductPrice>
+                <ProcuctImg src="./img/2_1.png"/>
+                    <ShootImg show={isHovered[1]} src="./img/2_2.jpg"/>
+                    <ProductName show={isHovered[1]}>SHADOW HOODIE</ProductName>
+                    <ProductPrice show={isHovered[1]}>$60</ProductPrice>
                     <ProductBar show={isHovered[1]}>
-                      <Button onClick={() => addToCart({ id: 2, name: 'Product B', price: 20})}>
+                      <Button onClick={() => addToCart({ id: 2, name: 'Product B', price: 60})}>
                         ADD TO CART
                       </Button>
                     </ProductBar>
                 </ProductFrame>
                 <ProductFrame className="product3" onMouseEnter={() =>handleMouseEnter(2)} onMouseLeave={() =>handleMouseLeave(2)}>
-                <ProcuctImg src="./img/1.png"/>
-                    <ShootImg show={isHovered[2]} src="./img/2.webp"/>
-                    <ProductName show={isHovered[2]}>Product A</ProductName>
-                    <ProductPrice show={isHovered[2]}>$10</ProductPrice>
+                <ProcuctImg src="./img/3_1.png"/>
+                    <ShootImg show={isHovered[2]} src="./img/3_2.jpg"/>
+                    <ProductName show={isHovered[2]}>SHADOW MESH HOODIE</ProductName>
+                    <ProductPrice show={isHovered[2]}>$80</ProductPrice>
                     <ProductBar show={isHovered[2]}>
-                      <Button onClick={() => addToCart({ id: 3, name: 'Product C', price: 30})}>
+                      <Button onClick={() => addToCart({ id: 3, name: 'SHADOW MESH HOODIE', price: 80})}>
                         ADD TO CART
                       </Button>
                     </ProductBar>
                 </ProductFrame>
                 <ProductFrame className="product4" onMouseEnter={() =>handleMouseEnter(3)} onMouseLeave={() =>handleMouseLeave(3)}>
-                <ProcuctImg src="./img/1.png"/>
-                    <ShootImg show={isHovered[3]} src="./img/2.webp"/>
-                    <ProductName show={isHovered[3]}>Product A</ProductName>
-                    <ProductPrice show={isHovered[3]}>$40</ProductPrice>
+                <ProcuctImg src="./img/4_1.png"/>
+                    <ShootImg show={isHovered[3]} src="./img/4_2.jpg"/>
+                    <ProductName show={isHovered[3]}>ROSACE PUFFER</ProductName>
+                    <ProductPrice show={isHovered[3]}>$100</ProductPrice>
                     <ProductBar show={isHovered[3]}>
-                      <Button onClick={() => addToCart({ id: 4, name: 'Product D', price: 40})}>
+                      <Button onClick={() => addToCart({ id: 4, name: 'ROSACE PUFFER', price: 100})}>
                         ADD TO CART
                       </Button>
                     </ProductBar>
                 </ProductFrame>
                 <ProductFrame className="product5" onMouseEnter={() =>handleMouseEnter(4)} onMouseLeave={() =>handleMouseLeave(4)}>
-                <ProcuctImg src="./img/1.png"/>
-                    <ShootImg show={isHovered[4]} src="./img/2.webp"/>
-                    <ProductName show={isHovered[4]}>Product B</ProductName>
-                    <ProductPrice show={isHovered[4]}>$50</ProductPrice>
+                <ProcuctImg src="./img/5_1.png"/>
+                    <ShootImg show={isHovered[4]} src="./img/5_2.jpg"/>
+                    <ProductName show={isHovered[4]}>MAELSTROM</ProductName>
+                    <ProductPrice show={isHovered[4]}>$120</ProductPrice>
                     <ProductBar show={isHovered[4]}>
-                      <Button onClick={() => addToCart({ id: 5, name: 'Product E', price: 50})}>
+                      <Button onClick={() => addToCart({ id: 5, name: 'MAELSTROM', price: 120})}>
                         ADD TO CART
                       </Button>
                     </ProductBar>

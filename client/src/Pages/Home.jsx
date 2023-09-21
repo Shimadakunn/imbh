@@ -43,7 +43,7 @@ function Home() {
     });
   const Pay = () => {
     console.log('pay')
-    fetch('https://imbh-serer.onrender.com/create-checkout-session', {
+    fetch('https://imbh-server.vercel.app/create-checkout-session', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

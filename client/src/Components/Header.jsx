@@ -80,10 +80,10 @@ function Header() {
       <Head>
         <Logo>IMBH</Logo>
         <NavBar>
-            <Access className="edu">
-              <div className="text">EXPLORE</div>
+            <Access className="edu" onClick={() => {navigate("/");}}>
+              <div className="text">HOME</div>
             </Access>
-            <Access>
+            <Access onClick={() => {navigate("/shop");}}>
               <div className="text">SHOP</div>
             </Access>
             <Access><div className="text">TREATMENT</div></Access>

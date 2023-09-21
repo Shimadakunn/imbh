@@ -1,8 +1,8 @@
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import CartProvider from './CartProvider'
-import Header from './Header'
-import Footer from './Footer'
-import Cart from './Cart'
+import CartProvider from './Components/CartProvider'
+import Header from './Components/Header'
+import Footer from './Components/Footer'
+import Cart from './Components/Cart'
 import Shop from './Pages/Shop'
 import Home from './Pages/Home'
 import Success from './Pages/Success'
