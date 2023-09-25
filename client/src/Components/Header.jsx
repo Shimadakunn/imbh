@@ -80,6 +80,7 @@ const Access = styled.div`
       color: red;
       font-size: 1.5rem;
       @media (max-width: 480px) {bottom: -1px;}
+      
     }
 `
 function Header() {
