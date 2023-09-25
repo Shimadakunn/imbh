@@ -4,10 +4,9 @@ import Header from './Components/Header'
 import Footer from './Components/Footer'
 import Cart from './Components/Cart'
 import Shop from './Pages/Shop'
-import Home from './Pages/Home'
+import Product1 from './Pages/Product Pages/Product1'
 import Success from './Pages/Success'
 import Cancel from './Pages/Cancel'
-import Cart_test from './Pages/Cart_test'
 
 function App() {
 
@@ -17,11 +16,10 @@ function App() {
         <Header/>
         <Cart/>
         <Routes>
-          <Route exact path="/" element={<Home/>} />
-          <Route exact path="/shop" element={<Shop/>} />
+          <Route exact path="/" element={<Shop/>} />
+          <Route exact path="/shop" element={<Product1/>} />
           <Route exact path="/success" element={<Success/>} />
           <Route exact path="/cancel" element={<Cancel/>} />
-          <Route exact path="/cart" element={<Cart_test/>} />
         </Routes>
         {/* <Footer/> */}
       </Router>

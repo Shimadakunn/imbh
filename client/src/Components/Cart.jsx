@@ -22,13 +22,14 @@ const Page=styled.div`
     top: 0;
     right: 0;
     transition: right 0.75s cubic-bezier(0,1,1,1);
-    body[data-cart="false"] &{right: -40vw;}
+    body[data-cart="false"] &{right: -40vw;@media (max-width: 480px) {right: -102vw;}}
+    @media (max-width: 480px) {width: 92vw;}
     padding: 1.35rem;
     z-index: 3;
 `
 const Close=styled.button`
     height: 4vh;
-    width: 4vw;
+    width: 5vw;
     background-color: transparent;
     border: none;
     color: white;
@@ -36,6 +37,7 @@ const Close=styled.button`
     font-weight: 775;
     cursor: pointer;
     transition: 400ms;
+    @media (max-width: 480px) {width: 20vw;}
     &:hover {
       color: #10100e;
       background-color: white;
@@ -68,6 +70,7 @@ const Article=styled.div`
             right: 0;
         }
         &.quantity{
+            @media (max-width: 480px) {right: 59%;};
             bottom: 11%;
             right: 68%;
         }
@@ -86,12 +89,14 @@ const Article=styled.div`
             width: 1.5rem;
         }
         &.plus{
+            @media (max-width: 480px) {right: 50%;};
             bottom: 10%;
             right: 60%;
             height: 1.5rem;
             width: 1.5rem;
         }
         &.remove{
+            @media (max-width: 480px) {right: 7.5%;};
             font-size: 0.8rem;
             bottom: 10%;
             right: 0;

@@ -27,6 +27,7 @@ const AddedProduct = styled.div`
   justify-content: center;
   align-items: center;
   transition: transform 0.75s cubic-bezier(0,1,1,1);
+  @media (max-width: 480px) {top: 8vh;right:1rem;};
   &.show {
     transform: scale(1);
   }
@@ -35,8 +36,23 @@ const AddedProduct = styled.div`
   }
   .close {
     position: absolute;
-    top: 5%;
-    right: 5%;
+    z-index:5;
+    top: 2.5%;
+    right: 2.5%;
+    height: 2rem;
+    width: 2rem;
+    background-color: transparent;
+    border: none;
+    color: #10100e;
+    font-size: 0.625rem;
+    font-weight: 775;
+    cursor: pointer;
+    transition: 400ms;
+    &:hover {
+      color: white;
+      background-color: #10100e;
+      border-radius: 5px;
+    }
   }
   .added {
     position: absolute;
@@ -67,6 +83,8 @@ const Grid = styled.div`
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   border: 1px solid white;
+  @media (max-width: 480px) {grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);};
 `
 const ProductFrame = styled.div`
     aspect-ratio: 1/1.2;
@@ -79,22 +97,33 @@ const ProductFrame = styled.div`
         grid-area: 1 / 1 / 2 / 2;
         border-right: 1px solid white;
         border-bottom: 1px solid white;
+        @media (max-width: 480px) {grid-area: 1 / 1 / 2 / 2;
+        border-bottom: 0px solid white;};
     }
     &.product2 {
         grid-area: 1 / 2 / 2 / 3;
         border-bottom: 1px solid white;
         border-right: 1px solid white;
+        @media (max-width: 480px) {grid-area: 1 / 2 / 2 / 3;
+          border-right: 0px solid white;
+          border-bottom: 0px solid white;};
     }
     &.product3 {
         grid-area: 2 / 1 / 3 / 2;
         border-right: 1px solid white;
+        @media (max-width: 480px) {grid-area: 4 / 1 / 5 / 2;};
     }
     &.product4 {
         grid-area: 2 / 2 / 3 / 3;
         border-right: 1px solid white;
+        @media (max-width: 480px) {grid-area: 4 / 2 / 5 / 3;
+        border-right: 0px solid white;};
     }
     &.product5 {
         grid-area: 1 / 3 / 3 / 5;
+        @media (max-width: 480px) {border-bottom: 1px solid white;
+          border-top: 1px solid white;
+          grid-area: 2 / 1 / 4 / 3;};
     }
 }
 `
@@ -120,6 +149,8 @@ const ProductName = styled.div`
   Font-size: 0.75rem;
   font-weight: 600;
   bottom: ${({ show }) => (show ? '10%' : '5%')};
+  @media (max-width: 480px) {bottom: ${({ show }) => (show ? '15%' : '5%')};
+  &.product5{bottom: ${({ show }) => (show ? '10%' : '5%')};}};
 `
 const ProductPrice = styled.div`
   position: absolute;
@@ -127,6 +158,8 @@ const ProductPrice = styled.div`
   right:5%;
   transition: bottom 0.5s ease;
   bottom: ${({ show }) => (show ? '10%' : '5%')};
+  @media (max-width: 480px) {bottom: ${({ show }) => (show ? '15%' : '5%')};
+  &.product5{bottom: ${({ show }) => (show ? '10%' : '5%')};}};
 `
 const ProductBar = styled.div`
     position: absolute;
@@ -134,11 +167,13 @@ const ProductBar = styled.div`
     height: 4vh;
     transition: bottom 0.5s ease;
     bottom: ${({ show }) => (show ? '0' : '-10%')};
+    @media (max-width: 480px) {bottom: ${({ show }) => (show ? '0' : '-15%')};};
     background-color: white;
     color: black;
     display: flex;
     justify-content: center;
     align-items: center;
+    
 `
 const Button = styled.button`
   height: 80%;
@@ -150,6 +185,7 @@ const Button = styled.button`
   font-weight: 775;
   cursor: pointer;
   transition: 400ms;
+  @media (max-width: 480px) {width: 25vw;};
   &:hover {
     color: white;
     background-color: #10100e;
@@ -179,10 +215,10 @@ function Shop() {
             setAddedItemClassName('show');
           const timer = setTimeout(() => {
             setShowAddedItem(false);
-          }, 2000);
+          }, 5000);
           const timer2 = setTimeout(() => {
             setAddedItemClassName('erase');
-          }, 1750);
+          }, 4750);
           return () => {
             clearTimeout(timer);
             clearTimeout(timer2);
@@ -206,7 +242,7 @@ function Shop() {
         <Page>
             {showAddedItem && (
               <AddedProduct  className={`${addedItemClassName}`} onClick={() => {document.body.dataset.cart = "true";}}>
-                <button onClick={() => {setShowAddedItem(false)}} className="close">X</button>
+                <button onClick={(event) => {event.stopPropagation(); setShowAddedItem(false)}} className="close">X</button>
                 <img className="img" src={`./img/${lastItem.id}_1.png`}/>
                 <p className="added">ADDED TO YOUR CART</p>
                 <p className="name">{lastItem.name}</p>
@@ -231,7 +267,7 @@ function Shop() {
                     <ProductName show={isHovered[1]}>SHADOW HOODIE</ProductName>
                     <ProductPrice show={isHovered[1]}>$60</ProductPrice>
                     <ProductBar show={isHovered[1]}>
-                      <Button onClick={() => addToCart({ id: 2, name: 'Product B', price: 60})}>
+                      <Button onClick={() => addToCart({ id: 2, name: 'SHADOW HOODIE', price: 60})}>
                         ADD TO CART
                       </Button>
                     </ProductBar>
@@ -261,8 +297,8 @@ function Shop() {
                 <ProductFrame className="product5" onMouseEnter={() =>handleMouseEnter(4)} onMouseLeave={() =>handleMouseLeave(4)}>
                 <ProcuctImg src="./img/5_1.png"/>
                     <ShootImg show={isHovered[4]} src="./img/5_2.jpg"/>
-                    <ProductName show={isHovered[4]}>MAELSTROM</ProductName>
-                    <ProductPrice show={isHovered[4]}>$120</ProductPrice>
+                    <ProductName className="product5" show={isHovered[4]}>MAELSTROM</ProductName>
+                    <ProductPrice className="product5" show={isHovered[4]}>$120</ProductPrice>
                     <ProductBar show={isHovered[4]}>
                       <Button onClick={() => addToCart({ id: 5, name: 'MAELSTROM', price: 120})}>
                         ADD TO CART

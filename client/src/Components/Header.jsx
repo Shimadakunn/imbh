@@ -12,12 +12,19 @@ const Head = styled.header`
   position: sticky;
   top: 0;
   z-index: 2;
+  @media (max-width: 480px) {
+    height: 10vh;
+    padding:0 1rem;
+  }
 `
 const Logo = styled.div`
   order: 1;
   font-family: 'Baunk', sans-serif;
   color: white;
   font-size: 2rem;
+  @media (max-width: 480px) {
+    display: none;
+  }
 `
 const NavBar = styled.div`
     order: 2;
@@ -27,6 +34,10 @@ const NavBar = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    @media (max-width: 480px) {
+      width: 100vw;
+      height: 5vh;
+    }
 `
 const Access = styled.div`
     height: 100%;
@@ -35,8 +46,6 @@ const Access = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    &.icon {flex: 0.5;}
-    &.edu {flex: 1.5;}
     font-family: ABCPermanent,Arial,sans-serif;
     font-size: 0.8rem;
     font-weight: 750;
@@ -44,18 +53,22 @@ const Access = styled.div`
     cursor: pointer;
     position: relative;
     transition: 400ms;
+    &.home {@media (max-width: 480px) {border-right: 1px solid #10100e;}}
+    &.about {@media (max-width: 480px) {border-right: 1px solid #10100e;}}
+    &.cart {flex: 0.5;}
+    &.logo{
+      display: none;
+      font-family: 'Baunk', sans-serif;
+      @media (max-width: 480px) {
+        flex: 2;
+        display: flex;
+        border-right: 1px solid #10100e;
+        justify-content: flex-start;
+        padding-left: 2rem;
+      }
+    }
     &:hover{
       background-color: #10100e;
-      color: white;
-    }
-    & .text{
-      font-family: ABCPermanent,Arial,sans-serif;
-      font-size: 0.75rem;
-      font-weight: 750;
-      color: #10100e;
-      transition: 400ms;
-    }
-    &:hover .text {
       color: white;
     }
     & .itemInCart{
@@ -80,17 +93,10 @@ function Header() {
       <Head>
         <Logo>IMBH</Logo>
         <NavBar>
-            <Access className="edu" onClick={() => {navigate("/");}}>
-              <div className="text">HOME</div>
-            </Access>
-            <Access onClick={() => {navigate("/shop");}}>
-              <div className="text">SHOP</div>
-            </Access>
-            <Access><div className="text">TREATMENT</div></Access>
-            <Access><div className="text">SALOON</div></Access>
-            <Access><div className="text">ABOUT US</div></Access>
-            <Access className="icon">U</Access>
-            <Access className="icon" onClick={() => {document.body.dataset.cart = "true";}}>
+            <Access className="logo" onClick={() => {navigate("/");}}>IMBH</Access>
+            <Access className="home" onClick={() => {navigate("/");}}>HOME</Access>
+            <Access className="about" onClick={() => {navigate("/shop");}}>ABOUT US</Access>
+            <Access className="cart" onClick={() => {document.body.dataset.cart = "true";}}>
               C
               {cartItems.length > 0 && (
                 <div className="itemInCart">
