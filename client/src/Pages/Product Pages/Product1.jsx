@@ -79,7 +79,6 @@ const Page = styled.div`
 `
 const Images = styled.div`
     flex: 0.65;
-    background-color: green;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
@@ -88,6 +87,9 @@ const Images = styled.div`
     border: 1px solid white;
     border-bottom: 0px solid white;
     border-left: 0px solid white;
+    @media (max-width: 480px) {grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(7, 1fr);
+        flex: 0.55;};
 `
 const ImageFrame = styled.div`
     aspect-ratio: 1/1.2;
@@ -100,38 +102,53 @@ const ImageFrame = styled.div`
         grid-area: 1 / 1 / 3 / 3;
         border-bottom: 1px solid white;
         border-left: 1px solid white;
+        @media (max-width: 480px) {grid-area: 1 / 1 / 3 / 3;};
     }
     &.img2 {
         grid-area: 1 / 3 / 3 / 5;
         border-bottom: 1px solid white;
         border-left: 1px solid white;
+        @media (max-width: 480px) {grid-area: 4 / 1 / 6 / 3;};
     }
     &.img3 {
         grid-area: 3 / 1 / 4 / 2;
         border-bottom: 1px solid white;
         border-left: 1px solid white;
+        @media (max-width: 480px) {grid-area: 3 / 1 / 4 / 2;};
     }
     &.img4 {
         grid-area: 3 / 2 / 4 / 3;
         border-bottom: 1px solid white;
         border-left: 1px solid white;
+        @media (max-width: 480px) {grid-area: 3 / 2 / 4 / 3;};
     }
     &.img5 {
         grid-area: 3 / 3 / 5 / 5;
         border-bottom: 1px solid white;
         border-left: 1px solid white;
+        @media (max-width: 480px) {grid-area: 6 / 1 / 8 / 3;};
+    }
+    & img {
+        object-fit: cover;
+        aspect-ratio: 1/1.2;
+        overflow: hidden;
+        width: 100%;
+        &.img3, &.img4 {
+            width: 90%;
+        }
     }
 }
 `
 const InfoContainer = styled.div`
     flex: 0.35;
     position: relative;
+    @media (max-width: 480px) {flex: 0.45;};
 `
 const Info = styled.div`
-    background-color: red;
     position: fixed;
+    @media (max-width: 480px) {top: 10vh;width: 45vw;};
     top: 8.5vh;
-    height: 20vh;
+    height: 90vh;
     width: 35vw;
     display: flex;
     justify-content: center;
@@ -139,7 +156,8 @@ const Info = styled.div`
     flex-direction: column;
     button {
         height: 3.5vh;
-        width: 20vw;
+        width: 30vw;
+        @media (max-width: 480px) {width: 30vw;};
         background-color: white;
         border: none;
         color: #10100e;
@@ -204,7 +222,7 @@ function Product1() {
         <>
             {showAddedItem && (
                 <AddedProduct  className={`${addedItemClassName}`} onClick={() => {document.body.dataset.cart = "true";}}>
-                    <button onClick={() => {setShowAddedItem(false)}} className="close">X</button>
+                    <button onClick={(event) => {event.stopPropagation(); setShowAddedItem(false)}} className="close">X</button>
                     <img className="img" src={`./img/${lastItem.id}_1.png`}/>
                     <p className="added">ADDED TO YOUR CART</p>
                     <p className="name">{lastItem.name}</p>
@@ -213,11 +231,11 @@ function Product1() {
             )}
             <Page>
                 <Images>
-                    <ImageFrame className="img1"></ImageFrame>
-                    <ImageFrame className="img2"></ImageFrame>
-                    <ImageFrame className="img3"></ImageFrame>
-                    <ImageFrame className="img4"></ImageFrame>
-                    <ImageFrame className="img5"></ImageFrame>
+                    <ImageFrame className="img1"><img src={`./img/1_2.jpg`}/></ImageFrame>
+                    <ImageFrame className="img2"><img src={`./img/2_2.jpg`}/></ImageFrame>
+                    <ImageFrame className="img3"><img className="img3" src={`./img/1_1.png`}/></ImageFrame>
+                    <ImageFrame className="img4"><img className="img4" src={`./img/2_1.png`}/></ImageFrame>
+                    <ImageFrame className="img5"><img src={`./img/4_2.jpg`}/></ImageFrame>
                 </Images>
                 <InfoContainer>
                     <Info>

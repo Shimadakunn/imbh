@@ -10,7 +10,7 @@ const initialHoverState = {
   4: false,
 };
 const Page = styled.div`
-    // height: 200vh;
+    width: 99.5vw;
 `
 const AddedProduct = styled.div`
   z-index: 1;

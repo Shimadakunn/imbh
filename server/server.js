@@ -5,7 +5,7 @@ const cors = require("cors");
 
 app.use(express.json());
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://imbh.vercel.app",
 }));
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
@@ -42,7 +42,7 @@ app.post("/create-checkout-session", async (req, res) => {
             line_items: items,
             mode: "payment",
             success_url: `${process.env.CLIENT_URL}/success`,
-            cancel_url: `${process.env.CLIENT_URL}/cancel`,
+            cancel_url: `${process.env.CLIENT_URL}`,
         })
         res.json({ url: session.url });
     }

@@ -22,7 +22,7 @@ const Page=styled.div`
     top: 0;
     right: 0;
     transition: right 0.75s cubic-bezier(0,1,1,1);
-    body[data-cart="false"] &{right: -40vw;@media (max-width: 480px) {right: -102vw;}}
+    body[data-cart="false"] &{right: -40vw;@media (max-width: 480px) {right: -104vw;}}
     @media (max-width: 480px) {width: 92vw;}
     padding: 1.35rem;
     z-index: 3;

@@ -95,7 +95,7 @@ function Header() {
         <NavBar>
             <Access className="logo" onClick={() => {navigate("/");}}>IMBH</Access>
             <Access className="home" onClick={() => {navigate("/");}}>HOME</Access>
-            <Access className="about" onClick={() => {navigate("/shop");}}>ABOUT US</Access>
+            <Access className="about" onClick={() => {navigate("/shop");}}>PRODUCT</Access>
             <Access className="cart" onClick={() => {document.body.dataset.cart = "true";}}>
               C
               {cartItems.length > 0 && (
