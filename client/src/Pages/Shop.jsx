@@ -10,7 +10,10 @@ const initialHoverState = {
   4: false,
 };
 const Page = styled.div`
-    width: 99.5vw;
+  @media (max-width: 480px) {
+      width: 99.5vw;
+      height: 99.5vh;
+  }
 `
 const AddedProduct = styled.div`
   z-index: 1;

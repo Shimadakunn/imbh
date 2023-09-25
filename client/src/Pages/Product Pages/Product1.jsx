@@ -24,6 +24,7 @@ const AddedProduct = styled.div`
   justify-content: center;
   align-items: center;
   transition: transform 0.75s cubic-bezier(0,1,1,1);
+  @media (max-width: 480px) {top: 8vh;right:1rem;};
   &.show {
     transform: scale(1);
   }
@@ -76,6 +77,10 @@ const Page = styled.div`
     display: flex;
     justify-content: center;
     align-items: start;
+    @media (max-width: 480px) {
+        width: 99.5vw;
+        height: 99.5vh;
+    }
 `
 const Images = styled.div`
     flex: 0.65;

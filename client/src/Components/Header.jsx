@@ -71,11 +71,15 @@ const Access = styled.div`
       background-color: #10100e;
       color: white;
     }
+    & .iconCart{
+      width: 1.75rem;
+    }
     & .itemInCart{
       position: absolute;
-      bottom: -1px;
+      bottom: -2.5px;
       color: red;
       font-size: 1.5rem;
+      @media (max-width: 480px) {bottom: -1px;}
     }
 `
 function Header() {
@@ -97,7 +101,7 @@ function Header() {
             <Access className="home" onClick={() => {navigate("/");}}>HOME</Access>
             <Access className="about" onClick={() => {navigate("/shop");}}>PRODUCT</Access>
             <Access className="cart" onClick={() => {document.body.dataset.cart = "true";}}>
-              C
+              <img className="iconCart" src={`./icon/bag.png`}/>
               {cartItems.length > 0 && (
                 <div className="itemInCart">
                   .
