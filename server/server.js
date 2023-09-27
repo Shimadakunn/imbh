@@ -11,11 +11,11 @@ app.use(cors({
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const storeItems = new Map([
-    [1, { price: 'price_1NsljtLiExIPDGaHSVIHYERx'}],
-    [2, { price: 'price_1NslkULiExIPDGaHo4UxDBgA'}],
-    [3, { price: 'price_1NslisLiExIPDGaHh2DuQLZw'}],
-    [4, { price: 'price_1NsljLLiExIPDGaH2EXThatB'}],
-    [5, { price: 'price_1Nsli6LiExIPDGaHHy5Bf2Bl'}],
+    [1, { price: 'price_1NuWbXK8Jr4dUR3t2A8f8Oyh'}],
+    [2, { price: 'price_1NuX6NK8Jr4dUR3tgrqlABOr'}],
+    [3, { price: 'price_1NuWaeK8Jr4dUR3tEdbe0l5E'}],
+    [4, { price: 'price_1NuWYlK8Jr4dUR3tXDfNzSYl'}],
+    [5, { price: 'price_1NuWV5K8Jr4dUR3tVNE93Wuk'}],
 ]);
 
 app.get("/", (req, res) => {
