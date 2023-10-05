@@ -267,10 +267,10 @@ function Puffer() {
             )}
             <Page>
                 <Images>
-                    <ImageFrame className="img1"><img src={`./img/1_2.jpg`}/></ImageFrame>
-                    <ImageFrame className="img2"><img src={`./img/2_2.jpg`}/></ImageFrame>
-                    <ImageFrame className="img3"><img src={`./img/1_1.png`}/></ImageFrame>
-                    <ImageFrame className="img4"><img src={`./img/2_1.png`}/></ImageFrame>
+                    <ImageFrame className="img1"><img src={`./img/8_2.jpg`}/></ImageFrame>
+                    <ImageFrame className="img2"><img src={`./img/8/8_3.jpg`}/></ImageFrame>
+                    <ImageFrame className="img3"><img src={`./img/8/8_4.jpg`}/></ImageFrame>
+                    <ImageFrame className="img4"><img src={`./img/8/8_5.jpg`}/></ImageFrame>
                 </Images>
                 <InfoContainer>
                     <Info>

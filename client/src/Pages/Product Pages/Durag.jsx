@@ -78,7 +78,7 @@ const Page = styled.div`
 const Images = styled.div`
     flex: 0.65;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
@@ -86,7 +86,7 @@ const Images = styled.div`
     border-bottom: 0px solid white;
     border-left: 0px solid white;
     @media (max-width: 480px) {grid-template-columns: 1fr;
-      grid-template-rows: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
         flex: 0.55;};
 `
 const ImageFrame = styled.div`
@@ -103,7 +103,7 @@ const ImageFrame = styled.div`
         @media (max-width: 480px) {grid-area: 1 / 1 / 2 / 2;};
     }
     &.img2 {
-      grid-area: 1 / 2 / 2 / 3;
+      grid-area: 2 / 1 / 3 / 2;
         border-bottom: 1px solid white;
         border-left: 1px solid white;
         @media (max-width: 480px) {grid-area: 2 / 1 / 3 / 2;};
@@ -268,23 +268,23 @@ function Puffer() {
             )}
             <Page>
                 <Images>
-                    <ImageFrame className="img1"><img src={`./img/1_2.jpg`}/></ImageFrame>
-                    <ImageFrame className="img2"><img src={`./img/2_2.jpg`}/></ImageFrame>
-                    <ImageFrame className="img3"><img src={`./img/1_1.png`}/></ImageFrame>
-                    <ImageFrame className="img4"><img src={`./img/2_1.png`}/></ImageFrame>
+                    <ImageFrame className="img1"><img src={`./img/10/10_2.jpg`}/></ImageFrame>
+                    <ImageFrame className="img2"><img src={`./img/10/10_3.jpg`}/></ImageFrame>
+                    {/* <ImageFrame className="img3"><img src={`./img/1_1.png`}/></ImageFrame>
+                    <ImageFrame className="img4"><img src={`./img/2_1.png`}/></ImageFrame> */}
                 </Images>
                 <InfoContainer>
                     <Info>
                         <h1>SHADOW DURAG ({selectedCategorie === 10 ? "BLACK" : "COPPER"}) </h1>
                         <p>100% POLYESTER MAILLE WITH CROCO PATTERN</p>
-                        <p className="price">75€</p>
+                        <p className="price">95€</p>
                         <div>
                           <Categories>
                             <img className={selectedCategorie === 10 ? "selected" : ""} src={`./img/10.png`} onClick={() => setSelectedCategorie(10)}/>
-                            <img className={selectedCategorie === 11 ? "selected" : ""} src={`./img/11.png`} onClick={() => setSelectedCategorie(11)}/>
+                            <img className={selectedCategorie === 11 ? "selected" : ""} src={`./img/10.png`} onClick={() => setSelectedCategorie(11)}/>
                           </Categories>
                         </div>
-                        <button onClick={() => {addToCart({ id: selectedCategorie, name: selectedCategorie === 10 ? "DURAG (BLACK)" : "DURAG (COPPER)", price: 75})}}>Add to Cart</button>
+                        <button onClick={() => {addToCart({ id: selectedCategorie, name: selectedCategorie === 10 ? "DURAG (BLACK)" : "DURAG (COPPER)", price: 95})}}>Add to Cart</button>
                     </Info>
                 </InfoContainer>
             </Page>

@@ -226,7 +226,6 @@ function Puffer() {
     const [lastItem, setLastItem] = useState(null);
     const [showAddedItem, setShowAddedItem] = useState(false);
     const [addedItemClassName, setAddedItemClassName] = useState('');
-    const [selectedCategorie, setSelectedCategorie] = useState(12);
     const addToCart = (item) => {
         setLastItem(item);
         const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
@@ -277,13 +276,14 @@ function Puffer() {
                     <Info>
                         <h1>JUPITER SHIRT</h1>
                         <p>100% MESH SHORTSLEEVES BI COLOUR</p>
-                        <p className="price">95€</p>
+                        <p className="price">??€</p>
                         <div>
                           <Categories>
                             <img className="selected" src={`./img/16.png`}/>
                           </Categories>
                         </div>
-                        <button onClick={() => {addToCart({ id: selectedCategorie, name: 'SCAR TOP SHORTSLEEVES', price: 95})}}>Add to Cart</button>
+                        {/* <button onClick={() => {addToCart({ id: selectedCategorie, name: 'JUPITER SHIRT', price: 95})}}>Add to Cart</button> */}
+                        <button>COMING SOON</button>
                     </Info>
                 </InfoContainer>
             </Page>

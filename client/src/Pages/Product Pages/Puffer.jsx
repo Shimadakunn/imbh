@@ -78,15 +78,15 @@ const Page = styled.div`
 const Images = styled.div`
     flex: 0.65;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     border: 1px solid white;
     border-bottom: 0px solid white;
     border-left: 0px solid white;
     @media (max-width: 480px) {grid-template-columns: 1fr;
-      grid-template-rows: repeat(4, 1fr);
+      grid-template-rows: 1fr;
         flex: 0.55;};
 `
 const ImageFrame = styled.div`
@@ -268,9 +268,9 @@ function Puffer() {
             <Page>
                 <Images>
                     <ImageFrame className="img1"><img src={`./img/1_2.png`}/></ImageFrame>
-                    <ImageFrame className="img2"><img src={`./img/1_2.png`}/></ImageFrame>
+                    {/* <ImageFrame className="img2"><img src={`./img/1_2.png`}/></ImageFrame>
                     <ImageFrame className="img3"><img src={`./img/1_2.png`}/></ImageFrame>
-                    <ImageFrame className="img4"><img src={`./img/1_2.png`}/></ImageFrame>
+                    <ImageFrame className="img4"><img src={`./img/1_2.png`}/></ImageFrame> */}
                 </Images>
                 <InfoContainer>
                     <Info>

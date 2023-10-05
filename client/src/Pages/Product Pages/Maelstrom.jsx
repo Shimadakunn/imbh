@@ -280,7 +280,8 @@ function Puffer() {
                         <Categories>
                           <img className="selected" src={`./img/7.png`}/>
                         </Categories>
-                        <button onClick={() => {addToCart({ id: 7, name: 'MAELSTROM', price: 4500})}}>Add to Cart</button>
+                        {/* <button onClick={() => {addToCart({ id: 7, name: 'MAELSTROM', price: 4500})}}>Add to Cart</button> */}
+                        <button>COMING SOON</button>
                     </Info>
                 </InfoContainer>
             </Page>

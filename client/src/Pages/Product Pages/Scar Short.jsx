@@ -280,7 +280,7 @@ function Puffer() {
                         <p className="price">95€</p>
                         <div>
                           <Categories>
-                            <img className={selectedCategorie === 14 ? "selected" : ""} src={`./img/14.png`} onClick={() => setSelectedCategorie(14)}/>
+                            <img className={selectedCategorie === 14 ? "selected" : ""} src={`./img/15.png`} onClick={() => setSelectedCategorie(14)}/>
                             <img className={selectedCategorie === 15 ? "selected" : ""} src={`./img/15.png`} onClick={() => setSelectedCategorie(15)}/>
                           </Categories>
                         </div>

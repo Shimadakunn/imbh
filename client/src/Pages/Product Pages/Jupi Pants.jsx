@@ -268,23 +268,23 @@ function Puffer() {
             )}
             <Page>
                 <Images>
-                    <ImageFrame className="img1"><img src={`./img/1_2.jpg`}/></ImageFrame>
-                    <ImageFrame className="img2"><img src={`./img/2_2.jpg`}/></ImageFrame>
-                    <ImageFrame className="img3"><img src={`./img/1_1.png`}/></ImageFrame>
-                    <ImageFrame className="img4"><img src={`./img/2_1.png`}/></ImageFrame>
+                    <ImageFrame className="img1"><img src={`./img/8_2.jpg`}/></ImageFrame>
+                    <ImageFrame className="img2"><img src={`./img/8/8_3.jpg`}/></ImageFrame>
+                    <ImageFrame className="img3"><img src={`./img/8/8_4.jpg`}/></ImageFrame>
+                    <ImageFrame className="img4"><img src={`./img/8/8_5.jpg`}/></ImageFrame>
                 </Images>
                 <InfoContainer>
                     <Info>
                         <h1>JUPITER PANTS BLACK ({selectedCategorie === 8 ? "MILANO" : "MICROFIBER"}) </h1>
                         <p>100% NYLON INSIDE IS QUILTED AND FILLED WITH VIRGIN FIBERS TREATED</p>
-                        <p className="price">150€</p>
+                        <p className="price">375€</p>
                         <div>
                           <Categories>
                             <img className={selectedCategorie === 8 ? "selected" : ""} src={`./img/8.png`} onClick={() => setSelectedCategorie(8)}/>
                             <img className={selectedCategorie === 9 ? "selected" : ""} src={`./img/9.png`} onClick={() => setSelectedCategorie(9)}/>
                           </Categories>
                         </div>
-                        <button onClick={() => {addToCart({ id: selectedCategorie, name: selectedCategorie === 8 ? "JUPITER (MILANO)" : "JUPITER (MICROFIBER)", price: 150})}}>Add to Cart</button>
+                        <button onClick={() => {addToCart({ id: selectedCategorie, name: selectedCategorie === 8 ? "JUPITER (MILANO)" : "JUPITER (MICROFIBER)", price: 375})}}>Add to Cart</button>
                     </Info>
                 </InfoContainer>
             </Page>

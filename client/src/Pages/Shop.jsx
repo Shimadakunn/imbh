@@ -337,7 +337,7 @@ function Shop() {
                 </ProductFrame>
                 <ProductFrame className="product2" onMouseEnter={() =>handleMouseEnter(1)} onMouseLeave={() =>handleMouseLeave(1)}>
                 <ProcuctImg src="./img/2.png"/>
-                    <ShootImg show={isHovered[1]} src="./img/2_2.jpg"/>
+                    <ShootImg show={isHovered[1]} src="./img/8_2.jpg"/>
                     <ProductName show={isHovered[1]}>JUPITER LONGSLEEVES</ProductName>
                     <ProductPrice show={isHovered[1]}>185€</ProductPrice>
                     <ProductBar show={isHovered[1]}>
@@ -387,9 +387,9 @@ function Shop() {
                     <ProductName className="product5" show={isHovered[4]}>MAELSTROM</ProductName>
                     <ProductPrice className="product5" show={isHovered[4]}>120€</ProductPrice>
                     <ProductBar show={isHovered[4]}>
-                      <Button onClick={() => addToCart({ id: 7, name: 'MAELSTROM', price: 120})}>
+                      {/* <Button onClick={() => addToCart({ id: 7, name: 'MAELSTROM', price: 120})}>
                         ADD <span>TO CART</span>
-                      </Button>
+                      </Button> */}
                       <Button onClick={() => {navigate("/maelstrom");}}>
                         SEE <span>PRODUCT</span>
                       </Button>
@@ -397,9 +397,9 @@ function Shop() {
                 </ProductFrame>
                 <ProductFrame className="product6" onMouseEnter={() =>handleMouseEnter(5)} onMouseLeave={() =>{handleMouseLeave(5);setSelectedCategorie(0)}}>
                 <ProcuctImg src="./img/8.png"/>
-                    <ShootImg show={isHovered[5]} src="./img/5_2.jpg"/>
-                    <ProductName className="product5" show={isHovered[5]}>JUPITER PANTS</ProductName>
-                    <ProductPrice className="product5" show={isHovered[5]}>375€</ProductPrice>
+                    <ShootImg show={isHovered[5]} src="./img/8_2.jpg"/>
+                    <ProductName className="product6" show={isHovered[5]}>JUPITER PANTS</ProductName>
+                    <ProductPrice className="product6" show={isHovered[5]}>375€</ProductPrice>
                     <ProductBar show={isHovered[5]}>
                       <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 8 ? "JUPITER (MILANO)" : "JUPITER (MICROFIBER)", price: 375}): null;}}>
                         ADD <span>TO CART</span>
@@ -413,11 +413,11 @@ function Shop() {
                 </ProductFrame>
                 <ProductFrame className="product7" onMouseEnter={() =>handleMouseEnter(6)} onMouseLeave={() =>{handleMouseLeave(6);setSelectedCategorie(0)}}>
                 <ProcuctImg src="./img/10.png"/>
-                    <ShootImg show={isHovered[6]} src="./img/5_2.jpg"/>
-                    <ProductName className="product5" show={isHovered[6]}>SHADOW DURAG</ProductName>
-                    <ProductPrice className="product5" show={isHovered[6]}>55€</ProductPrice>
+                    <ShootImg show={isHovered[6]} src="./img/10/10_2.jpg"/>
+                    <ProductName className="product7" show={isHovered[6]}>SHADOW DURAG</ProductName>
+                    <ProductPrice className="product7" show={isHovered[6]}>95€</ProductPrice>
                     <ProductBar show={isHovered[6]}>
-                      <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 10 ? "DURAG (BLACK)" : "DURAG (COPPER)", price: 55}): null;}}>
+                      <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 10 ? "DURAG (BLACK)" : "DURAG (COPPER)", price: 95}): null;}}>
                         ADD <span>TO CART</span>
                       </Button>
                       <Option className={selectedCategorie === 10 ? "selected" : ""} onClick={() => setSelectedCategorie(10)}>BLACK</Option>
@@ -430,8 +430,8 @@ function Shop() {
                 <ProductFrame className="product8" onMouseEnter={() =>handleMouseEnter(7)} onMouseLeave={() =>{handleMouseLeave(7);setSelectedCategorie(0)}}>
                 <ProcuctImg src="./img/12.png"/>
                     <ShootImg show={isHovered[7]} src="./img/5_2.jpg"/>
-                    <ProductName className="product5" show={isHovered[7]}>SCAR TOP LONGSLEEVES</ProductName>
-                    <ProductPrice className="product5" show={isHovered[7]}>115€</ProductPrice>
+                    <ProductName className="product8" show={isHovered[7]}>SCAR TOP LONGSLEEVES</ProductName>
+                    <ProductPrice className="product8" show={isHovered[7]}>115€</ProductPrice>
                     <ProductBar show={isHovered[7]}>
                       <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 12 ? "SCAR LONG (DUST)" : "SCAR LONG (BLOOD)", price: 115}): null;}}>
                         ADD <span>TO CART</span>
@@ -444,10 +444,10 @@ function Shop() {
                     </ProductBar>
                 </ProductFrame>
                 <ProductFrame className="product9" onMouseEnter={() =>handleMouseEnter(8)} onMouseLeave={() =>{handleMouseLeave(8);setSelectedCategorie(0)}}>
-                <ProcuctImg src="./img/5_1.png"/>
+                <ProcuctImg src="./img/15.png"/>
                     <ShootImg show={isHovered[8]} src="./img/5_2.jpg"/>
-                    <ProductName className="product5" show={isHovered[8]}>SCAR TOP SHORTSLEEVES</ProductName>
-                    <ProductPrice className="product5" show={isHovered[8]}>95€</ProductPrice>
+                    <ProductName className="product9" show={isHovered[8]}>SCAR TOP SHORTSLEEVES</ProductName>
+                    <ProductPrice className="product9" show={isHovered[8]}>95€</ProductPrice>
                     <ProductBar show={isHovered[8]}>
                     <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 14 ? "SCAR SHORT (DUST)" : "SCAR SHORT (BLOOD)", price: 95}): null;}}>
                         ADD <span>TO CART</span>
@@ -462,12 +462,12 @@ function Shop() {
                 <ProductFrame className="product10" onMouseEnter={() =>handleMouseEnter(9)} onMouseLeave={() =>handleMouseLeave(9)}>
                 <ProcuctImg src="./img/16.png"/>
                     <ShootImg show={isHovered[9]} src="./img/16_2.jpg"/>
-                    <ProductName className="product5" show={isHovered[9]}>JUPITER SHIRT</ProductName>
-                    <ProductPrice className="product5" show={isHovered[9]}>120€</ProductPrice>
+                    <ProductName className="product10" show={isHovered[9]}>JUPITER SHIRT</ProductName>
+                    <ProductPrice className="product10" show={isHovered[9]}>120€</ProductPrice>
                     <ProductBar show={isHovered[9]}>
-                      <Button onClick={() => addToCart({ id: 16, name: 'JUPITER SHIRT', price: 120})}>
+                      {/* <Button onClick={() => addToCart({ id: 16, name: 'JUPITER SHIRT', price: 120})}>
                         ADD <span>TO CART</span>
-                      </Button>
+                      </Button> */}
                       <Button onClick={() => {navigate("/jupi shirt");}}>
                         SEE <span>PRODUCT</span>
                       </Button>
