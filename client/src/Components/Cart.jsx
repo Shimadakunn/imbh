@@ -156,7 +156,7 @@ function Cart(){
     return cartItems.reduce((total, item) => total + item.quantity, 0);
   };
   const Pay = () => {
-    fetch('https://imbh-server.vercel.app/create-checkout-session', {
+    fetch('https://imbehindmyhead.com/create-checkout-session', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -185,7 +185,7 @@ function Cart(){
             <Articles>
                 {cartItems.map((item) => (
                     <Article key={item.id}>
-                        <img src={`./img/${item.id}_1.png`}/>
+                        <img src={`./img/${item.id}.png`}/>
                         <text className="name">{item.name}</text>
                         <text className="price">${item.price*item.quantity}</text>
                         <button className="minus" onClick={() => updateQuantity(item, item.quantity - 1)}>-</button>
