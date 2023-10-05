@@ -5,7 +5,7 @@ const cors = require("cors");
 
 app.use(express.json());
 app.use(cors({
-    origin: "https://imbehindmyhead.com/",
+    origin: "https://imbehindmyhead.com",
 }));
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
