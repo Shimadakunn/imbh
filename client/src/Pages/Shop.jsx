@@ -238,6 +238,9 @@ const Button = styled.button`
     background-color: #10100e;
     border-radius: 5px;
   }
+  span {
+    @media (max-width: 480px) {display: none;}
+  }
 `
 const Option = styled.div`
   background-color: transparent;
@@ -325,10 +328,10 @@ function Shop() {
                     <ProductPrice show={isHovered[0]}>400€</ProductPrice>
                     <ProductBar show={isHovered[0]}>
                       <Button onClick={() => {addToCart({ id: 1, name: 'ROSACE PUFFER', price: 400})}}>
-                        ADD TO CART
+                        ADD <span>TO CART</span>
                       </Button>
                       <Button onClick={() => {navigate("/rosace puffer");}}>
-                        SEE PRODUCT
+                        SEE <span>PRODUCT</span>
                       </Button>
                     </ProductBar>
                 </ProductFrame>
@@ -339,10 +342,10 @@ function Shop() {
                     <ProductPrice show={isHovered[1]}>185€</ProductPrice>
                     <ProductBar show={isHovered[1]}>
                       <Button onClick={() => addToCart({ id: 2, name: 'JUPITER LONGSLEEVE', price: 185})}>
-                        ADD TO CART
+                        ADD <span>TO CART</span>
                       </Button>
                       <Button onClick={() => {navigate("/jupiter longsleeve");}}>
-                        SEE PRODUCT
+                        SEE <span>PRODUCT</span>
                       </Button>
                     </ProductBar>
                 </ProductFrame>
@@ -353,12 +356,12 @@ function Shop() {
                     <ProductPrice show={isHovered[2]}>95€</ProductPrice>
                     <ProductBar show={isHovered[2]}>
                       <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 3 ? "SHADOW HOODIE (BLACK)" : "SHADOW HOODIE (COPPER)", price: 95}): null;}}>
-                        ADD TO CART
+                        ADD <span>TO CART</span>
                       </Button>
                       <Option className={selectedCategorie === 3 ? "selected" : ""} onClick={() => setSelectedCategorie(3)}>BLACK</Option>
                       <Option className={selectedCategorie === 4 ? "selected" : ""} onClick={() => setSelectedCategorie(4)}>COPPER</Option>
                       <Button onClick={() => {navigate("/shadow hoodie");}}>
-                        SEE PRODUCT
+                        SEE <span>PRODUCT</span>
                       </Button>
                     </ProductBar>
                 </ProductFrame>
@@ -369,12 +372,12 @@ function Shop() {
                     <ProductPrice show={isHovered[3]}>150€</ProductPrice>
                     <ProductBar show={isHovered[3]}>
                       <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 5 ? "SHADOW DRESS (BLACK)" : "SHADOW DRESS (COPPER)", price: 150}): null;}}>
-                        ADD TO CART
+                        ADD <span>TO CART</span>
                       </Button>
                       <Option className={selectedCategorie === 5 ? "selected" : ""} onClick={() => setSelectedCategorie(5)}>BLACK</Option>
                       <Option className={selectedCategorie === 6 ? "selected" : ""} onClick={() => setSelectedCategorie(6)}>COPPER</Option>
                       <Button onClick={() => {navigate("/shadow dress");}}>
-                        SEE PRODUCT
+                        SEE <span>PRODUCT</span>
                       </Button>
                     </ProductBar>
                 </ProductFrame>
@@ -385,10 +388,10 @@ function Shop() {
                     <ProductPrice className="product5" show={isHovered[4]}>120€</ProductPrice>
                     <ProductBar show={isHovered[4]}>
                       <Button onClick={() => addToCart({ id: 7, name: 'MAELSTROM', price: 120})}>
-                        ADD TO CART
+                        ADD <span>TO CART</span>
                       </Button>
                       <Button onClick={() => {navigate("/maelstrom");}}>
-                        SEE PRODUCT
+                        SEE <span>PRODUCT</span>
                       </Button>
                     </ProductBar>
                 </ProductFrame>
@@ -399,12 +402,12 @@ function Shop() {
                     <ProductPrice className="product5" show={isHovered[5]}>375€</ProductPrice>
                     <ProductBar show={isHovered[5]}>
                       <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 8 ? "JUPITER (MILANO)" : "JUPITER (MICROFIBER)", price: 375}): null;}}>
-                        ADD TO CART
+                        ADD <span>TO CART</span>
                       </Button>
                       <Option className={selectedCategorie === 8 ? "selected" : ""} onClick={() => setSelectedCategorie(8)}>MILANO</Option>
                       <Option className={selectedCategorie === 9 ? "selected" : ""} onClick={() => setSelectedCategorie(9)}>MICROFIBER</Option>
                       <Button onClick={() => {navigate("/jupi pants");}}>
-                        SEE PRODUCT
+                        SEE <span>PRODUCT</span>
                       </Button>
                     </ProductBar>
                 </ProductFrame>
@@ -415,12 +418,12 @@ function Shop() {
                     <ProductPrice className="product5" show={isHovered[6]}>55€</ProductPrice>
                     <ProductBar show={isHovered[6]}>
                       <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 10 ? "DURAG (BLACK)" : "DURAG (COPPER)", price: 55}): null;}}>
-                        ADD TO CART
+                        ADD <span>TO CART</span>
                       </Button>
                       <Option className={selectedCategorie === 10 ? "selected" : ""} onClick={() => setSelectedCategorie(10)}>BLACK</Option>
                       <Option className={selectedCategorie === 11 ? "selected" : ""} onClick={() => setSelectedCategorie(11)}>COPPER</Option>
                       <Button onClick={() => {navigate("/durag");}}>
-                        SEE PRODUCT
+                        SEE <span>PRODUCT</span>
                       </Button>
                     </ProductBar>
                 </ProductFrame>
@@ -431,12 +434,12 @@ function Shop() {
                     <ProductPrice className="product5" show={isHovered[7]}>115€</ProductPrice>
                     <ProductBar show={isHovered[7]}>
                       <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 12 ? "SCAR LONG (DUST)" : "SCAR LONG (BLOOD)", price: 115}): null;}}>
-                        ADD TO CART
+                        ADD <span>TO CART</span>
                       </Button>
                       <Option className={selectedCategorie === 12 ? "selected" : ""} onClick={() => setSelectedCategorie(12)}>DUST</Option>
                       <Option className={selectedCategorie === 13 ? "selected" : ""} onClick={() => setSelectedCategorie(13)}>BLOOD</Option>
                       <Button onClick={() => {navigate("/scar long");}}>
-                        SEE PRODUCT
+                        SEE <span>PRODUCT</span>
                       </Button>
                     </ProductBar>
                 </ProductFrame>
@@ -447,12 +450,12 @@ function Shop() {
                     <ProductPrice className="product5" show={isHovered[8]}>95€</ProductPrice>
                     <ProductBar show={isHovered[8]}>
                     <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 14 ? "SCAR SHORT (DUST)" : "SCAR SHORT (BLOOD)", price: 95}): null;}}>
-                        ADD TO CART
+                        ADD <span>TO CART</span>
                       </Button>
                       <Option className={selectedCategorie === 14 ? "selected" : ""} onClick={() => setSelectedCategorie(14)}>DUST</Option>
                       <Option className={selectedCategorie === 15 ? "selected" : ""} onClick={() => setSelectedCategorie(15)}>BLOOD</Option>
                       <Button onClick={() => {navigate("/scar short");}}>
-                        SEE PRODUCT
+                        SEE <span>PRODUCT</span>
                       </Button>
                     </ProductBar>
                 </ProductFrame>
@@ -463,10 +466,10 @@ function Shop() {
                     <ProductPrice className="product5" show={isHovered[9]}>120€</ProductPrice>
                     <ProductBar show={isHovered[9]}>
                       <Button onClick={() => addToCart({ id: 16, name: 'JUPITER SHIRT', price: 120})}>
-                        ADD TO CART
+                        ADD <span>TO CART</span>
                       </Button>
                       <Button onClick={() => {navigate("/jupi shirt");}}>
-                        SEE PRODUCT
+                        SEE <span>PRODUCT</span>
                       </Button>
                     </ProductBar>
                 </ProductFrame>
