@@ -4,11 +4,11 @@ import { useNavigate,useLocation} from 'react-router-dom';
 import styled from "styled-components"
 
 const Head = styled.header`
-  height: 8.5vh;
+  height: 10vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding:0 2rem;
+  padding:0 5rem;
   position: sticky;
   top: 0;
   z-index: 2;
@@ -17,11 +17,9 @@ const Head = styled.header`
     padding:0 1rem;
   }
 `
-const Logo = styled.div`
+const Logo = styled.img`
   order: 1;
-  font-family: 'Baunk', sans-serif;
-  color: white;
-  font-size: 2rem;
+  width: 7vw;
   @media (max-width: 480px) {
     display: none;
   }
@@ -53,8 +51,8 @@ const Access = styled.div`
     cursor: pointer;
     position: relative;
     transition: 400ms;
-    &.home {@media (max-width: 480px) {border-right: 1px solid #10100e;}}
-    &.about {@media (max-width: 480px) {border-right: 1px solid #10100e;}}
+    &.home {@media (max-width: 480px) {border-right: 1px solid grey;}}
+    &.about {@media (max-width: 480px) {border-right: 1px solid grey;}}
     &.cart {flex: 0.5;}
     &.logo{
       display: none;
@@ -62,16 +60,29 @@ const Access = styled.div`
       @media (max-width: 480px) {
         flex: 2;
         display: flex;
-        border-right: 1px solid #10100e;
+        border-right: 1px solid grey;
         justify-content: flex-start;
-        padding-left: 2rem;
+        padding-left: 1.25rem;
+        img{
+          height: 2.25rem;
+        }
       }
     }
     &:hover{
       background-color: #10100e;
       color: white;
+      & .iconCartWhite{
+        display: block;
+      }
+      & .iconCart{
+        display: none;
+      }
     }
     & .iconCart{
+      width: 1.75rem;
+    }
+    & .iconCartWhite{
+      display: none;
       width: 1.75rem;
     }
     & .itemInCart{
@@ -95,13 +106,14 @@ function Header() {
   const {cartItems, setCartItems} = useContext(CartContext);
     return (
       <Head>
-        <Logo>IMBH</Logo>
+        <Logo src="img/logo.png" onClick={() => {navigate("/");}}></Logo>
         <NavBar>
-            <Access className="logo" onClick={() => {navigate("/");}}>IMBH</Access>
+            <Access className="logo" onClick={() => {navigate("/");}}><img src="img/logo_2.png"></img></Access>
             <Access className="home" onClick={() => {navigate("/");}}>HOME</Access>
             <Access className="about" onClick={() => {navigate("/shop");}}>PRODUCT</Access>
             <Access className="cart" onClick={() => {document.body.dataset.cart = "true";}}>
               <img className="iconCart" src={`./icon/bag.png`}/>
+              <img className="iconCartWhite" src={`./icon/bag-white.png`}/>
               {cartItems.length > 0 && (
                 <div className="itemInCart">
                   .

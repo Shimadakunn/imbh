@@ -4,7 +4,7 @@ import Header from './Components/Header'
 import Footer from './Components/Footer'
 import Cart from './Components/Cart'
 import Shop from './Pages/Shop'
-import Product1 from './Pages/Product Pages/Product1'
+import Product1 from './Pages/Product Pages/Puffer'
 import Success from './Pages/Success'
 import Cancel from './Pages/Cancel'
 
