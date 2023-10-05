@@ -102,6 +102,7 @@ const ProductFrame = styled.div`
     justify-content: center;
     align-items: center;
     position: relative;
+    cursor: pointer;
     &.product1 {
       grid-area: 1 / 1 / 2 / 2;
       border-right: 1px solid white;
@@ -208,6 +209,7 @@ const ProductPrice = styled.div`
   &.product5{bottom: ${({ show }) => (show ? '10%' : '5%')};}};
 `
 const ProductBar = styled.div`
+    cursor: default;
     position: absolute;
     width: 100%;
     height: 4vh;
@@ -321,73 +323,73 @@ function Shop() {
               </AddedProduct>
             )}
             <Grid>
-                <ProductFrame className="product1" onMouseEnter={() =>handleMouseEnter(0)} onMouseLeave={() =>handleMouseLeave(0)}>
+                <ProductFrame className="product1" onMouseEnter={() =>handleMouseEnter(0)} onMouseLeave={() =>handleMouseLeave(0)} onClick={() => {navigate("/rosace puffer");}}>
                     <ProcuctImg src="./img/1.png"/>
                     <ShootImg show={isHovered[0]} src="./img/1_2.png"/>
                     <ProductName show={isHovered[0]}>ROSACE PUFFER</ProductName>
                     <ProductPrice show={isHovered[0]}>400€</ProductPrice>
                     <ProductBar show={isHovered[0]}>
-                      <Button onClick={() => {addToCart({ id: 1, name: 'ROSACE PUFFER', price: 400})}}>
-                        ADD <span>TO CART</span>
-                      </Button>
-                      <Button onClick={() => {navigate("/rosace puffer");}}>
+                      <Button onClick={(event) => {event.stopPropagation();navigate("/rosace puffer");}}>
                         SEE <span>PRODUCT</span>
+                      </Button>
+                      <Button onClick={(event) => {event.stopPropagation();addToCart({ id: 1, name: 'ROSACE PUFFER', price: 400})}}>
+                        ADD <span>TO CART</span>
                       </Button>
                     </ProductBar>
                 </ProductFrame>
-                <ProductFrame className="product2" onMouseEnter={() =>handleMouseEnter(1)} onMouseLeave={() =>handleMouseLeave(1)}>
+                <ProductFrame className="product2" onMouseEnter={() =>handleMouseEnter(1)} onMouseLeave={() =>handleMouseLeave(1)} onClick={() => {navigate("/jupiter longsleeve");}}>
                 <ProcuctImg src="./img/2.png"/>
                     <ShootImg show={isHovered[1]} src="./img/8_2.jpg"/>
                     <ProductName show={isHovered[1]}>JUPITER LONGSLEEVES</ProductName>
                     <ProductPrice show={isHovered[1]}>185€</ProductPrice>
                     <ProductBar show={isHovered[1]}>
-                      <Button onClick={() => addToCart({ id: 2, name: 'JUPITER LONGSLEEVE', price: 185})}>
-                        ADD <span>TO CART</span>
-                      </Button>
-                      <Button onClick={() => {navigate("/jupiter longsleeve");}}>
+                      <Button onClick={(event) => {event.stopPropagation();navigate("/jupiter longsleeve");}}>
                         SEE <span>PRODUCT</span>
+                      </Button>
+                      <Button onClick={(event) => {event.stopPropagation();addToCart({ id: 2, name: 'JUPITER LONGSLEEVE', price: 185})}}>
+                        ADD <span>TO CART</span>
                       </Button>
                     </ProductBar>
                 </ProductFrame>
-                <ProductFrame className="product3" onMouseEnter={() =>handleMouseEnter(2)} onMouseLeave={() =>{handleMouseLeave(2);setSelectedCategorie(0)}}>
+                <ProductFrame className="product3" onMouseEnter={() =>handleMouseEnter(2)} onMouseLeave={() =>{handleMouseLeave(2);setSelectedCategorie(0)}} onClick={() => {navigate("/shadow hoodie");}}>
                 <ProcuctImg src="./img/3.png"/>
                     <ShootImg show={isHovered[2]} src="./img/3_2.jpg"/>
                     <ProductName show={isHovered[2]}>SHADOW MESH HOODIE</ProductName>
                     <ProductPrice show={isHovered[2]}>95€</ProductPrice>
                     <ProductBar show={isHovered[2]}>
-                      <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 3 ? "SHADOW HOODIE (BLACK)" : "SHADOW HOODIE (COPPER)", price: 95}): null;}}>
-                        ADD <span>TO CART</span>
-                      </Button>
-                      <Option className={selectedCategorie === 3 ? "selected" : ""} onClick={() => setSelectedCategorie(3)}>BLACK</Option>
-                      <Option className={selectedCategorie === 4 ? "selected" : ""} onClick={() => setSelectedCategorie(4)}>COPPER</Option>
-                      <Button onClick={() => {navigate("/shadow hoodie");}}>
+                      <Button onClick={(event) => {event.stopPropagation();navigate("/shadow hoodie");}}>
                         SEE <span>PRODUCT</span>
+                      </Button>
+                      <Option className={selectedCategorie === 3 ? "selected" : ""} onClick={(event) => {event.stopPropagation();setSelectedCategorie(3)}}>BLACK</Option>
+                      <Option className={selectedCategorie === 4 ? "selected" : ""} onClick={(event) => {event.stopPropagation();setSelectedCategorie(4)}}>COPPER</Option>
+                      <Button onClick={(event) => {event.stopPropagation();selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 3 ? "SHADOW HOODIE (BLACK)" : "SHADOW HOODIE (COPPER)", price: 95}): null;}}>
+                        ADD <span>TO CART</span>
                       </Button>
                     </ProductBar>
                 </ProductFrame>
-                <ProductFrame className="product4" onMouseEnter={() =>handleMouseEnter(3)} onMouseLeave={() =>{handleMouseLeave(3);setSelectedCategorie(0)}}>
+                <ProductFrame className="product4" onMouseEnter={() =>handleMouseEnter(3)} onMouseLeave={() =>{handleMouseLeave(3);setSelectedCategorie(0)}} onClick={() => {navigate("/shadow dress");}}>
                 <ProcuctImg src="./img/5.png"/>
                     <ShootImg show={isHovered[3]} src="./img/5_2.jpg"/>
                     <ProductName show={isHovered[3]}>SHADOW MESH DRESS</ProductName>
                     <ProductPrice show={isHovered[3]}>150€</ProductPrice>
                     <ProductBar show={isHovered[3]}>
-                      <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 5 ? "SHADOW DRESS (BLACK)" : "SHADOW DRESS (COPPER)", price: 150}): null;}}>
-                        ADD <span>TO CART</span>
-                      </Button>
-                      <Option className={selectedCategorie === 5 ? "selected" : ""} onClick={() => setSelectedCategorie(5)}>BLACK</Option>
-                      <Option className={selectedCategorie === 6 ? "selected" : ""} onClick={() => setSelectedCategorie(6)}>COPPER</Option>
-                      <Button onClick={() => {navigate("/shadow dress");}}>
+                      <Button onClick={(event) => {event.stopPropagation();navigate("/shadow dress");}}>
                         SEE <span>PRODUCT</span>
+                      </Button>
+                      <Option className={selectedCategorie === 5 ? "selected" : ""} onClick={(event) => {event.stopPropagation();setSelectedCategorie(5)}}>BLACK</Option>
+                      <Option className={selectedCategorie === 6 ? "selected" : ""} onClick={(event) => {event.stopPropagation();setSelectedCategorie(6)}}>COPPER</Option>
+                      <Button onClick={(event) => {event.stopPropagation();selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 5 ? "SHADOW DRESS (BLACK)" : "SHADOW DRESS (COPPER)", price: 150}): null;}}>
+                        ADD <span>TO CART</span>
                       </Button>
                     </ProductBar>
                 </ProductFrame>
-                <ProductFrame className="product5" onMouseEnter={() =>handleMouseEnter(4)} onMouseLeave={() =>handleMouseLeave(4)}>
+                <ProductFrame className="product5" onMouseEnter={() =>handleMouseEnter(4)} onMouseLeave={() =>handleMouseLeave(4)} onClick={() => {navigate("/maelstrom");}}>
                 <ProcuctImg src="./img/7.png"/>
                     <ShootImg show={isHovered[4]} src="./img/7_2.jpg"/>
                     <ProductName className="product5" show={isHovered[4]}>MAELSTROM</ProductName>
                     <ProductPrice className="product5" show={isHovered[4]}>120€</ProductPrice>
                     <ProductBar show={isHovered[4]}>
-                      {/* <Button onClick={() => addToCart({ id: 7, name: 'MAELSTROM', price: 120})}>
+                      {/* <Button onClick={(event) => {event.stopPropagation();addToCart({ id: 7, name: 'MAELSTROM', price: 120})}}>
                         ADD <span>TO CART</span>
                       </Button> */}
                       <Button onClick={() => {navigate("/maelstrom");}}>
@@ -395,77 +397,77 @@ function Shop() {
                       </Button>
                     </ProductBar>
                 </ProductFrame>
-                <ProductFrame className="product6" onMouseEnter={() =>handleMouseEnter(5)} onMouseLeave={() =>{handleMouseLeave(5);setSelectedCategorie(0)}}>
+                <ProductFrame className="product6" onMouseEnter={() =>handleMouseEnter(5)} onMouseLeave={() =>{handleMouseLeave(5);setSelectedCategorie(0)}}  onClick={() => {navigate("/jupi pants");}}>
                 <ProcuctImg src="./img/8.png"/>
                     <ShootImg show={isHovered[5]} src="./img/8_2.jpg"/>
                     <ProductName className="product6" show={isHovered[5]}>JUPITER PANTS</ProductName>
                     <ProductPrice className="product6" show={isHovered[5]}>375€</ProductPrice>
                     <ProductBar show={isHovered[5]}>
-                      <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 8 ? "JUPITER (MILANO)" : "JUPITER (MICROFIBER)", price: 375}): null;}}>
-                        ADD <span>TO CART</span>
-                      </Button>
-                      <Option className={selectedCategorie === 8 ? "selected" : ""} onClick={() => setSelectedCategorie(8)}>MILANO</Option>
-                      <Option className={selectedCategorie === 9 ? "selected" : ""} onClick={() => setSelectedCategorie(9)}>MICROFIBER</Option>
                       <Button onClick={() => {navigate("/jupi pants");}}>
                         SEE <span>PRODUCT</span>
                       </Button>
+                      <Option className={selectedCategorie === 8 ? "selected" : ""} onClick={(event) => {event.stopPropagation();setSelectedCategorie(8)}}>MILANO</Option>
+                      <Option className={selectedCategorie === 9 ? "selected" : ""} onClick={(event) => {event.stopPropagation();setSelectedCategorie(9)}}>MICROFIBER</Option>
+                      <Button onClick={(event) => {event.stopPropagation();selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 8 ? "JUPITER (MILANO)" : "JUPITER (MICROFIBER)", price: 375}): null;}}>
+                        ADD <span>TO CART</span>
+                      </Button>
                     </ProductBar>
                 </ProductFrame>
-                <ProductFrame className="product7" onMouseEnter={() =>handleMouseEnter(6)} onMouseLeave={() =>{handleMouseLeave(6);setSelectedCategorie(0)}}>
+                <ProductFrame className="product7" onMouseEnter={() =>handleMouseEnter(6)} onMouseLeave={() =>{handleMouseLeave(6);setSelectedCategorie(0)}} onClick={() => {navigate("/durag");}}>
                 <ProcuctImg src="./img/10.png"/>
                     <ShootImg show={isHovered[6]} src="./img/10/10_2.jpg"/>
                     <ProductName className="product7" show={isHovered[6]}>SHADOW DURAG</ProductName>
                     <ProductPrice className="product7" show={isHovered[6]}>95€</ProductPrice>
                     <ProductBar show={isHovered[6]}>
-                      <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 10 ? "DURAG (BLACK)" : "DURAG (COPPER)", price: 95}): null;}}>
-                        ADD <span>TO CART</span>
-                      </Button>
-                      <Option className={selectedCategorie === 10 ? "selected" : ""} onClick={() => setSelectedCategorie(10)}>BLACK</Option>
-                      <Option className={selectedCategorie === 11 ? "selected" : ""} onClick={() => setSelectedCategorie(11)}>COPPER</Option>
                       <Button onClick={() => {navigate("/durag");}}>
                         SEE <span>PRODUCT</span>
                       </Button>
+                      <Option className={selectedCategorie === 10 ? "selected" : ""} onClick={(event) => {event.stopPropagation();setSelectedCategorie(10)}}>BLACK</Option>
+                      <Option className={selectedCategorie === 11 ? "selected" : ""} onClick={(event) => {event.stopPropagation();setSelectedCategorie(11)}}>COPPER</Option>
+                      <Button onClick={(event) => {event.stopPropagation();selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 10 ? "DURAG (BLACK)" : "DURAG (COPPER)", price: 95}): null;}}>
+                        ADD <span>TO CART</span>
+                      </Button>
                     </ProductBar>
                 </ProductFrame>
-                <ProductFrame className="product8" onMouseEnter={() =>handleMouseEnter(7)} onMouseLeave={() =>{handleMouseLeave(7);setSelectedCategorie(0)}}>
+                <ProductFrame className="product8" onMouseEnter={() =>handleMouseEnter(7)} onMouseLeave={() =>{handleMouseLeave(7);setSelectedCategorie(0)}} onClick={() => {navigate("/scar long");}}>
                 <ProcuctImg src="./img/12.png"/>
                     <ShootImg show={isHovered[7]} src="./img/5_2.jpg"/>
                     <ProductName className="product8" show={isHovered[7]}>SCAR TOP LONGSLEEVES</ProductName>
                     <ProductPrice className="product8" show={isHovered[7]}>115€</ProductPrice>
                     <ProductBar show={isHovered[7]}>
-                      <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 12 ? "SCAR LONG (DUST)" : "SCAR LONG (BLOOD)", price: 115}): null;}}>
-                        ADD <span>TO CART</span>
-                      </Button>
-                      <Option className={selectedCategorie === 12 ? "selected" : ""} onClick={() => setSelectedCategorie(12)}>DUST</Option>
-                      <Option className={selectedCategorie === 13 ? "selected" : ""} onClick={() => setSelectedCategorie(13)}>BLOOD</Option>
                       <Button onClick={() => {navigate("/scar long");}}>
                         SEE <span>PRODUCT</span>
                       </Button>
+                      <Option className={selectedCategorie === 12 ? "selected" : ""} onClick={(event) => {event.stopPropagation();setSelectedCategorie(12)}}>DUST</Option>
+                      <Option className={selectedCategorie === 13 ? "selected" : ""} onClick={(event) => {event.stopPropagation();setSelectedCategorie(13)}}>BLOOD</Option>
+                      <Button onClick={(event) => {event.stopPropagation();selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 12 ? "SCAR LONG (DUST)" : "SCAR LONG (BLOOD)", price: 115}): null;}}>
+                        ADD <span>TO CART</span>
+                      </Button>
                     </ProductBar>
                 </ProductFrame>
-                <ProductFrame className="product9" onMouseEnter={() =>handleMouseEnter(8)} onMouseLeave={() =>{handleMouseLeave(8);setSelectedCategorie(0)}}>
+                <ProductFrame className="product9" onMouseEnter={() =>handleMouseEnter(8)} onMouseLeave={() =>{handleMouseLeave(8);setSelectedCategorie(0)}} onClick={() => {navigate("/scar short");}}>
                 <ProcuctImg src="./img/15.png"/>
                     <ShootImg show={isHovered[8]} src="./img/5_2.jpg"/>
                     <ProductName className="product9" show={isHovered[8]}>SCAR TOP SHORTSLEEVES</ProductName>
                     <ProductPrice className="product9" show={isHovered[8]}>95€</ProductPrice>
                     <ProductBar show={isHovered[8]}>
-                    <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 14 ? "SCAR SHORT (DUST)" : "SCAR SHORT (BLOOD)", price: 95}): null;}}>
-                        ADD <span>TO CART</span>
-                      </Button>
-                      <Option className={selectedCategorie === 14 ? "selected" : ""} onClick={() => setSelectedCategorie(14)}>DUST</Option>
-                      <Option className={selectedCategorie === 15 ? "selected" : ""} onClick={() => setSelectedCategorie(15)}>BLOOD</Option>
                       <Button onClick={() => {navigate("/scar short");}}>
                         SEE <span>PRODUCT</span>
                       </Button>
+                      <Option className={selectedCategorie === 14 ? "selected" : ""} onClick={(event) => {event.stopPropagation();setSelectedCategorie(14)}}>DUST</Option>
+                      <Option className={selectedCategorie === 15 ? "selected" : ""} onClick={(event) => {event.stopPropagation();setSelectedCategorie(15)}}>BLOOD</Option>
+                      <Button onClick={(event) => {event.stopPropagation();selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 14 ? "SCAR SHORT (DUST)" : "SCAR SHORT (BLOOD)", price: 95}): null;}}>
+                        ADD <span>TO CART</span>
+                      </Button>
                     </ProductBar>
                 </ProductFrame>
-                <ProductFrame className="product10" onMouseEnter={() =>handleMouseEnter(9)} onMouseLeave={() =>handleMouseLeave(9)}>
+                <ProductFrame className="product10" onMouseEnter={() =>handleMouseEnter(9)} onMouseLeave={() =>handleMouseLeave(9)}  onClick={() => {navigate("/jupi shirt");}}>
                 <ProcuctImg src="./img/16.png"/>
                     <ShootImg show={isHovered[9]} src="./img/16_2.jpg"/>
                     <ProductName className="product10" show={isHovered[9]}>JUPITER SHIRT</ProductName>
                     <ProductPrice className="product10" show={isHovered[9]}>120€</ProductPrice>
                     <ProductBar show={isHovered[9]}>
-                      {/* <Button onClick={() => addToCart({ id: 16, name: 'JUPITER SHIRT', price: 120})}>
+                      {/* <Button onClick={(event) => {event.stopPropagation();addToCart({ id: 16, name: 'JUPITER SHIRT', price: 120})}}>
                         ADD <span>TO CART</span>
                       </Button> */}
                       <Button onClick={() => {navigate("/jupi shirt");}}>
