@@ -156,7 +156,7 @@ function Cart(){
     return cartItems.reduce((total, item) => total + item.quantity, 0);
   };
   const Pay = () => {
-    fetch('https://imbehindmyhead.com/create-checkout-session', {
+    fetch('https://imbh-server.vercel.app/create-checkout-session', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
