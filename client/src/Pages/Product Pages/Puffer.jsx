@@ -2,13 +2,6 @@ import React, { useEffect, useState, useContext} from 'react';
 import {CartContext} from '../../Components/CartProvider.jsx';
 import styled from "styled-components"
 
-const initialHoverState = {
-    0: false,
-    1: false,
-    2: false,
-    3: false,
-    4: false,
-  };
 const AddedProduct = styled.div`
   z-index: 1;
   padding: 0.5rem;
@@ -17,8 +10,8 @@ const AddedProduct = styled.div`
   height: 30vh;
   background-color: rgb(244 244 242);
   position: fixed;
-  top: 6.5vh;
-  right:2rem;
+  top: 7.5vh;
+  right:5rem;
   transform: scale(0.8);
   display: flex;
   justify-content: center;
@@ -29,7 +22,7 @@ const AddedProduct = styled.div`
     transform: scale(1);
   }
   .img {
-    width: 90%;
+    width: 75%;
   }
   .close {
     position: absolute;
@@ -85,15 +78,15 @@ const Page = styled.div`
 const Images = styled.div`
     flex: 0.65;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     border: 1px solid white;
     border-bottom: 0px solid white;
     border-left: 0px solid white;
-    @media (max-width: 480px) {grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(7, 1fr);
+    @media (max-width: 480px) {grid-template-columns: 1fr;
+      grid-template-rows: repeat(4, 1fr);
         flex: 0.55;};
 `
 const ImageFrame = styled.div`
@@ -104,43 +97,34 @@ const ImageFrame = styled.div`
     align-items: center;
     position: relative;
     &.img1 {
-        grid-area: 1 / 1 / 3 / 3;
+      grid-area: 1 / 1 / 2 / 2;
         border-bottom: 1px solid white;
         border-left: 1px solid white;
-        @media (max-width: 480px) {grid-area: 1 / 1 / 3 / 3;};
+        @media (max-width: 480px) {grid-area: 1 / 1 / 2 / 2;};
     }
     &.img2 {
-        grid-area: 1 / 3 / 3 / 5;
+      grid-area: 1 / 2 / 2 / 3;
         border-bottom: 1px solid white;
         border-left: 1px solid white;
-        @media (max-width: 480px) {grid-area: 4 / 1 / 6 / 3;};
+        @media (max-width: 480px) {grid-area: 2 / 1 / 3 / 2;};
     }
     &.img3 {
-        grid-area: 3 / 1 / 4 / 2;
+      grid-area: 2 / 1 / 3 / 2;
         border-bottom: 1px solid white;
         border-left: 1px solid white;
         @media (max-width: 480px) {grid-area: 3 / 1 / 4 / 2;};
     }
     &.img4 {
-        grid-area: 3 / 2 / 4 / 3;
+      grid-area: 2 / 2 / 3 / 3;
         border-bottom: 1px solid white;
         border-left: 1px solid white;
-        @media (max-width: 480px) {grid-area: 3 / 2 / 4 / 3;};
-    }
-    &.img5 {
-        grid-area: 3 / 3 / 5 / 5;
-        border-bottom: 1px solid white;
-        border-left: 1px solid white;
-        @media (max-width: 480px) {grid-area: 6 / 1 / 8 / 3;};
+        @media (max-width: 480px) {grid-area: 4 / 1 / 5 / 2;};
     }
     & img {
         object-fit: cover;
         aspect-ratio: 1/1.2;
         overflow: hidden;
         width: 100%;
-        &.img3, &.img4 {
-            width: 90%;
-        }
     }
 }
 `
@@ -152,17 +136,20 @@ const InfoContainer = styled.div`
 const Info = styled.div`
     position: fixed;
     @media (max-width: 480px) {top: 10vh;width: 45vw;};
-    top: 8.5vh;
-    height: 90vh;
+    top: 10vh;
+    height: 89.9vh;
     width: 35vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    position: fixed;
+    padding: 5rem;
+    border: 1px solid white;
     button {
+        position: absolute;
+        right: 50%;
+        transform: translateX(50%);
+        top: 65%;
         height: 3.5vh;
         width: 30vw;
-        @media (max-width: 480px) {width: 30vw;};
+        @media (max-width: 480px) {width: 30vw;font-size: 0.75rem;};
         background-color: white;
         border: none;
         color: #10100e;
@@ -176,6 +163,43 @@ const Info = styled.div`
             border-radius: 5px;
         }
     }
+    h1 {
+      position: absolute;
+      right: 50%;
+      top: 25%;
+      transform: translate(50%, -50%);
+      text-align: center;
+      width: 100%;
+      font-size: 1.5rem;
+      font-weight: 775;
+      @media (max-width: 480px) {font-size: 1rem;
+        width: 85%;};
+      }
+    p {
+      position: absolute;
+      right: 50%;
+      top: 40%;
+      transform: translate(50%, -50%);
+      text-align: center;
+      width: 70%;
+      font-size: 0.8rem;
+      font-weight: 600;
+      width: 70%;
+      &.price {
+        top: 32.5%;
+        font-size: 1rem;
+        font-weight: 775;
+      }
+      @media (max-width: 480px) {font-size: 0.7rem;
+        width: 85%;};
+    }
+    div{
+      position: absolute;
+      right: 50%;
+      top: 52.5%;
+      transform: translate(50%, -50%);
+      width: 100%;
+    }
 `
 const Categories = styled.div`
   display: flex;
@@ -188,6 +212,7 @@ const Categories = styled.div`
         width: 20%;
         padding: 0.5rem;
         border: 1px solid transparent;
+        @media (max-width: 480px) {width: 40%;};
         &.selected{
           border: 1px solid white;
         }
@@ -196,12 +221,11 @@ const Categories = styled.div`
         cursor: pointer;
     }
 `
-function Product1() {
+function Puffer() {
     const {cartItems, setCartItems} = useContext(CartContext);
     const [lastItem, setLastItem] = useState(null);
     const [showAddedItem, setShowAddedItem] = useState(false);
     const [addedItemClassName, setAddedItemClassName] = useState('');
-    const [selectedCategorie, setSelectedCategorie] = useState(1);
     const addToCart = (item) => {
         setLastItem(item);
         const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
@@ -230,15 +254,12 @@ function Product1() {
           };
         }
       }, [showAddedItem]);
-    useEffect(() => {
-      console.log(selectedCategorie);
-    }, [selectedCategorie]);
     return (
         <>
             {showAddedItem && (
                 <AddedProduct  className={`${addedItemClassName}`} onClick={() => {document.body.dataset.cart = "true";}}>
                     <button onClick={(event) => {event.stopPropagation(); setShowAddedItem(false)}} className="close">X</button>
-                    <img className="img" src={`./img/${lastItem.id}_1.png`}/>
+                    <img className="img" src={`./img/${lastItem.id}.png`}/>
                     <p className="added">ADDED TO YOUR CART</p>
                     <p className="name">{lastItem.name}</p>
                     <p className="price">${lastItem.price}</p>
@@ -246,23 +267,20 @@ function Product1() {
             )}
             <Page>
                 <Images>
-                    <ImageFrame className="img1"><img src={`./img/1_2.jpg`}/></ImageFrame>
-                    <ImageFrame className="img2"><img src={`./img/2_2.jpg`}/></ImageFrame>
-                    <ImageFrame className="img3"><img className="img3" src={`./img/1_1.png`}/></ImageFrame>
-                    <ImageFrame className="img4"><img className="img4" src={`./img/2_1.png`}/></ImageFrame>
-                    <ImageFrame className="img5"><img src={`./img/4_2.jpg`}/></ImageFrame>
+                    <ImageFrame className="img1"><img src={`./img/1_2.png`}/></ImageFrame>
+                    <ImageFrame className="img2"><img src={`./img/1_2.png`}/></ImageFrame>
+                    <ImageFrame className="img3"><img src={`./img/1_2.png`}/></ImageFrame>
+                    <ImageFrame className="img4"><img src={`./img/1_2.png`}/></ImageFrame>
                 </Images>
                 <InfoContainer>
                     <Info>
-                      {/* {selectedCategorie === 1 && (
-                        <h1>Lost Archive</h1>
-                      )} */}
-                        <h1>Product</h1>
+                        <h1>ROSACE PUFFER BLACK</h1>
+                        <p>100% POLYESTER MICROFIBER FABRIC. METALIC ZIP, FILLED WITH VIRGIN FIBER TREATED</p>
+                        <p className="price">400E</p>
                         <Categories>
-                          <img className={selectedCategorie === 1 ? "selected" : ""} src={`./img/1_2.jpg`} onClick={() => setSelectedCategorie(1)}/>
-                          <img className={selectedCategorie === 2 ? "selected" : ""} src={`./img/1_2.jpg`} onClick={() => setSelectedCategorie(2)}/>
+                          <img className="selected" src={`./img/1.png`}/>
                         </Categories>
-                        <button onClick={() => {addToCart({ id: 1, name: 'LOST ARCHIVE', price: 60})}}>Add to Cart</button>
+                        <button onClick={() => {addToCart({ id: 1, name: 'ROSACE PUFFER', price: 400})}}>Add to Cart</button>
                     </Info>
                 </InfoContainer>
             </Page>
@@ -270,4 +288,4 @@ function Product1() {
     );
   }
   
-  export default Product1
+  export default Puffer

@@ -56,8 +56,10 @@ const Article=styled.div`
     position: relative;
     img{
         aspect-ratio: 1/1;
-        height: 100%;
+        height: 90%;
         object-fit: cover;
+        overflow: hidden;
+        object-position: center;
     }
     text{
         position: absolute;
@@ -187,18 +189,18 @@ function Cart(){
                     <Article key={item.id}>
                         <img src={`./img/${item.id}.png`}/>
                         <text className="name">{item.name}</text>
-                        <text className="price">${item.price*item.quantity}</text>
+                        <text className="price">{item.price*item.quantity}€</text>
                         <button className="minus" onClick={() => updateQuantity(item, item.quantity - 1)}>-</button>
                         <text className="quantity" onChange={(e) => updateQuantity(item, parseInt(e.target.value))}>
                             {item.quantity}</text>
                         <button className="plus" onClick={() => updateQuantity(item, item.quantity + 1)}>+</button>
-                        <button className="remove" onClick={() => removeFromCart(item)}>remove</button>
+                        <button className="remove" onClick={() => removeFromCart(item)}>REMOVE</button>
                     </Article>
                 ))}
             </Articles>
             <Total>
                 <TotalText>TOTAL</TotalText>
-                <TotalPrice>${calculateTotal()}</TotalPrice>
+                <TotalPrice>{calculateTotal()}€</TotalPrice>
             </Total>
             <Checkout onClick={() => Pay()}>
                 CHECKOUT
