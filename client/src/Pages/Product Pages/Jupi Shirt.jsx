@@ -264,6 +264,7 @@ function Puffer() {
                     <p className="added">ADDED TO YOUR CART</p>
                     <p className="name">{lastItem.name}</p>
                     <p className="price">{lastItem.price}€</p>
+                    
                 </AddedProduct>
             )}
             <Page>
