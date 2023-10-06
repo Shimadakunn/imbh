@@ -187,7 +187,7 @@ function Cart(){
             <Articles>
                 {cartItems.map((item) => (
                     <Article key={item.id}>
-                        <img src={`./img/${item.id}.png`}/>
+                        <img src={`./img/${item.id}.webp`}/>
                         <text className="name">{item.name}</text>
                         <text className="price">{item.price*item.quantity}€</text>
                         <button className="minus" onClick={() => updateQuantity(item, item.quantity - 1)}>-</button>

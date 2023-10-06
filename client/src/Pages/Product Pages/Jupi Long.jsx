@@ -259,7 +259,7 @@ function Puffer() {
             {showAddedItem && (
                 <AddedProduct  className={`${addedItemClassName}`} onClick={() => {document.body.dataset.cart = "true";}}>
                     <button onClick={(event) => {event.stopPropagation(); setShowAddedItem(false)}} className="close">X</button>
-                    <img className="img" src={`./img/${lastItem.id}.png`}/>
+                    <img className="img" src={`./img/${lastItem.id}.webp`}/>
                     <p className="added">ADDED TO YOUR CART</p>
                     <p className="name">{lastItem.name}</p>
                     <p className="price">${lastItem.price}</p>
@@ -267,10 +267,10 @@ function Puffer() {
             )}
             <Page>
                 <Images>
-                    <ImageFrame className="img1"><img src={`./img/8_2.jpg`}/></ImageFrame>
-                    <ImageFrame className="img2"><img src={`./img/8/8_3.jpg`}/></ImageFrame>
-                    <ImageFrame className="img3"><img src={`./img/8/8_4.jpg`}/></ImageFrame>
-                    <ImageFrame className="img4"><img src={`./img/8/8_5.jpg`}/></ImageFrame>
+                    <ImageFrame className="img1"><img src={`./img/8/8_2.webp`}/></ImageFrame>
+                    <ImageFrame className="img2"><img src={`./img/8/8_3.webp`}/></ImageFrame>
+                    <ImageFrame className="img3"><img src={`./img/8/8_4.webp`}/></ImageFrame>
+                    <ImageFrame className="img4"><img src={`./img/8/8_5.webp`}/></ImageFrame>
                 </Images>
                 <InfoContainer>
                     <Info>
@@ -278,7 +278,7 @@ function Puffer() {
                         <p>75% POLYESTER 20% VISCOSE 5% ELASTHANNE. FILLED WITH VIRGIN FIBERS TREATED</p>
                         <p className="price">185€</p>
                         <Categories>
-                          <img className="selected" src={`./img/2.png`}/>
+                          <img className="selected" src={`./img/2.webp`}/>
                         </Categories>
                         <button onClick={() => {addToCart({ id: 2, name: 'JUPITER LONGSLEEVE', price: 185})}}>Add to Cart</button>
                     </Info>

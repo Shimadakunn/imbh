@@ -315,7 +315,7 @@ function Shop() {
             {showAddedItem && (
               <AddedProduct  className={`${addedItemClassName}`} onClick={() => {document.body.dataset.cart = "true";}}>
                 <button onClick={() => { setShowAddedItem(false)}} className="close">X</button>
-                <img className="img" src={`./img/${lastItem.id}.png`}/>
+                <img className="img" src={`./img/${lastItem.id}.webp`}/>
                 <p className="added">ADDED TO YOUR CART</p>
                 <p className="name">{lastItem.name}</p>
                 <p className="price">{lastItem.price}€</p>
@@ -323,8 +323,8 @@ function Shop() {
             )}
             <Grid>
                 <ProductFrame className="product1" onMouseEnter={() =>handleMouseEnter(0)} onMouseLeave={() =>handleMouseLeave(0)}>
-                    <ProcuctImg src="./img/1.png"/>
-                    <ShootImg show={isHovered[0]} src="./img/1_2.png" onClick={() => {isHovered[0] ? navigate("/rosace puffer"):null;}}/>
+                    <ProcuctImg src="./img/1.webp"/>
+                    <ShootImg show={isHovered[0]} src="./img/1/1_2.webp" onClick={() => {isHovered[0] ? navigate("/rosace puffer"):null;}}/>
                     <ProductName show={isHovered[0]}>ROSACE PUFFER</ProductName>
                     <ProductPrice show={isHovered[0]}>400€</ProductPrice>
                     <ProductBar show={isHovered[0]}>
@@ -337,8 +337,8 @@ function Shop() {
                     </ProductBar>
                 </ProductFrame>
                 <ProductFrame className="product2" onMouseEnter={() =>handleMouseEnter(1)} onMouseLeave={() =>handleMouseLeave(1)}>
-                <ProcuctImg src="./img/2.png"/>
-                    <ShootImg show={isHovered[1]} src="./img/8_2.jpg" onClick={() => {isHovered[1] ? navigate("/jupiter longsleeve"):null;}}/>
+                <ProcuctImg src="./img/2.webp"/>
+                    <ShootImg show={isHovered[1]} src="./img/8/8_2.webp" onClick={() => {isHovered[1] ? navigate("/jupiter longsleeve"):null;}}/>
                     <ProductName show={isHovered[1]}>JUPITER LONGSLEEVES</ProductName>
                     <ProductPrice show={isHovered[1]}>185€</ProductPrice>
                     <ProductBar show={isHovered[1]}>
@@ -351,8 +351,8 @@ function Shop() {
                     </ProductBar>
                 </ProductFrame>
                 <ProductFrame className="product3" onMouseEnter={() =>handleMouseEnter(2)} onMouseLeave={() =>{handleMouseLeave(2);setSelectedCategorie(0)}}>
-                <ProcuctImg src="./img/3.png"/>
-                    <ShootImg show={isHovered[2]} src="./img/3_2.jpg" onClick={() => {isHovered[2] ? navigate("/shadow hoodie"):null;}}/>
+                <ProcuctImg src="./img/3.webp"/>
+                    <ShootImg show={isHovered[2]} src="./img/3/3_2.webp" onClick={() => {isHovered[2] ? navigate("/shadow hoodie"):null;}}/>
                     <ProductName show={isHovered[2]}>SHADOW MESH HOODIE</ProductName>
                     <ProductPrice show={isHovered[2]}>95€</ProductPrice>
                     <ProductBar show={isHovered[2]}>
@@ -367,8 +367,8 @@ function Shop() {
                     </ProductBar>
                 </ProductFrame>
                 <ProductFrame className="product4" onMouseEnter={() =>handleMouseEnter(3)} onMouseLeave={() =>{handleMouseLeave(3);setSelectedCategorie(0)}}>
-                <ProcuctImg src="./img/5.png"/>
-                    <ShootImg show={isHovered[3]} src="./img/5_2.jpg" onClick={() => {isHovered[3] ? navigate("/shadow dress"):null;}}/>
+                <ProcuctImg src="./img/5.webp"/>
+                    <ShootImg show={isHovered[3]} src="./img/5/5_2.webp" onClick={() => {isHovered[3] ? navigate("/shadow dress"):null;}}/>
                     <ProductName show={isHovered[3]}>SHADOW MESH DRESS</ProductName>
                     <ProductPrice show={isHovered[3]}>150€</ProductPrice>
                     <ProductBar show={isHovered[3]}>
@@ -383,8 +383,8 @@ function Shop() {
                     </ProductBar>
                 </ProductFrame>
                 <ProductFrame className="product5" onMouseEnter={() =>handleMouseEnter(4)} onMouseLeave={() =>handleMouseLeave(4)}>
-                <ProcuctImg src="./img/7.png"/>
-                    <ShootImg show={isHovered[4]} src="./img/7_2.jpg" onClick={() => {isHovered[4] ? navigate("/maelstrom"):null;}}/>
+                <ProcuctImg src="./img/7.webp"/>
+                    <ShootImg show={isHovered[4]} src="./img/7/7_2.webp" onClick={() => {isHovered[4] ? navigate("/maelstrom"):null;}}/>
                     <ProductName className="product5" show={isHovered[4]}>MAELSTROM</ProductName>
                     <ProductPrice className="product5" show={isHovered[4]}>120€</ProductPrice>
                     <ProductBar show={isHovered[4]}>
@@ -397,8 +397,8 @@ function Shop() {
                     </ProductBar>
                 </ProductFrame>
                 <ProductFrame className="product6" onMouseEnter={() =>handleMouseEnter(5)} onMouseLeave={() =>{handleMouseLeave(5);setSelectedCategorie(0)}}>
-                <ProcuctImg src="./img/8.png"/>
-                    <ShootImg show={isHovered[5]} src="./img/8_2.jpg" onClick={() => {isHovered[5] ? navigate("/jupi pants"):null;}}/>
+                <ProcuctImg src="./img/8.webp"/>
+                    <ShootImg show={isHovered[5]} src="./img/8/8_2.webp" onClick={() => {isHovered[5] ? navigate("/jupi pants"):null;}}/>
                     <ProductName className="product6" show={isHovered[5]}>JUPITER PANTS</ProductName>
                     <ProductPrice className="product6" show={isHovered[5]}>375€</ProductPrice>
                     <ProductBar show={isHovered[5]}>
@@ -413,8 +413,8 @@ function Shop() {
                     </ProductBar>
                 </ProductFrame>
                 <ProductFrame className="product7" onMouseEnter={() =>handleMouseEnter(6)} onMouseLeave={() =>{handleMouseLeave(6);setSelectedCategorie(0)}}>
-                <ProcuctImg src="./img/10.png"/>
-                    <ShootImg show={isHovered[6]} src="./img/10/10_2.jpg" onClick={() => {isHovered[6] ? navigate("/durag"):null;}}/>
+                <ProcuctImg src="./img/10.webp"/>
+                    <ShootImg show={isHovered[6]} src="./img/10/10_2.webp" onClick={() => {isHovered[6] ? navigate("/durag"):null;}}/>
                     <ProductName className="product7" show={isHovered[6]}>SHADOW DURAG</ProductName>
                     <ProductPrice className="product7" show={isHovered[6]}>95€</ProductPrice>
                     <ProductBar show={isHovered[6]}>
@@ -429,8 +429,8 @@ function Shop() {
                     </ProductBar>
                 </ProductFrame>
                 <ProductFrame className="product8" onMouseEnter={() =>handleMouseEnter(7)} onMouseLeave={() =>{handleMouseLeave(7);setSelectedCategorie(0)}}>
-                <ProcuctImg src="./img/12.png"/>
-                    <ShootImg show={isHovered[7]} src="./img/5_2.jpg" onClick={() => {isHovered[7] ? navigate("/scar long"):null;}}/>
+                <ProcuctImg src="./img/12.webp"/>
+                    <ShootImg show={isHovered[7]} src="./img/5/5_2.webp" onClick={() => {isHovered[7] ? navigate("/scar long"):null;}}/>
                     <ProductName className="product8" show={isHovered[7]}>SCAR TOP LONGSLEEVES</ProductName>
                     <ProductPrice className="product8" show={isHovered[7]}>115€</ProductPrice>
                     <ProductBar show={isHovered[7]}>
@@ -445,8 +445,8 @@ function Shop() {
                     </ProductBar>
                 </ProductFrame>
                 <ProductFrame className="product9" onMouseEnter={() =>handleMouseEnter(8)} onMouseLeave={() =>{handleMouseLeave(8);setSelectedCategorie(0)}}>
-                <ProcuctImg src="./img/15.png"/>
-                    <ShootImg show={isHovered[8]} src="./img/5_2.jpg" onClick={() => {isHovered[8] ? navigate("/scar short"):null;}}/>
+                <ProcuctImg src="./img/15.webp"/>
+                    <ShootImg show={isHovered[8]} src="./img/5/5_2.webp" onClick={() => {isHovered[8] ? navigate("/scar short"):null;}}/>
                     <ProductName className="product9" show={isHovered[8]}>SCAR TOP SHORTSLEEVES</ProductName>
                     <ProductPrice className="product9" show={isHovered[8]}>95€</ProductPrice>
                     <ProductBar show={isHovered[8]}>
@@ -461,8 +461,8 @@ function Shop() {
                     </ProductBar>
                 </ProductFrame>
                 <ProductFrame className="product10" onMouseEnter={() =>handleMouseEnter(9)} onMouseLeave={() =>handleMouseLeave(9)}>
-                <ProcuctImg src="./img/16.png"/>
-                    <ShootImg show={isHovered[9]} src="./img/16_2.jpg" onClick={() => {isHovered[9] ? navigate("/jupi shirt"):null;}}/>
+                <ProcuctImg src="./img/16.webp"/>
+                    <ShootImg show={isHovered[9]} src="./img/16/16_2.webp" onClick={() => {isHovered[9] ? navigate("/jupi shirt"):null;}}/>
                     <ProductName className="product10" show={isHovered[9]}>JUPITER SHIRT</ProductName>
                     <ProductPrice className="product10" show={isHovered[9]}>120€</ProductPrice>
                     <ProductBar show={isHovered[9]}>

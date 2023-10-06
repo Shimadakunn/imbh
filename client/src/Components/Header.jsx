@@ -106,14 +106,14 @@ function Header() {
   const {cartItems, setCartItems} = useContext(CartContext);
     return (
       <Head>
-        <Logo src="img/logo.png" onClick={() => {navigate("/");}}></Logo>
+        <Logo src="img/logo.webp" onClick={() => {navigate("/");}}></Logo>
         <NavBar>
-            <Access className="logo" onClick={() => {navigate("/");}}><img src="img/logo_2.png"></img></Access>
+            <Access className="logo" onClick={() => {navigate("/");}}><img src="img/logo_2.webp"></img></Access>
             <Access className="home" onClick={() => {navigate("/");}}>HOME</Access>
             <Access className="about" onClick={() => {navigate("/shop");}}>LOOKBOOK</Access>
             <Access className="cart" onClick={() => {document.body.dataset.cart = "true";}}>
-              <img className="iconCart" src={`./icon/bag.png`}/>
-              <img className="iconCartWhite" src={`./icon/bag-white.png`}/>
+              <img className="iconCart" src={`./icon/bag.webp`}/>
+              <img className="iconCartWhite" src={`./icon/bag-white.webp`}/>
               {cartItems.length > 0 && (
                 <div className="itemInCart">
                   .

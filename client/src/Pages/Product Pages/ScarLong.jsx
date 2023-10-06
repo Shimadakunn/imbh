@@ -260,7 +260,7 @@ function Puffer() {
             {showAddedItem && (
                 <AddedProduct  className={`${addedItemClassName}`} onClick={() => {document.body.dataset.cart = "true";}}>
                     <button onClick={(event) => {event.stopPropagation(); setShowAddedItem(false)}} className="close">X</button>
-                    <img className="img" src={`./img/${lastItem.id}.png`}/>
+                    <img className="img" src={`./img/${lastItem.id}.webp`}/>
                     <p className="added">ADDED TO YOUR CART</p>
                     <p className="name">{lastItem.name}</p>
                     <p className="price">{lastItem.price}€</p>
@@ -268,10 +268,10 @@ function Puffer() {
             )}
             <Page>
                 <Images>
-                    <ImageFrame className="img1"><img src={`./img/1_2.jpg`}/></ImageFrame>
-                    <ImageFrame className="img2"><img src={`./img/2_2.jpg`}/></ImageFrame>
-                    <ImageFrame className="img3"><img src={`./img/1_1.png`}/></ImageFrame>
-                    <ImageFrame className="img4"><img src={`./img/2_1.png`}/></ImageFrame>
+                    <ImageFrame className="img1"><img src={`./img/1_2.webp`}/></ImageFrame>
+                    <ImageFrame className="img2"><img src={`./img/2_2.webp`}/></ImageFrame>
+                    <ImageFrame className="img3"><img src={`./img/1_1.webp`}/></ImageFrame>
+                    <ImageFrame className="img4"><img src={`./img/2_1.webp`}/></ImageFrame>
                 </Images>
                 <InfoContainer>
                     <Info>
@@ -280,8 +280,8 @@ function Puffer() {
                         <p className="price">115€</p>
                         <div>
                           <Categories>
-                            <img className={selectedCategorie === 12 ? "selected" : ""} src={`./img/12.png`} onClick={() => setSelectedCategorie(12)}/>
-                            <img className={selectedCategorie === 13 ? "selected" : ""} src={`./img/12.png`} onClick={() => setSelectedCategorie(13)}/>
+                            <img className={selectedCategorie === 12 ? "selected" : ""} src={`./img/12.webp`} onClick={() => setSelectedCategorie(12)}/>
+                            <img className={selectedCategorie === 13 ? "selected" : ""} src={`./img/12.webp`} onClick={() => setSelectedCategorie(13)}/>
                           </Categories>
                         </div>
                         <button onClick={() => {addToCart({ id: selectedCategorie, name: selectedCategorie === 12 ? "SCAR LONG (DUST)" : "SCAR LONG (BLOOD)", price: 115})}}>Add to Cart</button>
