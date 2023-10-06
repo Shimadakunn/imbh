@@ -277,14 +277,14 @@ function Puffer() {
                     <Info>
                         <h1>SHADOW DURAG ({selectedCategorie === 10 ? "BLACK" : "COPPER"}) </h1>
                         <p>100% POLYESTER MAILLE WITH CROCO PATTERN</p>
-                        <p className="price">95€</p>
+                        <p className="price">55€</p>
                         <div>
                           <Categories>
                             <img className={selectedCategorie === 10 ? "selected" : ""} src={`./img/10.webp`} onClick={() => setSelectedCategorie(10)}/>
                             <img className={selectedCategorie === 11 ? "selected" : ""} src={`./img/10.webp`} onClick={() => setSelectedCategorie(11)}/>
                           </Categories>
                         </div>
-                        <button onClick={() => {addToCart({ id: selectedCategorie, name: selectedCategorie === 10 ? "DURAG (BLACK)" : "DURAG (COPPER)", price: 95})}}>Add to Cart</button>
+                        <button onClick={() => {addToCart({ id: selectedCategorie, name: selectedCategorie === 10 ? "DURAG (BLACK)" : "DURAG (COPPER)", price: 55})}}>Add to Cart</button>
                     </Info>
                 </InfoContainer>
             </Page>

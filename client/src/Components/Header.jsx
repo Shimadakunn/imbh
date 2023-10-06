@@ -55,6 +55,7 @@ const Access = styled.div`
     &.about {@media (max-width: 480px) {border-right: 1px solid grey;}}
     &.cart {flex: 0.5;}
     &.logo{
+      pointer-events: none;
       display: none;
       font-family: 'Baunk', sans-serif;
       @media (max-width: 480px) {
@@ -112,8 +113,8 @@ function Header() {
             <Access className="home" onClick={() => {navigate("/");}}>HOME</Access>
             <Access className="about" onClick={() => {navigate("/shop");}}>LOOKBOOK</Access>
             <Access className="cart" onClick={() => {document.body.dataset.cart = "true";}}>
-              <img className="iconCart" src={`./icon/bag.webp`}/>
-              <img className="iconCartWhite" src={`./icon/bag-white.webp`}/>
+              <img className="iconCart" src={`./icon/bag.png`}/>
+              <img className="iconCartWhite" src={`./icon/bag-white.png`}/>
               {cartItems.length > 0 && (
                 <div className="itemInCart">
                   .

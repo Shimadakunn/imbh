@@ -262,7 +262,7 @@ function Puffer() {
                     <img className="img" src={`./img/${lastItem.id}.webp`}/>
                     <p className="added">ADDED TO YOUR CART</p>
                     <p className="name">{lastItem.name}</p>
-                    <p className="price">${lastItem.price}</p>
+                    <p className="price">{lastItem.price}€</p>
                 </AddedProduct>
             )}
             <Page>
@@ -276,7 +276,7 @@ function Puffer() {
                     <Info>
                         <h1>ROSACE PUFFER BLACK</h1>
                         <p>100% POLYESTER MICROFIBER FABRIC. METALIC ZIP, FILLED WITH VIRGIN FIBER TREATED</p>
-                        <p className="price">400E</p>
+                        <p className="price">400€</p>
                         <Categories>
                           <img className="selected" src={`./img/1.webp`}/>
                         </Categories>

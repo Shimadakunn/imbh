@@ -226,7 +226,7 @@ function Puffer() {
     const [lastItem, setLastItem] = useState(null);
     const [showAddedItem, setShowAddedItem] = useState(false);
     const [addedItemClassName, setAddedItemClassName] = useState('');
-    const [selectedCategorie, setSelectedCategorie] = useState(12);
+    const [selectedCategorie, setSelectedCategorie] = useState(14);
     const addToCart = (item) => {
         setLastItem(item);
         const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
