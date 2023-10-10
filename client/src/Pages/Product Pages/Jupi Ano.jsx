@@ -274,13 +274,14 @@ function Puffer() {
                 </Images>
                 <InfoContainer>
                     <Info>
-                        <h1>JUPITER LONGSLEEVES BLACK</h1>
+                        <h1>JUPITER ANORAK BLACK</h1>
                         <p>75% POLYESTER 20% VISCOSE 5% ELASTHANNE. FILLED WITH VIRGIN FIBERS TREATED</p>
-                        <p className="price">185€</p>
+                        <p className="price">450€</p>
                         <Categories>
                           <img className="selected" src={`./img/2.webp`}/>
                         </Categories>
-                        <button onClick={() => {addToCart({ id: 2, name: 'JUPITER LONGSLEEVE', price: 185})}}>Add to Cart</button>
+                        {/* <button onClick={() => {addToCart({ id: 2, name: 'JUPITER LONGSLEEVE', price: 450})}}>Add to Cart</button> */}
+                        <button>COMING SOON</button>
                     </Info>
                 </InfoContainer>
             </Page>

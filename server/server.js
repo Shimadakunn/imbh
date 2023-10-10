@@ -18,7 +18,7 @@ const storeItems = new Map([
     [5, { price: 'price_1NxdRLK8Jr4dUR3tAGQQESYI'}],
     [6, { price: 'price_1NxdV6K8Jr4dUR3tW8h9DDUa'}],
     [7, { price: ''}],
-    [8, { price: 'price_1NuX6NK8Jr4dUR3tgrqlABOr'}],
+    [8, { price: 'price_1NuWV5K8Jr4dUR3tVNE93Wuk'}],
     [9, { price: 'price_1NuX6NK8Jr4dUR3tgrqlABOr'}],
     [10, { price: 'price_1NuWaeK8Jr4dUR3tEdbe0l5E'}],
     [11, { price: 'price_1NuWbXK8Jr4dUR3t2A8f8Oyh'}],
@@ -48,7 +48,7 @@ app.post("/create-checkout-session", async (req, res) => {
             payment_method_types: ["card"],
             billing_address_collection: "auto",
             shipping_address_collection: {
-                allowed_countries: ["FR", "BE"]
+                allowed_countries: []
             },
             line_items: items,
             mode: "payment",

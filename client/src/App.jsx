@@ -5,7 +5,7 @@ import Footer from './Components/Footer'
 import Cart from './Components/Cart'
 import Shop from './Pages/Shop'
 import Puffer from './Pages/Product Pages/Puffer'
-import JupiLong from './Pages/Product Pages/Jupi Long'
+import JupiLong from './Pages/Product Pages/Jupi Ano'
 import ShdwHood from './Pages/Product Pages/Shadow Hoodie'
 import ShdwDress from './Pages/Product Pages/Shadow Dress'
 import Maelstrom from './Pages/Product Pages/Maelstrom'
@@ -27,7 +27,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Shop/>} />
           <Route exact path="/rosace puffer" element={<Puffer/>} />
-          <Route exact path="/jupiter longsleeve" element={<JupiLong/>} />
+          <Route exact path="/jupiter anorak" element={<JupiLong/>} />
           <Route exact path="/shadow hoodie" element={<ShdwHood/>} />
           <Route exact path="/shadow dress" element={<ShdwDress/>} />
           <Route exact path="/maelstrom" element={<Maelstrom/>} />

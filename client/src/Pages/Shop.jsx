@@ -22,6 +22,7 @@ const Page = styled.div`
   }
 `
 const AddedProduct = styled.div`
+  transform-origin: top;
   z-index: 1;
   padding: 0.5rem;
   color: black;
@@ -178,7 +179,6 @@ const ProductFrame = styled.div`
 `
 const ProcuctImg = styled.img`
   width: 60%;
-   pointer-events: none;
 `
 const ShootImg = styled.img`
   position: absolute;
@@ -190,24 +190,48 @@ const ShootImg = styled.img`
   transition: opacity 500ms ease;
 `
 const ProductName = styled.div`
-  position: absolute;
-  bottom:5%;
+position: absolute;
   left:5%;
   transition: bottom 0.5s ease;
-  Font-size: 0.75rem;
+  font-size: 0.75rem;
   font-weight: 600;
   bottom: ${({ show }) => (show ? '10%' : '5%')};
-  @media (max-width: 480px) {bottom: ${({ show }) => (show ? '15%' : '5%')};
-  &.product5{bottom: ${({ show }) => (show ? '10%' : '5%')};}};
+  &.product5, &.product7{bottom: ${({ show }) => (show ? '5%' : '2.5%')};}
+  @media (max-width: 480px) {bottom: ${({ show }) => (show ? '12.5%' : '5%')};
+    &.product5, &.product7{bottom: ${({ show }) => (show ? '7.5%' : '2.5%')};}};
 `
 const ProductPrice = styled.div`
   position: absolute;
   bottom:5%;
   right:5%;
+  Font-size: 0.8rem;
+  font-weight: 1000;
   transition: bottom 0.5s ease;
   bottom: ${({ show }) => (show ? '10%' : '5%')};
-  @media (max-width: 480px) {bottom: ${({ show }) => (show ? '15%' : '5%')};
-  &.product5{bottom: ${({ show }) => (show ? '10%' : '5%')};}};
+  &.product5, &.product7{bottom: ${({ show }) => (show ? '5%' : '2.5%')};}
+  @media (max-width: 480px) {bottom: ${({ show }) => (show ? '12.5%' : '5%')};
+    &.product5, &.product7{bottom: ${({ show }) => (show ? '7.5%' : '2.5%')};}};
+`
+const ProductToolTip = styled.div`
+  position: absolute;
+  bottom:7.5%;
+  right:5%;
+  transition: bottom 0.5s ease;
+  transform-origin: bottom;
+  width: 4rem;
+  height: 2rem;
+  background-color: white;
+  color: #10100e;
+  border-radius: 5px;
+  font-size: 0.625rem;
+  @media (max-width: 480px) {bottom: 12.5%};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0);
+  transition: all 0.5s ease;
+  bottom: ${({ show }) => (show ? '7.5%' : '2.5%')};
+  &.show { transform: scale(1);}
 `
 const ProductBar = styled.div`
     cursor: default;
@@ -312,6 +336,49 @@ function Shop() {
           [index]: false,
         }));
       };
+      const [showToolTip, setShowToolTip] = useState(Array(9).fill(false));
+      const [addedToolTip, setAddedToolTip] = useState(Array(9).fill(''));
+      const handleToolTip = (index) => {
+        setShowToolTip(Array(9).fill(false));
+        setAddedToolTip(Array(9).fill(''));
+        setShowToolTip((prevItems) => ({
+          ...prevItems,
+          [index]: true,
+        }));
+        console.log(showToolTip);
+        // console.log(addedToolTip);
+      };
+      useEffect(() => {
+        for (let index = 0; index < 9; index++) {
+          if (showToolTip[index]) {
+            setAddedToolTip(prevState => {
+              const newState = [...prevState];
+              newState[index] = 'show';
+              return newState;
+            });
+      
+            const timer = setTimeout(() => {
+              setShowToolTip((prevState) => ({
+                ...prevState,
+                [index]: false,
+              }));
+            }, 3000);
+      
+            const timer2 = setTimeout(() => {
+              setAddedToolTip(prevState => {
+                const newState = [...prevState];
+                newState[index] = '';
+                return newState;
+              });
+            }, 2750);
+      
+            return () => {
+              clearTimeout(timer);
+              clearTimeout(timer2);
+            };
+          }
+        }
+      }, [showToolTip]);
     return (
         <Page>
             {showAddedItem && (
@@ -339,22 +406,23 @@ function Shop() {
                     </ProductBar>
                 </ProductFrame>
                 <ProductFrame className="product2" onMouseEnter={() =>handleMouseEnter(1)} onMouseLeave={() =>handleMouseLeave(1)}>
-                <ProcuctImg src="./img/2.webp"/>
-                    <ShootImg show={isHovered[1]} src="./img/8/8_2.webp" onClick={() => {isHovered[1] ? navigate("/jupiter longsleeve"):null;}}/>
-                    <ProductName show={isHovered[1]}>JUPITER LONGSLEEVES</ProductName>
-                    <ProductPrice show={isHovered[1]}>185€</ProductPrice>
+                    <ProcuctImg src="./img/2.webp"/>
+                    <ShootImg show={isHovered[1]} src="./img/8/8_2.webp" onClick={() => {isHovered[1] ? navigate("/jupiter anorak"):null;}}/>
+                    <ProductName show={isHovered[1]}>JUPITER ANORAK</ProductName>
+                    <ProductPrice show={isHovered[1]}>450€</ProductPrice>
                     <ProductBar show={isHovered[1]}>
-                      <Button onClick={() => {navigate("/jupiter longsleeve");}}>
+                      <Button onClick={() => {navigate("/jupiter anorak");}}>
                         SEE <span>PRODUCT</span>
                       </Button>
-                      <Button onClick={() => {addToCart({ id: 2, name: 'JUPITER LONGSLEEVE', price: 185})}}>
+                      {/* <Button onClick={() => {addToCart({ id: 2, name: 'JUPITER ANORAK', price: 450})}}>
                         ADD <span>TO CART</span>
-                      </Button>
+                      </Button> */}
                     </ProductBar>
                 </ProductFrame>
                 <ProductFrame className="product3" onMouseEnter={() =>handleMouseEnter(2)} onMouseLeave={() =>{handleMouseLeave(2);setSelectedCategorie(0)}}>
-                <ProcuctImg src="./img/3.webp"/>
-                    <ShootImg show={isHovered[2]} src="./img/3/3_2.webp" onClick={() => {isHovered[2] ? navigate("/shadow hoodie"):null;}}/>
+                    {selectedCategorie !== 4 ?<ProcuctImg src="./img/3.webp" onClick={() => { navigate("/shadow hoodie")}}/>: null}
+                    {selectedCategorie === 4 ? <ProcuctImg src="./img/4.webp" onClick={() => {navigate("/shadow hoodie")}}/> : null}
+                    {selectedCategorie === 0 ? <ShootImg show={isHovered[2]} src="./img/3/3_2.webp" onClick={() => {isHovered[2] ? navigate("/shadow hoodie"):null;}}/>: null}
                     <ProductName show={isHovered[2]}>SHADOW MESH HOODIE</ProductName>
                     <ProductPrice show={isHovered[2]}>95€</ProductPrice>
                     <ProductBar show={isHovered[2]}>
@@ -363,14 +431,16 @@ function Shop() {
                       </Button>
                       <Option className={selectedCategorie === 3 ? "selected" : ""} onClick={() => {setSelectedCategorie(3)}}>BLACK</Option>
                       <Option className={selectedCategorie === 4 ? "selected" : ""} onClick={() => {setSelectedCategorie(4)}}>COPPER</Option>
-                      <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 3 ? "SHADOW HOODIE (BLACK)" : "SHADOW HOODIE (COPPER)", price: 95}): null;}}>
-                        ADD <span>TO CART</span>
+                      <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 3 ? "SHADOW HOODIE (BLACK)" : "SHADOW HOODIE (COPPER)", price: 95}): handleToolTip(2);}}>
+                        ADD <span>TO CART</span> 
                       </Button>
                     </ProductBar>
+                    <ProductToolTip className={`${addedToolTip[2]}`} show={isHovered[2]}>Select color</ProductToolTip>
                 </ProductFrame>
                 <ProductFrame className="product4" onMouseEnter={() =>handleMouseEnter(3)} onMouseLeave={() =>{handleMouseLeave(3);setSelectedCategorie(0)}}>
-                <ProcuctImg src="./img/5.webp"/>
-                    <ShootImg show={isHovered[3]} src="./img/5/5_2.webp" onClick={() => {isHovered[3] ? navigate("/shadow dress"):null;}}/>
+                    {selectedCategorie !== 6 ?<ProcuctImg src="./img/5.webp" onClick={() => {isHovered[3] ? navigate("/shadow dress"):null;}}/>: null}
+                    {selectedCategorie === 6 ? <ProcuctImg src="./img/6.webp" onClick={() => {isHovered[3] ? navigate("/shadow dress"):null;}}/> : null}
+                    {selectedCategorie === 0 ?<ShootImg show={isHovered[3]} src="./img/5/5_2.webp" onClick={() => {isHovered[3] ? navigate("/shadow dress"):null;}}/>: null}
                     <ProductName show={isHovered[3]}>SHADOW MESH DRESS</ProductName>
                     <ProductPrice show={isHovered[3]}>150€</ProductPrice>
                     <ProductBar show={isHovered[3]}>
@@ -379,10 +449,11 @@ function Shop() {
                       </Button>
                       <Option className={selectedCategorie === 5 ? "selected" : ""} onClick={() => {setSelectedCategorie(5)}}>BLACK</Option>
                       <Option className={selectedCategorie === 6 ? "selected" : ""} onClick={() => {setSelectedCategorie(6)}}>COPPER</Option>
-                      <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 5 ? "SHADOW DRESS (BLACK)" : "SHADOW DRESS (COPPER)", price: 150}): null;}}>
+                      <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 5 ? "SHADOW DRESS (BLACK)" : "SHADOW DRESS (COPPER)", price: 150}): handleToolTip(3);}}>
                         ADD <span>TO CART</span>
                       </Button>
                     </ProductBar>
+                    <ProductToolTip className={`${addedToolTip[3]}`} show={isHovered[3]}>Select color</ProductToolTip>
                 </ProductFrame>
                 <ProductFrame className="product5" onMouseEnter={() =>handleMouseEnter(4)} onMouseLeave={() =>handleMouseLeave(4)}>
                 <ProcuctImg src="./img/7.webp"/>
@@ -399,24 +470,27 @@ function Shop() {
                     </ProductBar>
                 </ProductFrame>
                 <ProductFrame className="product6" onMouseEnter={() =>handleMouseEnter(5)} onMouseLeave={() =>{handleMouseLeave(5);setSelectedCategorie(0)}}>
-                <ProcuctImg src="./img/8.webp"/>
-                    <ShootImg show={isHovered[5]} src="./img/8/8_2.webp" onClick={() => {isHovered[5] ? navigate("/jupi pants"):null;}}/>
+                    {selectedCategorie !== 9 ?<ProcuctImg src="./img/8.webp" onClick={() => {isHovered[5] ? navigate("/jupi pants"):null;}}/>: null}
+                    {selectedCategorie === 9 ? <ProcuctImg src="./img/9.webp" onClick={() => {isHovered[5] ? navigate("/jupi pants"):null;}}/> : null}
+                    {selectedCategorie === 0 ?<ShootImg show={isHovered[5]} src="./img/8/8_2.webp" onClick={() => {isHovered[5] ? navigate("/jupi pants"):null;}}/>: null}
                     <ProductName className="product6" show={isHovered[5]}>JUPITER PANTS</ProductName>
-                    <ProductPrice className="product6" show={isHovered[5]}>375€</ProductPrice>
+                    <ProductPrice className="product6" show={isHovered[5]}>{selectedCategorie === 9 ? "375€" : "285€"}</ProductPrice>
                     <ProductBar show={isHovered[5]}>
                       <Button onClick={() => {navigate("/jupi pants");}}>
                         SEE <span>PRODUCT</span>
                       </Button>
                       <Option className={selectedCategorie === 8 ? "selected" : ""} onClick={() => {setSelectedCategorie(8)}}>MILANO</Option>
                       <Option className={selectedCategorie === 9 ? "selected" : ""} onClick={() => {setSelectedCategorie(9)}}>MICROFIBER</Option>
-                      <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 8 ? "JUPITER (MILANO)" : "JUPITER (MICROFIBER)", price: 375}): null;}}>
+                      <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 8 ? "JUPITER (MILANO)" : "JUPITER (MICROFIBER)", price: selectedCategorie === 8 ? 285: 375}): handleToolTip(5);}}>
                         ADD <span>TO CART</span>
                       </Button>
                     </ProductBar>
+                    <ProductToolTip className={`${addedToolTip[5]}`} show={isHovered[5]}>Select color</ProductToolTip>
                 </ProductFrame>
                 <ProductFrame className="product9" onMouseEnter={() =>handleMouseEnter(6)} onMouseLeave={() =>{handleMouseLeave(6);setSelectedCategorie(0)}}>
-                <ProcuctImg src="./img/10.webp"/>
-                    <ShootImg show={isHovered[6]} src="./img/10/10_2.webp" onClick={() => {isHovered[6] ? navigate("/durag"):null;}}/>
+                    {selectedCategorie !== 11 ?<ProcuctImg src="./img/10.webp" onClick={() => {isHovered[6] ? navigate("/durag"):null;}}/>: null}
+                    {selectedCategorie === 11 ? <ProcuctImg src="./img/11.webp" onClick={() => {isHovered[6] ? navigate("/durag"):null;}}/> : null}
+                    {selectedCategorie === 0 ?<ShootImg show={isHovered[6]} src="./img/10/10_2.webp" onClick={() => {isHovered[6] ? navigate("/durag"):null;}}/>: null}
                     <ProductName className="product7" show={isHovered[6]}>SHADOW DURAG</ProductName>
                     <ProductPrice className="product7" show={isHovered[6]}>55€</ProductPrice>
                     <ProductBar show={isHovered[6]}>
@@ -425,14 +499,16 @@ function Shop() {
                       </Button>
                       <Option className={selectedCategorie === 10 ? "selected" : ""} onClick={() => {setSelectedCategorie(10)}}>BLACK</Option>
                       <Option className={selectedCategorie === 11 ? "selected" : ""} onClick={() => {setSelectedCategorie(11)}}>COPPER</Option>
-                      <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 10 ? "DURAG (BLACK)" : "DURAG (COPPER)", price: 55}): null;}}>
+                      <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 10 ? "DURAG (BLACK)" : "DURAG (COPPER)", price: 55}): handleToolTip(6);}}>
                         ADD <span>TO CART</span>
                       </Button>
                     </ProductBar>
+                    <ProductToolTip className={`${addedToolTip[6]}`} show={isHovered[6]}>Select color</ProductToolTip>
                 </ProductFrame>
                 <ProductFrame className="product8" onMouseEnter={() =>handleMouseEnter(7)} onMouseLeave={() =>{handleMouseLeave(7);setSelectedCategorie(0)}}>
-                <ProcuctImg src="./img/12.webp"/>
-                    <ShootImg show={isHovered[7]} src="./img/5/5_2.webp" onClick={() => {isHovered[7] ? navigate("/scar long"):null;}}/>
+                    {selectedCategorie !== 13 ?<ProcuctImg src="./img/12.webp" onClick={() => {isHovered[7] ? navigate("/scar long"):null;}}/>: null}
+                    {selectedCategorie === 13 ? <ProcuctImg src="./img/13.webp" onClick={() => {isHovered[7] ? navigate("/scar long"):null;}}/> : null}
+                    {selectedCategorie === 0 ?<ShootImg show={isHovered[7]} src="./img/5/5_2.webp" onClick={() => {isHovered[7] ? navigate("/scar long"):null;}}/>: null}
                     <ProductName className="product8" show={isHovered[7]}>SCAR TOP LONGSLEEVES</ProductName>
                     <ProductPrice className="product8" show={isHovered[7]}>115€</ProductPrice>
                     <ProductBar show={isHovered[7]}>
@@ -441,14 +517,16 @@ function Shop() {
                       </Button>
                       <Option className={selectedCategorie === 12 ? "selected" : ""} onClick={() => {setSelectedCategorie(12)}}>DUST</Option>
                       <Option className={selectedCategorie === 13 ? "selected" : ""} onClick={() => {setSelectedCategorie(13)}}>BLOOD</Option>
-                      <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 12 ? "SCAR LONG (DUST)" : "SCAR LONG (BLOOD)", price: 115}): null;}}>
+                      <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 12 ? "SCAR LONG (DUST)" : "SCAR LONG (BLOOD)", price: 115}): handleToolTip(7);}}>
                         ADD <span>TO CART</span>
                       </Button>
                     </ProductBar>
+                    <ProductToolTip className={`${addedToolTip[7]}`} show={isHovered[7]}>Select color</ProductToolTip>
                 </ProductFrame>
                 <ProductFrame className="product7" onMouseEnter={() =>handleMouseEnter(8)} onMouseLeave={() =>{handleMouseLeave(8);setSelectedCategorie(0)}}>
-                <ProcuctImg src="./img/15.webp"/>
-                    <ShootImg show={isHovered[8]} src="./img/5/5_2.webp" onClick={() => {isHovered[8] ? navigate("/scar short"):null;}}/>
+                    {selectedCategorie !== 15 ?<ProcuctImg src="./img/14.webp" onClick={() => {isHovered[8] ? navigate("/scar short"):null;}}/>: null}
+                    {selectedCategorie === 15 ? <ProcuctImg src="./img/15.webp" onClick={() => {isHovered[8] ? navigate("/scar short"):null;}}/> : null}
+                    {selectedCategorie === 0 ?<ShootImg show={isHovered[8]} src="./img/5/5_2.webp" onClick={() => {isHovered[8] ? navigate("/scar short"):null;}}/>: null}
                     <ProductName className="product9" show={isHovered[8]}>SCAR TOP SHORTSLEEVES</ProductName>
                     <ProductPrice className="product9" show={isHovered[8]}>95€</ProductPrice>
                     <ProductBar show={isHovered[8]}>
@@ -457,10 +535,11 @@ function Shop() {
                       </Button>
                       <Option className={selectedCategorie === 14 ? "selected" : ""} onClick={() => {setSelectedCategorie(14)}}>DUST</Option>
                       <Option className={selectedCategorie === 15 ? "selected" : ""} onClick={() => {setSelectedCategorie(15)}}>BLOOD</Option>
-                      <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 14 ? "SCAR SHORT (DUST)" : "SCAR SHORT (BLOOD)", price: 95}): null;}}>
+                      <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 14 ? "SCAR SHORT (DUST)" : "SCAR SHORT (BLOOD)", price: 95}): handleToolTip(8);}}>
                         ADD <span>TO CART</span>
                       </Button>
                     </ProductBar>
+                    <ProductToolTip className={`${addedToolTip[8]}`} show={isHovered[8]}>Select color</ProductToolTip>
                 </ProductFrame>
                 {/* <ProductFrame className="product10" onMouseEnter={() =>handleMouseEnter(9)} onMouseLeave={() =>handleMouseLeave(9)}>
                 <ProcuctImg src="./img/16.webp"/>

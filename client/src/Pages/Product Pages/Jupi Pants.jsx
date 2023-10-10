@@ -276,7 +276,7 @@ function Puffer() {
                 <InfoContainer>
                     <Info>
                         <h1>JUPITER PANTS BLACK ({selectedCategorie === 8 ? "MILANO" : "MICROFIBER"}) </h1>
-                        <p>100% NYLON INSIDE IS QUILTED AND FILLED WITH VIRGIN FIBERS TREATED</p>
+                        <p>({selectedCategorie === 8 ? "75% POLYESTER 20% VISCOSE 5% ELASTHANNE. FILLED WITH VIRGIN FIBERS TREATED" : "100% NYLON INSIDE IS QUILTED AND FILLED WITH VIRGIN FIBERS TREATED"})</p>
                         <p className="price">375€</p>
                         <div>
                           <Categories>
@@ -292,4 +292,4 @@ function Puffer() {
     );
   }
   
-  export default Puffer
+  export default Puffer;
