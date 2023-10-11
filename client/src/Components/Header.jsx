@@ -42,6 +42,7 @@ const Access = styled.div`
     background-color: white;
     flex: 1;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     font-family: ABCPermanent,Arial,sans-serif;

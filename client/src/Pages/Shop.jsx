@@ -197,7 +197,7 @@ position: absolute;
   font-weight: 600;
   bottom: ${({ show }) => (show ? '10%' : '5%')};
   &.product5, &.product7{bottom: ${({ show }) => (show ? '5%' : '2.5%')};}
-  @media (max-width: 480px) {bottom: ${({ show }) => (show ? '12.5%' : '5%')};
+  @media (max-width: 480px) {bottom: ${({ show }) => (show ? '15%' : '5%')};
     &.product5, &.product7{bottom: ${({ show }) => (show ? '7.5%' : '2.5%')};}};
 `
 const ProductPrice = styled.div`
@@ -209,7 +209,7 @@ const ProductPrice = styled.div`
   transition: bottom 0.5s ease;
   bottom: ${({ show }) => (show ? '10%' : '5%')};
   &.product5, &.product7{bottom: ${({ show }) => (show ? '5%' : '2.5%')};}
-  @media (max-width: 480px) {bottom: ${({ show }) => (show ? '12.5%' : '5%')};
+  @media (max-width: 480px) {bottom: ${({ show }) => (show ? '15%' : '5%')};
     &.product5, &.product7{bottom: ${({ show }) => (show ? '7.5%' : '2.5%')};}};
 `
 const ProductToolTip = styled.div`

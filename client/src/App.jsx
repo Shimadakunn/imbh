@@ -15,7 +15,6 @@ import ScarLong from './Pages/Product Pages/ScarLong'
 import ScarShort from './Pages/Product Pages/Scar Short'
 import JupiShirt from './Pages/Product Pages/Jupi Shirt'
 import Success from './Pages/Success'
-import Cancel from './Pages/Cancel'
 
 function App() {
 
@@ -37,7 +36,6 @@ function App() {
           <Route exact path="/scar short" element={<ScarShort/>} />
           <Route exact path="/jupi shirt" element={<JupiShirt/>} />
           <Route exact path="/success" element={<Success/>} />
-          <Route exact path="/cancel" element={<Cancel/>} />
         </Routes>
         {/* <Footer/> */}
       </Router>
