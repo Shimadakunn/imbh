@@ -70,10 +70,6 @@ const Page = styled.div`
     display: flex;
     justify-content: center;
     align-items: start;
-    @media (max-width: 480px) {
-        width: 99.5vw;
-        height: 99.5vh;
-    }
 `
 const Images = styled.div`
     flex: 0.65;
@@ -135,6 +131,7 @@ const InfoContainer = styled.div`
 `
 const Info = styled.div`
     position: fixed;
+    transition: 100ms;
     @media (max-width: 480px) {top: 10vh;width: 45vw;};
     top: 10vh;
     height: 89.9vh;
@@ -255,6 +252,25 @@ function Puffer() {
           };
         }
       }, [showAddedItem]);
+      const [isAtBottom, setIsAtBottom] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.innerHeight + window.pageYOffset;
+      const documentHeight = document.documentElement.offsetHeight;
+      const isElementAtBottom = scrollPosition >= documentHeight - 0.1 * window.innerHeight;
+
+      setIsAtBottom(isElementAtBottom);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+  const elementStyle = {
+    top: isAtBottom ? '5vh' : '10vh',
+  };
     return (
         <>
             {showAddedItem && (
@@ -274,7 +290,7 @@ function Puffer() {
                     <ImageFrame className="img4"><img src={`./img/2_1.webp`}/></ImageFrame>
                 </Images>
                 <InfoContainer>
-                    <Info>
+                    <Info style={elementStyle}>
                         <h1>SCAR TOP LONGSLEEVES ({selectedCategorie === 12 ? "DUST" : "BLOOD"}) </h1>
                         <p>100% MESH LONGSLEEVE BI COLOUR</p>
                         <p className="price">115€</p>

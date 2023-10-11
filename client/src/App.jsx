@@ -37,7 +37,7 @@ function App() {
           <Route exact path="/jupi shirt" element={<JupiShirt/>} />
           <Route exact path="/success" element={<Success/>} />
         </Routes>
-        {/* <Footer/> */}
+        <Footer/>
       </Router>
     </CartProvider>
   )

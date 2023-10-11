@@ -70,6 +70,7 @@ const Article=styled.div`
         &.price{
             top: 15%;
             right: 0;
+            font-weight: 1000;
         }
         &.quantity{
             @media (max-width: 480px) {right: 59%;};
@@ -110,6 +111,7 @@ const Article=styled.div`
 const Total=styled.div`
 position: relative;
 height: 2.5%;
+margin-bottom: 1.35rem;
 `
 const TotalText=styled.div`
 position: absolute;
@@ -118,6 +120,7 @@ left: 0;
 const TotalPrice=styled.div`
 position: absolute;
 right: 0;
+font-weight: 1000;
 `
 const Checkout=styled.button`
     height: 5%;

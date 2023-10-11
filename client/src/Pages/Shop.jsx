@@ -16,10 +16,6 @@ const initialHoverState = {
   9:false,
 };
 const Page = styled.div`
-  @media (max-width: 480px) {
-      width: 99.5vw;
-      height: 99.5vh;
-  }
 `
 const AddedProduct = styled.div`
   transform-origin: top;
