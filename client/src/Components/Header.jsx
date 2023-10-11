@@ -64,9 +64,12 @@ const Access = styled.div`
         display: flex;
         border-right: 1px solid grey;
         justify-content: flex-start;
-        padding-left: 1.25rem;
+        position: relative;
         img{
-          height: 2.25rem;
+          position: absolute;
+          height: 2rem;
+          transform-origin: center;
+          left: 1rem;
         }
       }
     }

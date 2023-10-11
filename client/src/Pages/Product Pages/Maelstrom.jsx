@@ -240,10 +240,10 @@ function Puffer() {
             setAddedItemClassName('show');
           const timer = setTimeout(() => {
             setShowAddedItem(false);
-          }, 2000);
+          }, 5000);
           const timer2 = setTimeout(() => {
             setAddedItemClassName('erase');
-          }, 1750);
+          }, 4750);
           return () => {
             clearTimeout(timer);
             clearTimeout(timer2);
@@ -255,7 +255,7 @@ function Puffer() {
     const handleScroll = () => {
       const scrollPosition = window.innerHeight + window.pageYOffset;
       const documentHeight = document.documentElement.offsetHeight;
-      const isElementAtBottom = scrollPosition >= documentHeight - 0.1 * window.innerHeight;
+      const isElementAtBottom = scrollPosition >= documentHeight - 0.15 * window.innerHeight;
 
       setIsAtBottom(isElementAtBottom);
     };
