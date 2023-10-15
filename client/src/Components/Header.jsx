@@ -67,9 +67,10 @@ const Access = styled.div`
         position: relative;
         img{
           position: absolute;
-          height: 2rem;
-          transform-origin: center;
-          left: 1rem;
+          height: 1.8rem;
+          transform: translateY(-50%);
+          left: 0.55rem;
+          top: 50%;
         }
       }
     }

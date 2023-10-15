@@ -15,6 +15,7 @@ import ScarLong from './Pages/Product Pages/ScarLong'
 import ScarShort from './Pages/Product Pages/Scar Short'
 import JupiShirt from './Pages/Product Pages/Jupi Shirt'
 import Success from './Pages/Success'
+import Test from './Pages/Product Pages/Test'
 
 function App() {
 

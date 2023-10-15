@@ -67,12 +67,12 @@ const AddedProduct = styled.div`
   }
 `
 const Page = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: start;
+  display: grid;
+  grid-template-columns: 65vw 35vw;
+  grid-template-rows: auto;
+  @media (max-width: 480px) {grid-template-columns: 54vw 45vw;}
 `
 const Images = styled.div`
-    flex: 0.65;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
@@ -82,8 +82,7 @@ const Images = styled.div`
     border-bottom: 0px solid white;
     border-left: 0px solid white;
     @media (max-width: 480px) {grid-template-columns: 1fr;
-      grid-template-rows: 1fr;
-        flex: 0.55;};
+      grid-template-rows: 1fr;};
 `
 const ImageFrame = styled.div`
     aspect-ratio: 1/1.2;
@@ -125,18 +124,13 @@ const ImageFrame = styled.div`
 }
 `
 const InfoContainer = styled.div`
-    flex: 0.35;
-    position: relative;
-    @media (max-width: 480px) {flex: 0.45;};
+  position: relative;
 `
 const Info = styled.div`
-    position: fixed;
+    position: sticky;
     transition: 100ms;
-    @media (max-width: 480px) {top: 10vh;width: 45vw;};
-    top: 10vh;
-    height: 89.9vh;
-    width: 35vw;
-    position: fixed;
+    top: 0;
+    height: 100vh;
     padding: 5rem;
     border: 1px solid white;
     button {
@@ -251,25 +245,6 @@ function Puffer() {
           };
         }
       }, [showAddedItem]);
-      const [isAtBottom, setIsAtBottom] = useState(false);
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.innerHeight + window.pageYOffset;
-      const documentHeight = document.documentElement.offsetHeight;
-      const isElementAtBottom = scrollPosition >= documentHeight - 0.15 * window.innerHeight;
-
-      setIsAtBottom(isElementAtBottom);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-  const elementStyle = {
-    top: isAtBottom ? '5vh' : '10vh',
-  };
     return (
         <>
             {showAddedItem && (
@@ -288,17 +263,17 @@ function Puffer() {
                     <ImageFrame className="img3"><img src={`./img/1_2.webp`}/></ImageFrame>
                     <ImageFrame className="img4"><img src={`./img/1_2.webp`}/></ImageFrame> */}
                 </Images>
-                <InfoContainer>
-                    <Info style={elementStyle}>
-                        <h1>ROSACE PUFFER BLACK</h1>
-                        <p>100% POLYESTER MICROFIBER FABRIC. METALIC ZIP, FILLED WITH VIRGIN FIBER TREATED</p>
-                        <p className="price">400€</p>
-                        <Categories>
-                          <img className="selected" src={`./img/1.webp`}/>
-                        </Categories>
-                        <button onClick={() => {addToCart({ id: 1, name: 'ROSACE PUFFER', price: 400})}}>Add to Cart</button>
-                    </Info>
-                </InfoContainer>
+                    <InfoContainer>
+                        <Info>
+                            <h1>ROSACE PUFFER BLACK</h1>
+                            <p>100% POLYESTER MICROFIBER FABRIC. METALIC ZIP, FILLED WITH VIRGIN FIBER TREATED</p>
+                            <p className="price">400€</p>
+                            <Categories>
+                              <img className="selected" src={`./img/1.webp`}/>
+                            </Categories>
+                            <button onClick={() => {addToCart({ id: 1, name: 'ROSACE PUFFER', price: 400})}}>Add to Cart</button>
+                        </Info>
+                    </InfoContainer>
             </Page>
         </>
     );
