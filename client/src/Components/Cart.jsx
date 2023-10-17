@@ -164,7 +164,6 @@ function Cart(){
   const [isHovered, setIsHovered] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const Pay = () => {
-    setIsLoading(true);
     fetch('https://imbh-server.vercel.app/create-checkout-session', {
       method: 'POST',
       headers: {
@@ -211,7 +210,7 @@ function Cart(){
                 <TotalText>TOTAL</TotalText>
                 <TotalPrice>{calculateTotal()}€</TotalPrice>
             </Total>
-            <Checkout onClick={() => {if(!isLoading){Pay()}}} onMouseEnter={() =>setIsHovered(true)} onMouseLeave={() =>setIsHovered(false)}>
+            <Checkout onClick={() => {setIsLoading(true);if(!isLoading){Pay()}}} onMouseEnter={() =>setIsHovered(true)} onMouseLeave={() =>setIsHovered(false)}>
               {isLoading ? (
                 <Ring 
                 size={30}

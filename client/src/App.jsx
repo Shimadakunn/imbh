@@ -13,9 +13,7 @@ import JupiPants from './Pages/Product Pages/Jupi Pants'
 import Durag from './Pages/Product Pages/Durag'
 import ScarLong from './Pages/Product Pages/ScarLong'
 import ScarShort from './Pages/Product Pages/Scar Short'
-import JupiShirt from './Pages/Product Pages/Jupi Shirt'
 import Success from './Pages/Success'
-import Test from './Pages/Product Pages/Test'
 
 function App() {
 
@@ -35,7 +33,6 @@ function App() {
           <Route exact path="/durag" element={<Durag/>} />
           <Route exact path="/scar long" element={<ScarLong/>} />
           <Route exact path="/scar short" element={<ScarShort/>} />
-          <Route exact path="/jupi shirt" element={<JupiShirt/>} />
           <Route exact path="/success" element={<Success/>} />
         </Routes>
         <Footer/>
