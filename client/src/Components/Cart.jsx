@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext} from 'react';
 import {CartContext} from './CartProvider.jsx';
 import styled from 'styled-components';
+import { Ring } from '@uiball/loaders'
 
 const Back=styled.div`
     position: fixed;
@@ -160,7 +161,10 @@ function Cart(){
   const calculateNumberProduct = () => {
     return cartItems.reduce((total, item) => total + item.quantity, 0);
   };
+  const [isHovered, setIsHovered] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const Pay = () => {
+    setIsLoading(true);
     fetch('https://imbh-server.vercel.app/create-checkout-session', {
       method: 'POST',
       headers: {
@@ -178,7 +182,9 @@ function Cart(){
       return await Promise.reject(json)
     }).then(({ url }) => {
       window.location = url
-    }).catch(e => {console.error(e.error)})
+    }).catch(e => {console.error(e.error)}).finally(() => {
+      this.setState({ isLoading: false }); 
+    });
   }
     return(
         <>
@@ -205,8 +211,17 @@ function Cart(){
                 <TotalText>TOTAL</TotalText>
                 <TotalPrice>{calculateTotal()}€</TotalPrice>
             </Total>
-            <Checkout onClick={() => Pay()}>
-                CHECKOUT
+            <Checkout onClick={() => {if(!isLoading){Pay()}}} onMouseEnter={() =>setIsHovered(true)} onMouseLeave={() =>setIsHovered(false)}>
+              {isLoading ? (
+                <Ring 
+                size={30}
+                lineWeight={5}
+                speed={2} 
+                color={isHovered ? "white" : "black"} 
+                />
+              ):(
+                <p>CHECKOUT</p>
+              )}
             </Checkout>
         </Page>
         </>

@@ -61,7 +61,7 @@ const AddedProduct = styled.div`
   .price {
     position: absolute;
     font-size: 0.7rem;
-    font-weight: 600;
+    font-weight: 1000;
     bottom: 5%;
     right: 5%;
   }
@@ -82,8 +82,7 @@ const Images = styled.div`
     border-bottom: 0px solid white;
     border-left: 0px solid white;
     @media (max-width: 480px) {grid-template-columns: 1fr;
-      grid-template-rows: repeat(2, 1fr);
-        };
+      grid-template-rows: repeat(2, 1fr);};
 `
 const ImageFrame = styled.div`
     aspect-ratio: 1/1.2;
@@ -179,8 +178,8 @@ const Info = styled.div`
       width: 70%;
       &.price {
         top: 32.5%;
-        font-size: 1rem;
-        font-weight: 775;
+        font-size: 1.5rem;
+        font-weight: 1000;
       }
       @media (max-width: 480px) {font-size: 0.7rem;
         width: 85%;};
