@@ -10,33 +10,6 @@ app.use(cors({
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
-// const fs = require('fs');
-// const csv = require('csv-parser');
-
-// const storeItems = new Map();
-
-// fs.createReadStream('prices.csv')
-//   .pipe(csv())
-//   .on('data', (row) => {
-//     const priceId = row['Price ID'];
-//     const productId = row['Product ID'];
-//     const productName = row['Product Name'];
-//     const item = {
-//       name: productName,
-//       price: priceId,
-//       prod: productId
-//     };
-//     const key = storeItems.size + 1;
-//     storeItems.set(key, item);
-//   })
-//   .on('end', () => {
-//     console.log('CSV file processed');
-//     console.log('storeItems:', storeItems);
-//   })
-//   .on('error', (error) => {
-//     console.error('Error reading CSV file:', error);
-//   });
-
 const storeItems = new Map([
     [1, { name:'rosace puffer',price: 'price_1NuWNwK8Jr4dUR3ty3C5rHR7',prod:'prod_OhwGIjmOeFpH4L'}],
     [2, { name:'jupi longsleeve black',price: 'price_1NuWYlK8Jr4dUR3tXDfNzSYl',prod:'prod_OhwRDa8k4pCw8T'}],
@@ -90,6 +63,9 @@ app.post("/create-checkout-session", async (req, res) => {
         const lineItem = {
             price: storeItem.price,
             quantity: item.quantity,
+            metadata: {
+              Stock: item.stock,
+            },
         };
         items.push(lineItem);
     });
