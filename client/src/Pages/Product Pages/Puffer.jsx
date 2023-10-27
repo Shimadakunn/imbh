@@ -127,7 +127,6 @@ const InfoContainer = styled.div`
   position: relative;
 `
 const Info = styled.div`
-    position: fixed;
     position: sticky;
     transition: 100ms;
     top: 0;
@@ -138,7 +137,7 @@ const Info = styled.div`
         position: absolute;
         right: 50%;
         transform: translateX(50%);
-        top: 65%;
+        top: 67.5%;
         height: 3.5vh;
         width: 30vw;
         @media (max-width: 480px) {width: 30vw;font-size: 0.75rem;};
@@ -170,7 +169,7 @@ const Info = styled.div`
     p {
       position: absolute;
       right: 50%;
-      top: 40%;
+      top: 42.5%;
       transform: translate(50%, -50%);
       text-align: center;
       width: 70%;
@@ -182,13 +181,16 @@ const Info = styled.div`
         font-size: 1.5rem;
         font-weight: 1000;
       }
+      &.stock{
+        top: 37.5%;
+      }
       @media (max-width: 480px) {font-size: 0.7rem;
         width: 85%;};
     }
     div{
       position: absolute;
       right: 50%;
-      top: 52.5%;
+      top: 55%;
       transform: translate(50%, -50%);
       width: 100%;
     }
@@ -215,6 +217,7 @@ const Categories = styled.div`
 `
 function Puffer() {
     const {cartItems, setCartItems} = useContext(CartContext);
+const {stockData} = useContext(CartContext);
     const [lastItem, setLastItem] = useState(null);
     const [showAddedItem, setShowAddedItem] = useState(false);
     const [addedItemClassName, setAddedItemClassName] = useState('');
@@ -269,10 +272,11 @@ function Puffer() {
                             <h1>ROSACE PUFFER BLACK</h1>
                             <p>100% POLYESTER MICROFIBER FABRIC. METALIC ZIP, FILLED WITH VIRGIN FIBER TREATED</p>
                             <p className="price">400€</p>
+                            <p  className="stock">{stockData[0]} items left</p>
                             <Categories>
                               <img className="selected" src={`./img/1.webp`}/>
                             </Categories>
-                            <button onClick={() => {addToCart({ id: 1, name: 'ROSACE PUFFER', price: 400})}}>Add to Cart</button>
+                            <button onClick={() => {if(stockData[0]){addToCart({ id: 1, name: 'ROSACE PUFFER', price: 400})}}}>Add to Cart</button>
                         </Info>
                     </InfoContainer>
             </Page>

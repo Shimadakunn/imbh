@@ -128,7 +128,6 @@ const InfoContainer = styled.div`
   position: relative;
 `
 const Info = styled.div`
-    position: fixed;
     position: sticky;
     transition: 100ms;
     top: 0;
@@ -139,7 +138,7 @@ const Info = styled.div`
         position: absolute;
         right: 50%;
         transform: translateX(50%);
-        top: 65%;
+        top: 67.5%;
         height: 3.5vh;
         width: 30vw;
         @media (max-width: 480px) {width: 30vw;font-size: 0.75rem;};
@@ -171,7 +170,7 @@ const Info = styled.div`
     p {
       position: absolute;
       right: 50%;
-      top: 40%;
+      top: 42.5%;
       transform: translate(50%, -50%);
       text-align: center;
       width: 70%;
@@ -183,13 +182,16 @@ const Info = styled.div`
         font-size: 1.5rem;
         font-weight: 1000;
       }
+      &.stock{
+        top: 37.5%;
+      }
       @media (max-width: 480px) {font-size: 0.7rem;
         width: 85%;};
     }
     div{
       position: absolute;
       right: 50%;
-      top: 52.5%;
+      top: 55%;
       transform: translate(50%, -50%);
       width: 100%;
     }
@@ -273,12 +275,13 @@ function Puffer() {
                         <h1>JUPITER PANTS MILANO</h1>
                         <p>75% POLYESTER 20% VISCOSE 5% ELASTHANNE. FILLED WITH VIRGIN FIBERS TREATED</p>
                         <p className="price">285€</p>
+                        <p  className="stock">{stockData[7]} items left</p>
                         <div>
                           <Categories>
                             <img className="selected" src={`./img/8.webp`}/>
                           </Categories>
                         </div>
-                        <button onClick={() => {addToCart({ id: 8, name: "JUPITER (MILANO)", price: 285})}}>Add to Cart</button>
+                        <button onClick={() => {if(stockData[7]!==0){addToCart({ id: 8, name: "JUPITER (MILANO)", price: 285})}}}>Add to Cart</button>
                     </Info>
                 </InfoContainer>
             </Page>

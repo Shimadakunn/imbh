@@ -128,7 +128,6 @@ const InfoContainer = styled.div`
   position: relative;
 `
 const Info = styled.div`
-    position: fixed;
     position: sticky;
     transition: 100ms;
     top: 0;
@@ -139,7 +138,7 @@ const Info = styled.div`
         position: absolute;
         right: 50%;
         transform: translateX(50%);
-        top: 65%;
+        top: 67.5%;
         height: 3.5vh;
         width: 30vw;
         @media (max-width: 480px) {width: 30vw;font-size: 0.75rem;};
@@ -171,7 +170,7 @@ const Info = styled.div`
     p {
       position: absolute;
       right: 50%;
-      top: 40%;
+      top: 42.5%;
       transform: translate(50%, -50%);
       text-align: center;
       width: 70%;
@@ -183,13 +182,16 @@ const Info = styled.div`
         font-size: 1.5rem;
         font-weight: 1000;
       }
+      &.stock{
+        top: 37.5%;
+      }
       @media (max-width: 480px) {font-size: 0.7rem;
         width: 85%;};
     }
     div{
       position: absolute;
       right: 50%;
-      top: 52.5%;
+      top: 55%;
       transform: translate(50%, -50%);
       width: 100%;
     }
@@ -216,6 +218,7 @@ const Categories = styled.div`
 `
 function Puffer() {
     const {cartItems, setCartItems} = useContext(CartContext);
+const {stockData} = useContext(CartContext);
     const [lastItem, setLastItem] = useState(null);
     const [showAddedItem, setShowAddedItem] = useState(false);
     const [addedItemClassName, setAddedItemClassName] = useState('');
@@ -272,13 +275,14 @@ function Puffer() {
                         <h1>SHADOW MESH HOODIE ({selectedCategorie === 3 ? "BLACK" : "COOPER"})</h1>
                         <p>100% POLYESTER MAILLE WITH CROCO PATTERN</p>
                         <p className="price">95€</p>
+                        <p  className="stock">{selectedCategorie === 3 ? stockData[2] : stockData[4]} items left</p>
                         <div>
                           <Categories>
                             <img className={selectedCategorie === 3 ? "selected" : ""} src={`./img/3.webp`} onClick={() => setSelectedCategorie(3)}/>
                             <img className={selectedCategorie === 4 ? "selected" : ""} src={`./img/4.webp`} onClick={() => setSelectedCategorie(4)}/>
                           </Categories>
                         </div>
-                        <button onClick={() => {addToCart({ id: selectedCategorie, name: selectedCategorie === 3 ? "SHADOW HOODIE (BLACK)" : "SHADOW HOODIE (COPPER)", price: 95})}}>Add to Cart</button>
+                        <button onClick={() => {if(selectedCategorie === 3 && stockData[2] !== 0 || selectedCategorie === 4 && stockData[3] !==0){addToCart({ id: selectedCategorie, name: selectedCategorie === 3 ? "SHADOW HOODIE (BLACK)" : "SHADOW HOODIE (COPPER)", price: 95})}}}>Add to Cart</button>
                     </Info>
                 </InfoContainer>
             </Page>
