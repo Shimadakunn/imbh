@@ -18,7 +18,6 @@ const AppProvider = ({ children }) => {
         }
       };
       fetchData();
-      console.log(stockData);
     }, []);
 
   return (

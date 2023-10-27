@@ -287,6 +287,10 @@ const Option = styled.div`
 function Shop() {
   const navigate = useNavigate();
     const {cartItems, setCartItems} = useContext(CartContext);
+    const {stockData} = useContext(CartContext);
+    useEffect(() => {
+      console.log(stockData);
+    }, []);
     const [lastItem, setLastItem] = useState(null);
     const [showAddedItem, setShowAddedItem] = useState(false);
     const [addedItemClassName, setAddedItemClassName] = useState('');

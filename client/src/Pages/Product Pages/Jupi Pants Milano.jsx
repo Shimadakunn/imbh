@@ -216,6 +216,7 @@ const Categories = styled.div`
 `
 function Puffer() {
     const {cartItems, setCartItems} = useContext(CartContext);
+    const {stockData} = useContext(CartContext);
     const [lastItem, setLastItem] = useState(null);
     const [showAddedItem, setShowAddedItem] = useState(false);
     const [addedItemClassName, setAddedItemClassName] = useState('');
