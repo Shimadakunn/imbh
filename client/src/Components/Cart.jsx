@@ -175,7 +175,7 @@ function Cart(){
         items: cartItems.map((item,index) => ({
           id: item.id,
           quantity: item.quantity,
-          stock: stockData[id-1] - item.quantity,
+          stock: stockData[item.id-1] - item.quantity,
         })),
       }),
     }).then(async res => {
