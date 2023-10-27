@@ -63,9 +63,6 @@ app.post("/create-checkout-session", async (req, res) => {
         const lineItem = {
             price: storeItem.price,
             quantity: item.quantity,
-            metadata:{
-              Stock: "5"
-            }
         };
         items.push(lineItem);
     });
