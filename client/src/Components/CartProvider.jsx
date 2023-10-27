@@ -11,7 +11,7 @@ const AppProvider = ({ children }) => {
         try {
           const response = await fetch('https://imbh-server.vercel.app/');
           const data = await response.json();
-          const stocks = data.stocks.map(stock => stock.stock);
+          const stocks = data.stocks.map(stock => parseInt(stock.stock));
           setStockData(stocks);
         } catch (error) {
           console.log('Error fetching data:', error);

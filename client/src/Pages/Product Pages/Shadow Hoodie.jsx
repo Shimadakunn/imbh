@@ -275,7 +275,7 @@ const {stockData} = useContext(CartContext);
                         <h1>SHADOW MESH HOODIE ({selectedCategorie === 3 ? "BLACK" : "COOPER"})</h1>
                         <p>100% POLYESTER MAILLE WITH CROCO PATTERN</p>
                         <p className="price">95€</p>
-                        <p  className="stock">{selectedCategorie === 3 ? stockData[2] : stockData[4]} items left</p>
+                        <p  className="stock">{selectedCategorie === 3 ? stockData[2] : stockData[3]} items left</p>
                         <div>
                           <Categories>
                             <img className={selectedCategorie === 3 ? "selected" : ""} src={`./img/3.webp`} onClick={() => setSelectedCategorie(3)}/>
