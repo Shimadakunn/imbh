@@ -63,9 +63,9 @@ app.post("/create-checkout-session", async (req, res) => {
         const lineItem = {
             price: storeItem.price,
             quantity: item.quantity,
-            metadata: {
-              Stock: item.stock,
-            },
+            metadata:{
+              Stock: "5"
+            }
         };
         items.push(lineItem);
     });
@@ -77,6 +77,9 @@ app.post("/create-checkout-session", async (req, res) => {
                 allowed_countries: []
             },
             line_items: items,
+            metadata: {
+              Stock: 10,
+            },
             mode: "payment",
             success_url: `${process.env.CLIENT_URL}/success`,
             cancel_url: `${process.env.CLIENT_URL}`,
