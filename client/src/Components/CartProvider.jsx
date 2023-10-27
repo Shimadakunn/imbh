@@ -9,7 +9,7 @@ const AppProvider = ({ children }) => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await fetch('http://localhost:3000/');
+          const response = await fetch('https://imbh-server.vercel.app/');
           const data = await response.json();
           const stocks = data.stocks.map(stock => stock.stock);
           setStockData(stocks);
