@@ -35,8 +35,8 @@ const Text = styled.p`
 function Header() {
     return (
         <Foot>
-            <a href="https://www.instagram.com/imbehindmyhead/"><Img className = "insta" src="./icon/insta.svg"/></a>
-            <a href="https://twitter.com/Imbehindmyhead1"><Img className = "twitter" src="./icon/twitter.svg"/></a>
+            <Img className = "insta" src="./icon/insta.svg" onClick={()=>window.open('https://www.instagram.com/imbehindmyhead/', '_blank')}/>
+            <Img className = "twitter" src="./icon/twitter.svg" onClick={()=>window.open('https://twitter.com/Imbehindmyhead1', '_blank')}/>
             <Text className ="cvg">CVG</Text>
         </Foot>
     )

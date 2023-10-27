@@ -203,9 +203,9 @@ const Categories = styled.div`
         object-fit: cover;
         overflow: hidden;
         width: 20%;
-        @media (max-width: 480px) {width: 40%;};
         padding: 0.5rem;
         border: 1px solid transparent;
+        @media (max-width: 480px) {width: 40%;};
         &.selected{
           border: 1px solid white;
         }
@@ -219,7 +219,7 @@ function Puffer() {
     const [lastItem, setLastItem] = useState(null);
     const [showAddedItem, setShowAddedItem] = useState(false);
     const [addedItemClassName, setAddedItemClassName] = useState('');
-    const [selectedCategorie, setSelectedCategorie] = useState(5);
+    const [selectedCategorie, setSelectedCategorie] = useState(8);
     const addToCart = (item) => {
         setLastItem(item);
         const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
@@ -262,23 +262,22 @@ function Puffer() {
             )}
             <Page>
                 <Images>
-                    <ImageFrame className="img1"><img src={`./img/5/5_5.webp`}/></ImageFrame>
-                    <ImageFrame className="img2"><img src={`./img/5/5_6.webp`}/></ImageFrame>
-                    <ImageFrame className="img3"><img src={`./img/5/5_4.webp`}/></ImageFrame>
-                    <ImageFrame className="img4"><img src={`./img/5/5_8.webp`}/></ImageFrame>
+                    <ImageFrame className="img1"><img src={`./img/8/8_2.webp`}/></ImageFrame>
+                    <ImageFrame className="img2"><img src={`./img/8/8_3.webp`}/></ImageFrame>
+                    <ImageFrame className="img3"><img src={`./img/8/8_4.webp`}/></ImageFrame>
+                    <ImageFrame className="img4"><img src={`./img/8/8_5.webp`}/></ImageFrame>
                 </Images>
                 <InfoContainer>
                     <Info>
-                        <h1>SHADOW MESH HOODIE ({selectedCategorie === 5 ? "BLACK" : "COOPER"})</h1>
-                        <p>100% POLYESTER MAILLE WITH CROCO PATTERN</p>
-                        <p className="price">150€</p>
+                        <h1>JUPITER PANTS BLACK MICROFIBER</h1>
+                        <p>100% NYLON INSIDE IS QUILTED AND FILLED WITH VIRGIN FIBERS TREATED</p>
+                        <p className="price">375€</p>
                         <div>
                           <Categories>
-                            <img className={selectedCategorie === 5 ? "selected" : ""} src={`./img/5.webp`} onClick={() => setSelectedCategorie(5)}/>
-                            <img className={selectedCategorie === 6 ? "selected" : ""} src={`./img/6.webp`} onClick={() => setSelectedCategorie(6)}/>
+                            <img className="selected" src={`./img/9.webp`}/>
                           </Categories>
                         </div>
-                        <button onClick={() => {addToCart({ id: selectedCategorie, name: selectedCategorie === 5 ? "SHADOW DRESS (BLACK)" : "SHADOW DRESS (COPPER)", price: 150})}}>Add to Cart</button>
+                        <button onClick={() => {addToCart({ id: 9, name: "JUPITER (MICROFIBER)", price: 375})}}>Add to Cart</button>
                     </Info>
                 </InfoContainer>
             </Page>
@@ -286,4 +285,4 @@ function Puffer() {
     );
   }
   
-  export default Puffer
+  export default Puffer;

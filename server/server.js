@@ -10,28 +10,78 @@ app.use(cors({
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
+// const fs = require('fs');
+// const csv = require('csv-parser');
+
+// const storeItems = new Map();
+
+// fs.createReadStream('prices.csv')
+//   .pipe(csv())
+//   .on('data', (row) => {
+//     const priceId = row['Price ID'];
+//     const productId = row['Product ID'];
+//     const productName = row['Product Name'];
+//     const item = {
+//       name: productName,
+//       price: priceId,
+//       prod: productId
+//     };
+//     const key = storeItems.size + 1;
+//     storeItems.set(key, item);
+//   })
+//   .on('end', () => {
+//     console.log('CSV file processed');
+//     console.log('storeItems:', storeItems);
+//   })
+//   .on('error', (error) => {
+//     console.error('Error reading CSV file:', error);
+//   });
+
 const storeItems = new Map([
-    [1, { price: 'price_1NuWNwK8Jr4dUR3ty3C5rHR7'}],
-    [2, { price: 'price_1NuWYlK8Jr4dUR3tXDfNzSYl'}],
-    [3, { price: 'price_1NuWB7K8Jr4dUR3tBGPL2Q3v'}],
-    [4, { price: 'price_1NuWFwK8Jr4dUR3t4Ixg5sfy'}],
-    [5, { price: 'price_1NxdRLK8Jr4dUR3tAGQQESYI'}],
-    [6, { price: 'price_1NxdV6K8Jr4dUR3tW8h9DDUa'}],
-    [7, { price: ''}],
-    [8, { price: 'price_1NuWV5K8Jr4dUR3tVNE93Wuk'}],
-    [9, { price: 'price_1NuX6NK8Jr4dUR3tgrqlABOr'}],
-    [10, { price: 'price_1NuWaeK8Jr4dUR3tEdbe0l5E'}],
-    [11, { price: 'price_1NuWbXK8Jr4dUR3t2A8f8Oyh'}],
-    [12, { price: 'price_1NuWKvK8Jr4dUR3tdP6hK4fp'}],
-    [13, { price: 'price_1NuWJyK8Jr4dUR3tKVkwaFbO'}],
-    [14, { price: 'price_1NxcyLK8Jr4dUR3t5ucg5mTi'}],
-    [15, { price: 'price_1NxcxhK8Jr4dUR3tdSYlHKDg'}],
-    [16, { price: ''}],
+    [1, { name:'rosace puffer',price: 'price_1NuWNwK8Jr4dUR3ty3C5rHR7',prod:'prod_OhwGIjmOeFpH4L'}],
+    [2, { name:'jupi longsleeve black',price: 'price_1NuWYlK8Jr4dUR3tXDfNzSYl',prod:'prod_OhwRDa8k4pCw8T'}],
+    [3, { name:'shadow hoodie black',price: 'price_1NuWB7K8Jr4dUR3tBGPL2Q3v',prod:'prod_Ohw3TcfkOT0IYx'}],
+    [4, { name:'shadow hoodie copper',price: 'price_1NuWFwK8Jr4dUR3t4Ixg5sfy',prod:'prod_Ohw8LXOV0d5myL'}],
+    [5, { name:'shadow dress black',price: 'price_1NxdRLK8Jr4dUR3tAGQQESYI',prod:'prod_Ol9kzg4xyhDx7q'}],
+    [6, { name:'shadow dress red',price: 'price_1NxdV6K8Jr4dUR3tW8h9DDUa',prod:'prod_Ol9oXpWonESEu8'}],
+    [7, { name:'jupi anorak black',price: 'price_1O5AtgK8Jr4dUR3t1emjOlGD',prod:'prod_OswnnKWEVPOqUR'}],
+    [8, { name:'jupi pant milano',price: 'price_1NuWV5K8Jr4dUR3tVNE93Wuk',prod:'prod_OhwNyEn1xlGQAA'}],
+    [9, { name:'jupi pant micro',price: 'price_1NuX6NK8Jr4dUR3tgrqlABOr',prod:'prod_Ohx0BBXGs1oktz'}],
+    [10, { name:'shadow durag black',price: 'price_1NuWaeK8Jr4dUR3tEdbe0l5E',prod:'prod_OhwTK4ORtssepc'}],
+    [11, { name:'shadow durag copper',price: 'price_1NuWbXK8Jr4dUR3t2A8f8Oyh',prod:'prod_OhwUlLFF8fpLzL'}],
+    [12, { name:'scar longsleeve dust',price: 'price_1NuWJyK8Jr4dUR3tKVkwaFbO',prod:'prod_OhwCcyTTjY85DL'}],
+    [13, { name:'scar longsleeve blood',price: 'price_1NuWKvK8Jr4dUR3tdP6hK4fp',prod:'prod_OhwDC1vHcX7JQB'}],
 ]);
 
 app.get("/", (req, res) => {
-    res.json({message: "Hello from server"});
-});
+    async function getProductMetadata(productId) {
+      try {
+        const product = await stripe.products.retrieve(productId);
+        const metadata = product.metadata;
+        return metadata;
+      } catch (error) {
+        console.error('Error retrieving product metadata:', error);
+        throw error;
+      }
+    }
+    const stocks = [];
+    const itemsArray = [...storeItems];
+    Promise.all(itemsArray.map(([key, item]) => getProductMetadata(item.prod)))
+      .then(metadataArray => {
+        metadataArray.forEach((metadata, index) => {
+          const item = itemsArray[index][1];
+          const stock = metadata.Stock || 'N/A';
+          stocks.push({ index: index+1, name: item.name, stock });
+        });
+  
+        console.log('Stocks:', stocks);
+        res.json({ stocks });
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        res.status(500).json({ error: 'An error occurred' });
+      });
+  });
 
 app.post("/create-checkout-session", async (req, res) => {
     const items = [];

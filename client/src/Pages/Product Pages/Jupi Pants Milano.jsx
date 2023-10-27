@@ -120,7 +120,7 @@ const ImageFrame = styled.div`
         object-fit: cover;
         aspect-ratio: 1/1.2;
         overflow: hidden;
-        width: 100%;
+        width: 60%;
     }
 }
 `
@@ -219,7 +219,7 @@ function Puffer() {
     const [lastItem, setLastItem] = useState(null);
     const [showAddedItem, setShowAddedItem] = useState(false);
     const [addedItemClassName, setAddedItemClassName] = useState('');
-    const [selectedCategorie, setSelectedCategorie] = useState(14);
+    const [selectedCategorie, setSelectedCategorie] = useState(8);
     const addToCart = (item) => {
         setLastItem(item);
         const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
@@ -262,23 +262,22 @@ function Puffer() {
             )}
             <Page>
                 <Images>
-                    <ImageFrame className="img1"><img src={`./img/1_2.webp`}/></ImageFrame>
-                    <ImageFrame className="img2"><img src={`./img/2_2.webp`}/></ImageFrame>
-                    <ImageFrame className="img3"><img src={`./img/1_1.webp`}/></ImageFrame>
-                    <ImageFrame className="img4"><img src={`./img/2_1.webp`}/></ImageFrame>
+                    <ImageFrame className="img1"><img src={`./img/8.webp`}/></ImageFrame>
+                    <ImageFrame className="img2"><img src={`./img/8/8_2.webp`}/></ImageFrame>
+                    <ImageFrame className="img3"><img src={`./img/8/8_4.webp`}/></ImageFrame>
+                    <ImageFrame className="img4"><img src={`./img/8/8_5.webp`}/></ImageFrame>
                 </Images>
                 <InfoContainer>
                     <Info>
-                        <h1>SCAR TOP SHORTSLEEVES ({selectedCategorie === 14 ? "DUST" : "BLOOD"}) </h1>
-                        <p>100% MESH SHORTSLEEVES BI COLOUR</p>
-                        <p className="price">95€</p>
+                        <h1>JUPITER PANTS MILANO</h1>
+                        <p>75% POLYESTER 20% VISCOSE 5% ELASTHANNE. FILLED WITH VIRGIN FIBERS TREATED</p>
+                        <p className="price">285€</p>
                         <div>
                           <Categories>
-                            <img className={selectedCategorie === 14 ? "selected" : ""} src={`./img/15.webp`} onClick={() => setSelectedCategorie(14)}/>
-                            <img className={selectedCategorie === 15 ? "selected" : ""} src={`./img/15.webp`} onClick={() => setSelectedCategorie(15)}/>
+                            <img className="selected" src={`./img/8.webp`}/>
                           </Categories>
                         </div>
-                        <button onClick={() => {addToCart({ id: selectedCategorie, name: selectedCategorie === 14 ? "SCAR SHORT (DUST)" : "SCAR SHORT (BLOOD)", price: 95})}}>Add to Cart</button>
+                        <button onClick={() => {addToCart({ id: 8, name: "JUPITER (MILANO)", price: 285})}}>Add to Cart</button>
                     </Info>
                 </InfoContainer>
             </Page>
@@ -286,4 +285,4 @@ function Puffer() {
     );
   }
   
-  export default Puffer
+  export default Puffer;

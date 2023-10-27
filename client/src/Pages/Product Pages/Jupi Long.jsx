@@ -269,16 +269,15 @@ function Puffer() {
                 </Images>
                 <InfoContainer>
                     <Info>
-                        <h1>JUPITER PANTS BLACK ({selectedCategorie === 8 ? "MILANO" : "MICROFIBER"}) </h1>
-                        <p>({selectedCategorie === 8 ? "75% POLYESTER 20% VISCOSE 5% ELASTHANNE. FILLED WITH VIRGIN FIBERS TREATED" : "100% NYLON INSIDE IS QUILTED AND FILLED WITH VIRGIN FIBERS TREATED"})</p>
-                        <p className="price">375€</p>
+                        <h1>JUPITER LONGSLEEVE (BLACK)</h1>
+                        <p>75% POLYESTER 20% VISCOSE 5% ELASTHANNE. FILLED WITH VIRGIN FIBERS TREATED</p>
+                        <p className="price">185€</p>
                         <div>
                           <Categories>
-                            <img className={selectedCategorie === 8 ? "selected" : ""} src={`./img/8.webp`} onClick={() => setSelectedCategorie(8)}/>
-                            <img className={selectedCategorie === 9 ? "selected" : ""} src={`./img/9.webp`} onClick={() => setSelectedCategorie(9)}/>
+                            <img className="selected" src={`./img/2.webp`}/>
                           </Categories>
                         </div>
-                        <button onClick={() => {addToCart({ id: selectedCategorie, name: selectedCategorie === 8 ? "JUPITER (MILANO)" : "JUPITER (MICROFIBER)", price: 375})}}>Add to Cart</button>
+                        <button onClick={() => {addToCart({ id: 2, name: "JUPITER LONGSLEEVE (BLACK)", price: 185})}}>Add to Cart</button>
                     </Info>
                 </InfoContainer>
             </Page>

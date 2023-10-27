@@ -126,8 +126,8 @@ font-weight: 1000;
 const Checkout=styled.button`
     height: 5%;
     width: 100%;
-    background-color: white;
     border: none;
+    background-color: white;
     color: #10100e;
     font-size: 1rem;
     font-weight: 775;
@@ -211,7 +211,7 @@ function Cart(){
                 <TotalText>TOTAL</TotalText>
                 <TotalPrice>{calculateTotal()}€</TotalPrice>
             </Total>
-            <Checkout onClick={() => {if(!isLoading){Pay()}}} onMouseEnter={() =>setIsHovered(true)} onMouseLeave={() =>setIsHovered(false)}>
+            <Checkout onClick={() => {if(!isLoading && Object.keys(cartItems).length !== 0){Pay()}}} onMouseEnter={() =>setIsHovered(true)} onMouseLeave={() =>setIsHovered(false)}>
               {isLoading ? (
                 <Ring 
                 size={30}

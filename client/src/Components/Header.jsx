@@ -9,6 +9,7 @@ const Head = styled.header`
   align-items: center;
   justify-content: space-between;
   padding:0 5rem;
+  margin-bottom: 0.5rem;
   position: sticky;
   top: 0;
   z-index: 2;

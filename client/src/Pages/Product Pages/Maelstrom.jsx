@@ -261,10 +261,10 @@ function Puffer() {
             )}
             <Page>
                 <Images>
-                    <ImageFrame className="img1"><img src={`./img/7/7_3.webp`}/></ImageFrame>
-                    <ImageFrame className="img2"><img src={`./img/7/7_8.webp`}/></ImageFrame>
-                    <ImageFrame className="img3"><img src={`./img/7/7_5.webp`}/></ImageFrame>
-                    <ImageFrame className="img4"><img src={`./img/7/7_7.webp`}/></ImageFrame>
+                    <ImageFrame className="img1"><img src={`./img/14/7_3.webp`}/></ImageFrame>
+                    <ImageFrame className="img2"><img src={`./img/14/7_8.webp`}/></ImageFrame>
+                    <ImageFrame className="img3"><img src={`./img/14/7_5.webp`}/></ImageFrame>
+                    <ImageFrame className="img4"><img src={`./img/14/7_7.webp`}/></ImageFrame>
                 </Images>
                 <InfoContainer>
                     <Info>
@@ -272,7 +272,7 @@ function Puffer() {
                         <p>100% MESH SHORTSLEEVES BI COLOUR</p>
                         <p className="price">4500€</p>
                         <Categories>
-                          <img className="selected" src={`./img/7.webp`}/>
+                          <img className="selected" src={`./img/14.webp`}/>
                         </Categories>
                         {/* <button onClick={() => {addToCart({ id: 7, name: 'MAELSTROM', price: 4500})}}>Add to Cart</button> */}
                         <button>COMING SOON</button>
