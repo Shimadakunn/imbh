@@ -181,6 +181,7 @@ const ShootImg = styled.img`
   object-fit: cover;
   aspect-ratio: 1/1.2;
   overflow: hidden;
+  background-color: #10100e;
   width: 100%;
   opacity: ${({ show }) => (show ? '1' : '0')};
   transition: opacity 500ms ease;
@@ -407,7 +408,7 @@ function Shop() {
                 </ProductFrame>
                 <ProductFrame className="product5" onMouseEnter={() =>handleMouseEnter(1)} onMouseLeave={() =>handleMouseLeave(1)}>
                     <ProcuctImg src="./img/7.webp"/>
-                    <ShootImg show={isHovered[1]} src="./img/8/8_2.webp" onClick={() => {isHovered[1] ? navigate("/jupiter anorak"):null;}}/>
+                    <ShootImg show={isHovered[1]} src="./img/7/7_4.webp" onClick={() => {isHovered[1] ? navigate("/jupiter anorak"):null;}}/>
                     <ProductName  className="product5" show={isHovered[1]}>JUPITER ANORAK</ProductName>
                     <ProductPrice  className="product5" show={isHovered[1]}>450€</ProductPrice>
                     <ProductBar show={isHovered[1]}>
@@ -471,7 +472,7 @@ function Shop() {
                 </ProductFrame>
                 <ProductFrame className="product1" onMouseEnter={() =>handleMouseEnter(5)} onMouseLeave={() =>{handleMouseLeave(5);setSelectedCategorie(0)}}>
                     <ProcuctImg src="./img/9.webp" onClick={() => {isHovered[5] ? navigate("/jupi pants micro"):null;}}/>
-                    <ShootImg show={isHovered[5]} src="./img/8/8_2.webp" onClick={() => {navigate("/jupi pants micro")}}/>
+                    <ShootImg show={isHovered[5]} src="./img/9/9_4.webp" onClick={() => {navigate("/jupi pants micro")}}/>
                     <ProductName className="product" show={isHovered[5]}>JUPITER MICROFIBER</ProductName>
                     <ProductPrice className="product" show={isHovered[5]}>375€</ProductPrice>
                     <ProductBar show={isHovered[5]}>
@@ -485,7 +486,7 @@ function Shop() {
                 </ProductFrame>
                 <ProductFrame className="product2" onMouseEnter={() =>handleMouseEnter(8)} onMouseLeave={() =>{handleMouseLeave(8);setSelectedCategorie(0)}}>
                     <ProcuctImg src="./img/8.webp" onClick={() => {isHovered[8] ? navigate("/jupi pants milano"):null;}}/>
-                    <ShootImg show={isHovered[8]} src="./img/8/8_2.webp" onClick={() => {navigate("/jupi pants milano")}}/>
+                    <ShootImg show={isHovered[8]} src="./img/8/8_3.webp" onClick={() => {navigate("/jupi pants milano")}}/>
                     <ProductName className="product" show={isHovered[8]}>JUPITER PANTS MILANO</ProductName>
                     <ProductPrice className="product" show={isHovered[8]}>285€</ProductPrice>
                     <ProductBar show={isHovered[8]}>
@@ -518,7 +519,7 @@ function Shop() {
                 <ProductFrame className="product3" onMouseEnter={() =>handleMouseEnter(7)} onMouseLeave={() =>{handleMouseLeave(7);setSelectedCategorie(0)}}>
                     {selectedCategorie !== 13 ?<ProcuctImg src="./img/12.webp" onClick={() => {isHovered[7] ? navigate("/scar long"):null;}}/>: null}
                     {selectedCategorie === 13 ? <ProcuctImg src="./img/13.webp" onClick={() => {isHovered[7] ? navigate("/scar long"):null;}}/> : null}
-                    {selectedCategorie === 0 ?<ShootImg show={isHovered[7]} src="./img/8/5_2.webp" onClick={() => {isHovered[7] ? navigate("/scar long"):null;}}/>: null}
+                    {selectedCategorie === 0 ?<ShootImg show={isHovered[7]} src="./img/12/12_3.webp" onClick={() => {isHovered[7] ? navigate("/scar long"):null;}}/>: null}
                     <ProductName className="product3" show={isHovered[7]}>SCAR TOP LONGSLEEVES</ProductName>
                     <ProductPrice className="product3" show={isHovered[7]}>115€</ProductPrice>
                     <ProductBar show={isHovered[7]}>
@@ -535,7 +536,7 @@ function Shop() {
                 </ProductFrame>
                 <ProductFrame className="product8" onMouseEnter={() =>handleMouseEnter(9)} onMouseLeave={() =>{handleMouseLeave(9);setSelectedCategorie(0)}}>
                     <ProcuctImg src="./img/2.webp" onClick={() => {isHovered[9] ? navigate("/jupiter long"):null;}}/>
-                    <ShootImg show={isHovered[9]} src="./img/8/8_2.webp" onClick={() => {navigate("/jupiter long")}}/>
+                    <ShootImg show={isHovered[9]} src="./img/2/2_4.webp" onClick={() => {navigate("/jupiter long")}}/>
                     <ProductName className="product" show={isHovered[9]}>JUPITER LONGSLEEVE</ProductName>
                     <ProductPrice className="product" show={isHovered[9]}>185€</ProductPrice>
                     <ProductBar show={isHovered[9]}>

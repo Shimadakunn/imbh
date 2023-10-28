@@ -86,6 +86,7 @@ const Images = styled.div`
         };
 `
 const ImageFrame = styled.div`
+    position: relative;
     aspect-ratio: 1/1.2;
     overflow: hidden;
     display: flex;
@@ -121,6 +122,9 @@ const ImageFrame = styled.div`
         aspect-ratio: 1/1.2;
         overflow: hidden;
         width: 100%;
+        &.min{
+          width: 75%;
+        }
     }
 }
 `
@@ -216,6 +220,15 @@ const Categories = styled.div`
         cursor: pointer;
     }
 `
+const ProductName = styled.div`
+  position: absolute;
+  left:5%;
+  transition: bottom 0.5s ease;
+  font-size: 1rem;
+  font-weight: 600;
+  bottom: 5%;
+  @media (max-width: 480px) {font-size: 0.75rem;};
+`
 function Puffer() {
     const {cartItems, setCartItems} = useContext(CartContext);
 const {stockData} = useContext(CartContext);
@@ -265,10 +278,20 @@ const {stockData} = useContext(CartContext);
             )}
             <Page>
                 <Images>
-                    <ImageFrame className="img1"><img src={`./img/8/8_2.webp`}/></ImageFrame>
-                    <ImageFrame className="img2"><img src={`./img/8/8_3.webp`}/></ImageFrame>
-                    <ImageFrame className="img3"><img src={`./img/8/8_4.webp`}/></ImageFrame>
-                    <ImageFrame className="img4"><img src={`./img/8/8_5.webp`}/></ImageFrame>
+                    <ImageFrame className="img1">
+                      <img className="min" src={`./img/9.webp`}/>
+                      <ProductName>
+                        Front
+                      </ProductName>
+                    </ImageFrame>
+                    <ImageFrame className="img2">
+                      <img className="min" src={`./img/9/9_2.webp`}/>
+                      <ProductName>
+                        Back
+                      </ProductName>
+                    </ImageFrame>
+                    <ImageFrame className="img3"><img src={`./img/9/9_4.webp`}/></ImageFrame>
+                    <ImageFrame className="img4"><img src={`./img/9/9_5.webp`}/></ImageFrame>
                 </Images>
                 <InfoContainer>
                     <Info>

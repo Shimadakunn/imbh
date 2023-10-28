@@ -121,6 +121,9 @@ const ImageFrame = styled.div`
         aspect-ratio: 1/1.2;
         overflow: hidden;
         width: 100%;
+        &.min{
+          width: 75%;
+        }
     }
 }
 `

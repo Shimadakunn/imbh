@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {},
+    screens: {
+      'laptop': '480px',
+    },
   },
   plugins: [],
 }

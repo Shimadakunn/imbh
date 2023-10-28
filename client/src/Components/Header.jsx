@@ -117,7 +117,7 @@ function Header() {
         <NavBar>
             <Access className="logo" onClick={() => {navigate("/");}}><img src="img/logo_2.webp"></img></Access>
             <Access className="home" onClick={() => {navigate("/");}}>HOME</Access>
-            <Access className="about" onClick={() => {navigate("/shop");}}>LOOKBOOK</Access>
+            <Access className="about" onClick={() => {navigate("/shop");}}>SHOP</Access>
             <Access className="cart" onClick={() => {document.body.dataset.cart = "true";}}>
               <img className="iconCart" src={`./icon/bag.png`}/>
               <img className="iconCartWhite" src={`./icon/bag-white.png`}/>

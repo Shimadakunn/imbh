@@ -82,7 +82,8 @@ const Images = styled.div`
     border-bottom: 0px solid white;
     border-left: 0px solid white;
     @media (max-width: 480px) {grid-template-columns: 1fr;
-      grid-template-rows: repeat(2, 1fr);};
+      grid-template-rows: repeat(2, 1fr);
+      height: 50vh;};
 `
 const ImageFrame = styled.div`
     aspect-ratio: 1/1.2;
@@ -120,6 +121,9 @@ const ImageFrame = styled.div`
         aspect-ratio: 1/1.2;
         overflow: hidden;
         width: 100%;
+        &.min{
+          width: 75%;
+        }
     }
 }
 `

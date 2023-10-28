@@ -3,6 +3,7 @@ import CartProvider from './Components/CartProvider'
 import Header from './Components/Header'
 import Footer from './Components/Footer'
 import Cart from './Components/Cart'
+import Home from './Pages/Home'
 import Shop from './Pages/Shop'
 import Puffer from './Pages/Product Pages/Puffer'
 import JupiAno from './Pages/Product Pages/Jupi Ano'
@@ -24,7 +25,8 @@ function App() {
         <Header/>
         <Cart/>
         <Routes>
-          <Route exact path="/" element={<Shop/>} />
+          <Route exact path="/" element={<Home/>} />
+          <Route exact path="/shop" element={<Shop/>} />
           <Route exact path="/rosace puffer" element={<Puffer/>} />
           <Route exact path="/jupiter anorak" element={<JupiAno/>} />
           <Route exact path="/jupiter long" element={<JupiLong/>} />
