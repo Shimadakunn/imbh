@@ -115,10 +115,10 @@ function Header() {
   const {cartItems, setCartItems} = useContext(CartContext);
     return (
       <Head>
-         {location.pathname === '/' || location.pathname === '/shop' ? null : (<ChevronLeft className="absolute left-4 cursor-pointer" onClick={() =>navigate("/shop") }/>)}
+         {location.pathname === '/' || location.pathname === '/shop' ? null : (<ChevronLeft className="absolute laptop:left-4 cursor-pointer left-[-4px] " onClick={() =>navigate("/shop") }/>)}
         <Logo src="img/logo.webp" onClick={() => {navigate("/");}}></Logo>
         <NavBar>
-            <Access className="logo" onClick={() => {navigate("/");}}><img src="img/logo_2.webp"></img></Access>
+            <Access className="logo" onClick={() => {navigate("/shop");}}><img src="img/logo_2.webp"></img></Access>
             <Access className="home" onClick={() => {navigate("/");}}>HOME</Access>
             <Access className="about" onClick={() => {navigate("/shop");}}>SHOP</Access>
             <Access className="cart" onClick={() => {document.body.dataset.cart = "true";}}>
