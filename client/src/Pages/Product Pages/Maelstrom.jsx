@@ -276,7 +276,7 @@ const {stockData} = useContext(CartContext);
                     <Info>
                         <h1>MAELSTROM</h1>
                         <p>100% MESH SHORTSLEEVES BI COLOUR</p>
-                        <p className="price">4500€</p>
+                        <p className="price">???€</p>
                         <Categories>
                           <img className="selected" src={`./img/14.webp`}/>
                         </Categories>

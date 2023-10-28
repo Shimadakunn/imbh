@@ -460,11 +460,8 @@ function Shop() {
                 <ProcuctImg src="./img/14.webp"/>
                     <ShootImg show={isHovered[4]} src="./img/14/7_2.webp" onClick={() => {isHovered[4] ? navigate("/maelstrom"):null;}}/>
                     <ProductName className="product8" show={isHovered[4]}>MAELSTROM</ProductName>
-                    <ProductPrice className="product8" show={isHovered[4]}>4500€</ProductPrice>
+                    <ProductPrice className="product8" show={isHovered[4]}>???€</ProductPrice>
                     <ProductBar show={isHovered[4]}>
-                      {/* <Button onClick={() => {addToCart({ id: 7, name: 'MAELSTROM', price: 120})}}>
-                        ADD <span>TO CART</span>
-                      </Button> */}
                       <Button onClick={() => {navigate("/maelstrom");}}>
                         SEE <span>PRODUCT</span>
                       </Button>
