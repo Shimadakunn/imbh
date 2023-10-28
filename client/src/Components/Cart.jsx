@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext, setState } from 'react';
+import React, { useEffect, useState, useContext} from 'react';
 import {CartContext} from './CartProvider.jsx';
 import styled from 'styled-components';
 import { Ring } from '@uiball/loaders'
@@ -66,6 +66,7 @@ const Article=styled.div`
         position: absolute;
         &.name{
             top: 15%;
+            left: 17.5%;
             margin-left: 1rem;
         }
         &.price{
@@ -87,17 +88,18 @@ const Article=styled.div`
         color: white;
         font-size: 1.2rem;
         &.minus{
-            bottom: 10%;
+            bottom: 15%;
+            left: 20%;
             margin-left: 0.5rem;
             height: 1.5rem;
             width: 1.5rem;
         }
         &.plus{
             @media (max-width: 480px) {right: 50%;};
-            bottom: 10%;
+            bottom: 15%;
             right: 60%;
             height: 1.5rem;
-            width: 1.5rem;
+            width: 1rem;
         }
         &.remove{
             @media (max-width: 480px) {right: 7.5%;};
@@ -138,10 +140,12 @@ const Checkout=styled.button`
       background-color: #10100e;
       border-radius: 5px;
     }
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 function Cart(){
     const {cartItems, setCartItems} = useContext(CartContext);
-    const {stockData} = useContext(CartContext);
   const updateQuantity = (item, newQuantity) => {
       if (newQuantity === 0) {
           removeFromCart(item);
@@ -172,10 +176,9 @@ function Cart(){
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ 
-        items: cartItems.map((item,index) => ({
+        items: cartItems.map((item) => ({
           id: item.id,
-          quantity: item.quantity,
-          stock: (stockData[item.id-1] - item.quantity).toString(),
+          quantity: item.quantity
         })),
       }),
     }).then(async res => {

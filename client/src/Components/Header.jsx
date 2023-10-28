@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext} from 'react';
 import {CartContext} from './CartProvider.jsx';
 import { useNavigate,useLocation} from 'react-router-dom';
 import styled from "styled-components"
+import { ChevronLeft } from 'lucide-react';
 
 const Head = styled.header`
   height: 10vh;
@@ -102,6 +103,7 @@ const Access = styled.div`
 `
 function Header() {
   const navigate = useNavigate();
+  const location = useLocation();
   const { pathname } = useLocation();
   useEffect(() => {
     document.documentElement.scrollTo({
@@ -113,6 +115,7 @@ function Header() {
   const {cartItems, setCartItems} = useContext(CartContext);
     return (
       <Head>
+         {location.pathname === '/' || location.pathname === '/shop' ? null : (<ChevronLeft className="absolute left-4 cursor-pointer" onClick={() =>navigate("/shop") }/>)}
         <Logo src="img/logo.webp" onClick={() => {navigate("/");}}></Logo>
         <NavBar>
             <Access className="logo" onClick={() => {navigate("/");}}><img src="img/logo_2.webp"></img></Access>
