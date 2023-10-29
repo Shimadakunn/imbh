@@ -456,19 +456,8 @@ function Shop() {
                     </ProductBar>
                     <ProductToolTip className={`${addedToolTip[3]}`} show={isHovered[3]}>Select color</ProductToolTip>
                 </ProductFrame>
-                <ProductFrame className="product9" onMouseEnter={() =>handleMouseEnter(4)} onMouseLeave={() =>handleMouseLeave(4)}>
-                <ProcuctImg src="./img/14.webp"/>
-                    <ShootImg show={isHovered[4]} src="./img/14/7_2.webp" onClick={() => {isHovered[4] ? navigate("/maelstrom"):null;}}/>
-                    <ProductName className="product8" show={isHovered[4]}>MAELSTROM</ProductName>
-                    <ProductPrice className="product8" show={isHovered[4]}>???€</ProductPrice>
-                    <ProductBar show={isHovered[4]}>
-                      <Button onClick={() => {navigate("/maelstrom");}}>
-                        SEE <span>PRODUCT</span>
-                      </Button>
-                    </ProductBar>
-                </ProductFrame>
                 <ProductFrame className="product1" onMouseEnter={() =>handleMouseEnter(5)} onMouseLeave={() =>{handleMouseLeave(5);setSelectedCategorie(0)}}>
-                    <ProcuctImg src="./img/9.webp" onClick={() => {isHovered[5] ? navigate("/jupi pants micro"):null;}}/>
+                    <ProcuctImg src="./img/9.webp"/>
                     <ShootImg show={isHovered[5]} src="./img/9/9_4.webp" onClick={() => {navigate("/jupi pants micro")}}/>
                     <ProductName className="product" show={isHovered[5]}>JUPITER MICROFIBER</ProductName>
                     <ProductPrice className="product" show={isHovered[5]}>375€</ProductPrice>
@@ -482,7 +471,7 @@ function Shop() {
                     </ProductBar>
                 </ProductFrame>
                 <ProductFrame className="product2" onMouseEnter={() =>handleMouseEnter(8)} onMouseLeave={() =>{handleMouseLeave(8);setSelectedCategorie(0)}}>
-                    <ProcuctImg src="./img/8.webp" onClick={() => {isHovered[8] ? navigate("/jupi pants milano"):null;}}/>
+                    <ProcuctImg src="./img/8.webp"/>
                     <ShootImg show={isHovered[8]} src="./img/8/8_3.webp" onClick={() => {navigate("/jupi pants milano")}}/>
                     <ProductName className="product" show={isHovered[8]}>JUPITER PANTS MILANO</ProductName>
                     <ProductPrice className="product" show={isHovered[8]}>285€</ProductPrice>
@@ -532,7 +521,7 @@ function Shop() {
                     <ProductToolTip className={`${addedToolTip[7]}`} show={isHovered[7]}>Select color</ProductToolTip>
                 </ProductFrame>
                 <ProductFrame className="product8" onMouseEnter={() =>handleMouseEnter(9)} onMouseLeave={() =>{handleMouseLeave(9);setSelectedCategorie(0)}}>
-                    <ProcuctImg src="./img/2.webp" onClick={() => {isHovered[9] ? navigate("/jupiter long"):null;}}/>
+                    <ProcuctImg src="./img/2.webp"/>
                     <ShootImg show={isHovered[9]} src="./img/2/2_4.webp" onClick={() => {navigate("/jupiter long")}}/>
                     <ProductName className="product" show={isHovered[9]}>JUPITER LONGSLEEVE</ProductName>
                     <ProductPrice className="product" show={isHovered[9]}>185€</ProductPrice>
@@ -542,6 +531,17 @@ function Shop() {
                       </Button>
                       <Button onClick={() => {addToCart({ id: 2, name:"JUPITER LONGSLEEVE" , price:185})}}>
                         ADD <span>TO CART</span>
+                      </Button>
+                    </ProductBar>
+                </ProductFrame>
+                <ProductFrame className="product9" onMouseEnter={() =>handleMouseEnter(4)} onMouseLeave={() =>handleMouseLeave(4)}>
+                    <ProcuctImg src="./img/14.webp"/>
+                    <ShootImg show={isHovered[4]} src="./img/14/7_2.webp" onClick={() => {isHovered[4] ? navigate("/maelstrom"):null;}}/>
+                    <ProductName className="product8" show={isHovered[4]}>MAELSTROM</ProductName>
+                    <ProductPrice className="product8" show={isHovered[4]}>???€</ProductPrice>
+                    <ProductBar show={isHovered[4]}>
+                      <Button onClick={() => {navigate("/maelstrom");}}>
+                        SEE <span>PRODUCT</span>
                       </Button>
                     </ProductBar>
                 </ProductFrame>
