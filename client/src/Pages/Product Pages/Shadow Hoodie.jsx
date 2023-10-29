@@ -188,7 +188,11 @@ const Info = styled.div`
       &.stock{
         top: 37.5%;
       }
-      @media (max-width: 480px) {font-size: 0.7rem;
+      @media (max-width: 480px) {
+        &.description {
+         font-size: 0.5rem;
+        }
+        font-size: 0.7rem;
         width: 85%;};
     }
     div{
@@ -276,7 +280,7 @@ const {stockData} = useContext(CartContext);
                 <InfoContainer>
                     <Info>
                         <h1>SHADOW MESH HOODIE ({selectedCategorie === 3 ? "BLACK" : "COOPER"})</h1>
-                        <p>100% POLYESTER MAILLE WITH CROCO PATTERN</p>
+                        <p className="description">100% POLYESTER MAILLE WITH CROCO PATTERN</p>
                         <p className="price">95€</p>
                         <p  className="stock">{selectedCategorie === 3 ? stockData[2] : stockData[3]} items left</p>
                         <div>

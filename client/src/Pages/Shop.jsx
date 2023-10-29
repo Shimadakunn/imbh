@@ -458,7 +458,7 @@ function Shop() {
                 </ProductFrame>
                 <ProductFrame className="product1" onMouseEnter={() =>handleMouseEnter(5)} onMouseLeave={() =>{handleMouseLeave(5);setSelectedCategorie(0)}}>
                     <ProcuctImg src="./img/9.webp"/>
-                    <ShootImg show={isHovered[5]} src="./img/9/9_4.webp" onClick={() => {navigate("/jupi pants micro")}}/>
+                    <ShootImg show={isHovered[5]} src="./img/9/9_4.webp" onClick={() => {isHovered[5] ?navigate("/jupi pants micro"):null}}/>
                     <ProductName className="product" show={isHovered[5]}>JUPITER MICROFIBER</ProductName>
                     <ProductPrice className="product" show={isHovered[5]}>375€</ProductPrice>
                     <ProductBar show={isHovered[5]}>
@@ -472,7 +472,7 @@ function Shop() {
                 </ProductFrame>
                 <ProductFrame className="product2" onMouseEnter={() =>handleMouseEnter(8)} onMouseLeave={() =>{handleMouseLeave(8);setSelectedCategorie(0)}}>
                     <ProcuctImg src="./img/8.webp"/>
-                    <ShootImg show={isHovered[8]} src="./img/8/8_3.webp" onClick={() => {navigate("/jupi pants milano")}}/>
+                    <ShootImg show={isHovered[8]} src="./img/8/8_3.webp" onClick={() => {isHovered[8] ?navigate("/jupi pants milano"):null}}/>
                     <ProductName className="product" show={isHovered[8]}>JUPITER PANTS MILANO</ProductName>
                     <ProductPrice className="product" show={isHovered[8]}>285€</ProductPrice>
                     <ProductBar show={isHovered[8]}>
@@ -522,7 +522,7 @@ function Shop() {
                 </ProductFrame>
                 <ProductFrame className="product8" onMouseEnter={() =>handleMouseEnter(9)} onMouseLeave={() =>{handleMouseLeave(9);setSelectedCategorie(0)}}>
                     <ProcuctImg src="./img/2.webp"/>
-                    <ShootImg show={isHovered[9]} src="./img/2/2_4.webp" onClick={() => {navigate("/jupiter long")}}/>
+                    <ShootImg show={isHovered[9]} src="./img/2/2_4.webp" onClick={() => {isHovered[9] ?navigate("/jupiter long"):null;}}/>
                     <ProductName className="product" show={isHovered[9]}>JUPITER LONGSLEEVE</ProductName>
                     <ProductPrice className="product" show={isHovered[9]}>185€</ProductPrice>
                     <ProductBar show={isHovered[9]}>

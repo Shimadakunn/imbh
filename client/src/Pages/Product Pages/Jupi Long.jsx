@@ -188,7 +188,11 @@ const Info = styled.div`
       &.stock{
         top: 37.5%;
       }
-      @media (max-width: 480px) {font-size: 0.7rem;
+      @media (max-width: 480px) {
+        &.description {
+         font-size: 0.5rem;
+        }
+        font-size: 0.7rem;
         width: 85%;};
     }
     div{
@@ -295,7 +299,7 @@ const {stockData} = useContext(CartContext);
                 <InfoContainer>
                     <Info>
                         <h1>JUPITER LONGSLEEVE (BLACK)</h1>
-                        <p>75% POLYESTER 20% VISCOSE 5% ELASTHANNE. FILLED WITH VIRGIN FIBERS TREATED</p>
+                        <p className="description">75% POLYESTER 20% VISCOSE 5% ELASTHANNE. FILLED WITH VIRGIN FIBERS TREATED</p>
                         <p className="price">185€</p>
                         <p  className="stock">{stockData[1]} items left</p>
                         <div>

@@ -188,7 +188,11 @@ const Info = styled.div`
       &.stock{
         top: 37.5%;
       }
-      @media (max-width: 480px) {font-size: 0.7rem;
+      @media (max-width: 480px) {
+        &.description {
+         font-size: 0.5rem;
+        }
+        font-size: 0.7rem;
         width: 85%;};
     }
     div{
@@ -294,7 +298,7 @@ function Puffer() {
                 <InfoContainer>
                     <Info>
                         <h1>JUPITER ANORAK BLACK</h1>
-                        <p>100% NYLON INSIDE IS QUILTED AND FILLED WITH VIRGIN FIBERS TREATED</p>
+                        <p className="description">100% NYLON INSIDE IS QUILTED AND FILLED WITH VIRGIN FIBERS TREATED</p>
                         <p className="price">450€</p>
                         <p  className="stock">{stockData[6]} items left</p>
                         <Categories>

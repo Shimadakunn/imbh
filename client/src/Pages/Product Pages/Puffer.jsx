@@ -187,7 +187,11 @@ const Info = styled.div`
       &.stock{
         top: 37.5%;
       }
-      @media (max-width: 480px) {font-size: 0.7rem;
+      @media (max-width: 480px) {
+        &.description {
+         font-size: 0.5rem;
+        }
+        font-size: 0.7rem;
         width: 85%;};
     }
     div{
@@ -273,7 +277,7 @@ const {stockData} = useContext(CartContext);
                     <InfoContainer>
                         <Info>
                             <h1>ROSACE PUFFER BLACK</h1>
-                            <p>100% POLYESTER MICROFIBER FABRIC. METALIC ZIP, FILLED WITH VIRGIN FIBER TREATED</p>
+                            <p className="description">100% POLYESTER MICROFIBER FABRIC. METALIC ZIP, FILLED WITH VIRGIN FIBER TREATED</p>
                             <p className="price">400€</p>
                             <p  className="stock">{stockData[0]} items left</p>
                             <Categories>

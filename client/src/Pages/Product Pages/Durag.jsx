@@ -188,7 +188,11 @@ const Info = styled.div`
       &.stock{
         top: 37.5%;
       }
-      @media (max-width: 480px) {font-size: 0.7rem;
+      @media (max-width: 480px) {
+        &.description {
+         font-size: 0.5rem;
+        }
+        font-size: 0.7rem;
         width: 85%;};
     }
     div{
@@ -276,7 +280,7 @@ function Puffer() {
                 <InfoContainer>
                     <Info>
                         <h1>SHADOW DURAG ({selectedCategorie === 10 ? "BLACK" : "COPPER"}) </h1>
-                        <p>100% POLYESTER MAILLE WITH CROCO PATTERN</p>
+                        <p className="description">100% POLYESTER MAILLE WITH CROCO PATTERN</p>
                         <p className="price">55€</p>
                         <p  className="stock">{selectedCategorie === 10 ? stockData[9] : stockData[10]} items left</p>
                         <div>
