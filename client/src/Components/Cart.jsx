@@ -65,17 +65,19 @@ const Article=styled.div`
     text{
         position: absolute;
         &.name{
+            @media (max-width: 480px) {left: 25%;};
             top: 15%;
             left: 17.5%;
             margin-left: 1rem;
         }
         &.price{
+            @media (max-width: 480px) {right: 2.5%;};
             top: 15%;
             right: 0;
             font-weight: 1000;
         }
         &.quantity{
-            @media (max-width: 480px) {right: 59%;};
+            @media (max-width: 480px) {left: 40%;};
             bottom: 11%;
             right: 68%;
         }
@@ -90,19 +92,20 @@ const Article=styled.div`
         &.minus{
             bottom: 15%;
             left: 20%;
+            @media (max-width: 480px) {left: 25%;};
             margin-left: 0.5rem;
             height: 1.5rem;
             width: 1.5rem;
         }
         &.plus{
-            @media (max-width: 480px) {right: 50%;};
+            @media (max-width: 480px) {left: 50%; width:0.8rem; bottom: 13%;};
             bottom: 15%;
             right: 60%;
             height: 1.5rem;
             width: 1rem;
         }
         &.remove{
-            @media (max-width: 480px) {right: 7.5%;};
+            @media (max-width: 480px) {right: 15%;};
             font-size: 0.8rem;
             bottom: 10%;
             right: 0;
