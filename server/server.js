@@ -23,7 +23,7 @@ const storeItems = new Map([
     [10, { name:'shadow durag black',price: 'price_1NuWaeK8Jr4dUR3tEdbe0l5E',prod:'prod_OhwTK4ORtssepc'}],
     [11, { name:'shadow durag copper',price: 'price_1NuWbXK8Jr4dUR3t2A8f8Oyh',prod:'prod_OhwUlLFF8fpLzL'}],
     [12, { name:'scar longsleeve dust',price: 'price_1NuWJyK8Jr4dUR3tKVkwaFbO',prod:'prod_OhwCcyTTjY85DL'}],
-    [13, { name:'scar longsleeve blood',price: 'price_1O7HHZK8Jr4dUR3t17ivEAch',prod:'prod_Ov7WF1HBGsDgQZ'}],
+    [13, { name:'scar longsleeve blood',price: 'price_1NuWKvK8Jr4dUR3tdP6hK4fp',prod:'prod_OhwDC1vHcX7JQB'}],
 ]);
 
 app.get("/", (req, res) => {
