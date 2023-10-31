@@ -135,17 +135,17 @@ const Info = styled.div`
     position: sticky;
     transition: 100ms;
     top: 0;
-    height: 100vh;
+    height: 99.9vh;
     padding: 5rem;
     border: 1px solid white;
     button {
         position: absolute;
         right: 50%;
         transform: translateX(50%);
-        top: 67.5%;
+        top: 85%;
         height: 3.5vh;
         width: 30vw;
-        @media (max-width: 480px) {width: 30vw;font-size: 0.75rem;};
+        @media (max-width: 480px) {width: 30vw;font-size: 0.75rem;top: 75%;};
         background-color: white;
         border: none;
         color: #10100e;
@@ -202,6 +202,19 @@ const Info = styled.div`
       top: 55%;
       transform: translate(50%, -50%);
       width: 100%;
+      &.sizes{
+        top: 70%;
+        @media (max-width: 480px) {top: 65%;};
+      }
+      &.desc{
+        @media (max-width: 480px) {font-size: 0.5rem;top: 71%;};
+        top: 78%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.7rem;
+        color: grey;
+      }
     }
 `
 const Categories = styled.div`
@@ -224,6 +237,36 @@ const Categories = styled.div`
         cursor: pointer;
     }
 `
+const Sizes = styled.div`
+width: 100%;
+position: relative;
+div {
+  position: absolute;
+  aspect-ratio: 1/1;
+  width: 3.5vw;
+  @media (max-width: 480px) {width: 10vw;};
+  transform: translate(-50%, -50%);
+  &.S {
+    left: 30%;
+    @media (max-width: 480px) {left: 20%;};
+  }
+  &.M {
+    left: 50%;
+  }
+  &.L {
+    left: 70%;
+    @media (max-width: 480px) {left: 80%;};
+  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+  &.selected{
+    border: 1px solid white;
+  }
+}
+`
 const ProductName = styled.div`
   position: absolute;
   left:5%;
@@ -236,23 +279,24 @@ const ProductName = styled.div`
 function Puffer() {
     const {cartItems, setCartItems} = useContext(CartContext);
 const {stockData} = useContext(CartContext);
+    const [size, setSize] = useState('M');
     const [lastItem, setLastItem] = useState(null);
     const [showAddedItem, setShowAddedItem] = useState(false);
     const [addedItemClassName, setAddedItemClassName] = useState('');
     const [selectedCategorie, setSelectedCategorie] = useState(8);
     const addToCart = (item) => {
-        setLastItem(item);
-        const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
-        if (existingItem) {
-          const updatedCart = cartItems.map((cartItem) =>
-            cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
-          );
-          setCartItems(updatedCart);
-        } else {
-          setCartItems([...cartItems, { ...item, quantity: 1 }]);
-        }
-        setShowAddedItem(true);
-    };
+      setLastItem(item);
+      const existingItem = cartItems.find((cartItem) => cartItem.id === item.id && cartItem.size === item.size);
+      if (existingItem) {
+        const updatedCart = cartItems.map((cartItem) =>
+          cartItem.id === item.id  && cartItem.size === item.size? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
+        );
+        setCartItems(updatedCart);
+      } else {
+        setCartItems([...cartItems, { ...item, quantity: 1 }]);
+      }
+      setShowAddedItem(true);
+  };
     useEffect(() => {
         if (showAddedItem) {
             setAddedItemClassName('show');
@@ -276,7 +320,7 @@ const {stockData} = useContext(CartContext);
                     <button onClick={(event) => {event.stopPropagation(); setShowAddedItem(false)}} className="close">X</button>
                     <img className="img" src={`./img/${lastItem.id}.webp`}/>
                     <p className="added">ADDED TO YOUR CART</p>
-                    <p className="name">{lastItem.name}</p>
+                    <p className="name">{lastItem.name} ({lastItem.size[lastItem.size.length - 1]})</p>
                     <p className="price">{lastItem.price}€</p>
                 </AddedProduct>
             )}
@@ -303,12 +347,18 @@ const {stockData} = useContext(CartContext);
                         <p className="description">100% NYLON INSIDE IS QUILTED AND FILLED WITH VIRGIN FIBERS TREATED</p>
                         <p className="price">375€</p>
                         <p  className="stock">{stockData[8]} items left</p>
+                        <div className="desc">The Model mesures 1.85cm and Wears L</div>
                         <div>
                           <Categories>
                             <img className="selected" src={`./img/9.webp`}/>
                           </Categories>
                         </div>
-                        <button onClick={() => {if(stockData[8]!==0){addToCart({ id: 9, name: "JUPITER (MICROFIBER)", price: 375})}}}>Add to Cart</button>
+                        <Sizes className="sizes">
+                          <div className={size === 'S' ? "selected S" : "S"} onClick={() => setSize('S')}>S</div>
+                          <div className={size === 'M' ? "selected M" : "M"} onClick={() => setSize('M')}>M</div>
+                          <div className={size === 'L' ? "selected L" : "L"} onClick={() => setSize('L')}>L</div>
+                        </Sizes>
+                        <button onClick={() => {if(stockData[8]!==0){addToCart({ id: 9, name: "JUPITER (MICROFIBER)", price: 375,size:"Jupi Micro:" + size})}}}>Add to Cart</button>
                     </Info>
                 </InfoContainer>
             </Page>

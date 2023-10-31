@@ -48,6 +48,23 @@ const Close=styled.button`
 const Articles=styled.div`
     height: 70%;
     padding: 1.35rem 0;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      width: 10px;
+      border-radius: 5px;
+    }
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1; 
+      border-radius: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #888; 
+      border-radius: 5px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555; 
+      border-radius: 5px;
+    }
 `
 const Article=styled.div`
     height: 20%;
@@ -73,7 +90,7 @@ const Article=styled.div`
         &.price{
             @media (max-width: 480px) {right: 2.5%;};
             top: 15%;
-            right: 0;
+            right: 5%;
             font-weight: 1000;
         }
         &.quantity{
@@ -108,7 +125,7 @@ const Article=styled.div`
             @media (max-width: 480px) {right: 15%;};
             font-size: 0.8rem;
             bottom: 10%;
-            right: 0;
+            right: 5%;
             height: 3vh;
             width: 3vw;
         }
@@ -154,13 +171,13 @@ function Cart(){
           removeFromCart(item);
         } else {
             const updatedCart = cartItems.map((cartItem) =>
-            cartItem.id === item.id ? { ...cartItem, quantity: newQuantity } : cartItem
+            cartItem.id === item.id && cartItem.size === item.size? { ...cartItem, quantity: newQuantity } : cartItem
             );
             setCartItems(updatedCart);
         }
     };
     const removeFromCart = (item) => {
-      const updatedCart = cartItems.filter((cartItem) => cartItem.id !== item.id);
+      const updatedCart = cartItems.filter((cartItem) => cartItem.id !== item.id || cartItem.size !== item.size);
       setCartItems(updatedCart);
     };
   const calculateTotal = () => {
@@ -181,7 +198,8 @@ function Cart(){
       body: JSON.stringify({ 
         items: cartItems.map((item) => ({
           id: item.id,
-          quantity: item.quantity
+          quantity: item.quantity,
+          size: item.size ? item.size : null,
         })),
       }),
     }).then(async res => {
@@ -191,7 +209,7 @@ function Cart(){
     }).then(({ url }) => {
       window.location = url
     }).catch(e => {console.error(e.error)}).finally(() => {
-      this.setState({ isLoading: false }); 
+      setIsLoading(false); 
     });
   }
     return(
@@ -205,7 +223,7 @@ function Cart(){
                 {cartItems.map((item) => (
                     <Article key={item.id}>
                         <img src={`./img/${item.id}.webp`}/>
-                        <text className="name">{item.name}</text>
+                        <text className="name">{item.name}{item.size !== "null" ? ` (${item.size[item.size.length - 1]})` : null}</text>
                         <text className="price">{item.price*item.quantity}€</text>
                         <button className="minus" onClick={() => updateQuantity(item, item.quantity - 1)}>-</button>
                         <text className="quantity" onChange={(e) => updateQuantity(item, parseInt(e.target.value))}>

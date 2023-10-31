@@ -23,7 +23,7 @@ const storeItems = new Map([
     [10, { name:'shadow durag black',price: 'price_1NuWaeK8Jr4dUR3tEdbe0l5E',prod:'prod_OhwTK4ORtssepc'}],
     [11, { name:'shadow durag copper',price: 'price_1NuWbXK8Jr4dUR3t2A8f8Oyh',prod:'prod_OhwUlLFF8fpLzL'}],
     [12, { name:'scar longsleeve dust',price: 'price_1NuWJyK8Jr4dUR3tKVkwaFbO',prod:'prod_OhwCcyTTjY85DL'}],
-    [13, { name:'scar longsleeve blood',price: 'price_1NuWKvK8Jr4dUR3tdP6hK4fp',prod:'prod_OhwDC1vHcX7JQB'}],
+    [13, { name:'scar longsleeve blood',price: 'price_1O7HHZK8Jr4dUR3t17ivEAch',prod:'prod_Ov7WF1HBGsDgQZ'}],
 ]);
 
 app.get("/", (req, res) => {
@@ -58,6 +58,7 @@ app.get("/", (req, res) => {
 
 app.post("/create-checkout-session", async (req, res) => {
     const items = [];
+    const sizes = [];
     req.body.items.map((item) => {
         const storeItem = storeItems.get(item.id);
         const lineItem = {
@@ -65,18 +66,37 @@ app.post("/create-checkout-session", async (req, res) => {
             quantity: item.quantity,
         };
         items.push(lineItem);
+        if (item.size !== "null") {
+          sizes.push(item.size.toString());
+        }
+    });
+    const fs = require('fs');
+    const filePath = 'countries.txt';
+    const countries = []
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+          console.error('Error reading file:', err);
+          return;
+        }
+        const codes = data.split('\n').map(countryCode => countryCode.trim());
+        countries.push(...codes);
     });
     try {
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ["card"],
-            billing_address_collection: "auto",
+            billing_address_collection: "required",
             shipping_address_collection: {
-                allowed_countries: []
+                allowed_countries: "all",
+            },
+            shipping_address_collection: {allowed_countries: countries
             },
             line_items: items,
             metadata: {
-              Stock: 10,
+              Size: sizes.toString()
             },
+            phone_number_collection: {
+                enabled: true,
+              },
             mode: "payment",
             success_url: `${process.env.CLIENT_URL}/success`,
             cancel_url: `${process.env.CLIENT_URL}`,

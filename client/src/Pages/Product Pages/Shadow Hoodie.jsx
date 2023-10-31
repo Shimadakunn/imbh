@@ -134,7 +134,7 @@ const Info = styled.div`
     position: sticky;
     transition: 100ms;
     top: 0;
-    height: 100vh;
+    height: 99.9vh;
     padding: 5rem;
     border: 1px solid white;
     button {
