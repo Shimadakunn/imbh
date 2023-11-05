@@ -346,7 +346,7 @@ function Puffer() {
                         <p className="description">100% NYLON INSIDE IS QUILTED AND FILLED WITH VIRGIN FIBERS TREATED</p>
                         <p className="price">450€</p>
                         <p  className="stock">{stockData[6]} items left</p>
-                        <div className="desc">The model is 182cm tall and wears a size S. Length = 68cm <br/>You will be able to communicate additional informations about your measurements when finalizing your order</div>
+                        <div className="desc">The model is 182cm tall and wears a size M. Length = 68cm <br/>You will be able to communicate additional informations about your measurements when finalizing your order</div>
                         <Categories>
                           <img className="selected" src={`./img/7.webp`}/>
                         </Categories>

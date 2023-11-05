@@ -344,7 +344,7 @@ const {stockData} = useContext(CartContext);
                 <InfoContainer>
                     <Info>
                         <h1>JUPITER LONGSLEEVE (BLACK)</h1>
-                        <p className="description">75% POLYESTER 20% VISCOSE 5% ELASTHANNE. FILLED WITH VIRGIN FIBERS TREATED</p>
+                        <p className="description">75% POLYESTER 20% VISCOSE 5% ELASTHANNE. FILLED WITH VIRGIN FIBERS TREATED JERSEY</p>
                         <p className="price">185€</p>
                         <p  className="stock">{stockData[1]} items left</p>
                         <div className="desc">The model is 179cm tall and wears a size M. Length = 67cm<br/>You will be able to communicate additional informations about your measurements when finalizing your order</div>

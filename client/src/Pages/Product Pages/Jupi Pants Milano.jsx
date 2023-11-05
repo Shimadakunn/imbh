@@ -344,7 +344,7 @@ function Puffer() {
                 <InfoContainer>
                     <Info>
                         <h1>JUPITER PANTS MILANO</h1>
-                        <p className="description">75% POLYESTER 20% VISCOSE 5% ELASTHANNE. FILLED WITH VIRGIN FIBERS TREATED</p>
+                        <p className="description">75% POLYESTER 20% VISCOSE 5% ELASTHANNE. FILLED WITH VIRGIN FIBERS TREATED JERSEY</p>
                         <p className="price">285€</p>
                         <p  className="stock">{stockData[7]} items left</p>
                         <div className="desc">The model is 186cm tall and wears a size M. Length = 116cm<br/>You will be able to communicate additional informations about your measurements when finalizing your order</div>

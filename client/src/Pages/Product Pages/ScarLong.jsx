@@ -302,7 +302,7 @@ const {stockData} = useContext(CartContext);
                         <p className="description">100% MESH LONGSLEEVE BI COLOUR</p>
                         <p className="price">115€</p>
                         <p  className="stock">{selectedCategorie === 12 ? stockData[11] : stockData[12]} items left</p>
-                        <div className="desc">The model is 186cm tall and wears a size M. Length = 116cm <br/>You will be able to communicate additional informations about your measurements when finalizing your order</div>
+                        <div className="desc">The model is 179cm tall and wears a size M. Length = 63cm<br/>You will be able to communicate additional informations about your measurements when finalizing your order</div>
                         <div>
                           <Categories>
                             <img className={selectedCategorie === 12 ? "selected" : ""} src={`./img/12.webp`} onClick={() => setSelectedCategorie(12)}/>
