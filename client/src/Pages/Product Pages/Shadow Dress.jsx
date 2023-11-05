@@ -293,7 +293,7 @@ const {stockData} = useContext(CartContext);
                         <p className="description">100% POLYESTER MAILLE WITH CROCO PATTERN</p>
                         <p className="price">150€</p>
                         <p  className="stock">{selectedCategorie === 5 ? stockData[4] : stockData[5]} items left</p>
-                        <div className="desc">The model is 165cm tall and wears a size S. Length = 135cm. <br/>You will be able to communicate additional informations about your measurements when finalizing your order</div>
+                        <div className="desc">The model is 165cm tall and wears an unique size. Length = 135cm. <br/>You will be able to communicate additional informations about your measurements when finalizing your order</div>
                         <div>
                           <Categories>
                             <img className={selectedCategorie === 5 ? "selected" : ""} src={`./img/5.webp`} onClick={() => setSelectedCategorie(5)}/>
