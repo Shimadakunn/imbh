@@ -99,14 +99,14 @@ app.post("/create-checkout-session", async (req, res) => {
               },
               custom_fields: [
                 {
-                  "key": "client_info",
+                  "key": "client_height_info",
                   "label": {
-                    "custom": "Each garment is handmade, so we allow ourselves to ask you additional informations to create the most comfortable clothes.\nEnter your height in cm (e.g., 175 cm).",
+                    "custom": "Enter your height in cm (e.g., 175 cm).",
                     "type":"custom"
                   },
                   "type": "numeric"
                 },{
-                  "key": "client_info",
+                  "key": "client_weight_info",
                   "label": {
                     "custom": "Enter your weight in kg (e.g., 70 kg)",
                     "type":"custom"
