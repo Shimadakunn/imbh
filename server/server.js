@@ -119,7 +119,7 @@ app.post("/create-checkout-session", async (req, res) => {
             cancel_url: `${process.env.CLIENT_URL}`,
             shipping_options: [
                 {
-                  shipping_rate: 'shr_1NxceHK8Jr4dUR3tdfKyF7cI',
+                  shipping_rate: 'shr_1O9Fh0K8Jr4dUR3tM1dp866E',
                 },
             ],
         })
