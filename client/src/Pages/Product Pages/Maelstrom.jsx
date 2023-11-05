@@ -177,8 +177,8 @@ const Info = styled.div`
       transform: translate(50%, -50%);
       text-align: center;
       width: 70%;
-      font-size: 0.8rem;
-      font-weight: 600;
+      font-size: 1rem;
+      font-weight: 800;
       width: 70%;
       &.price {
         top: 32.5%;
@@ -279,7 +279,7 @@ const {stockData} = useContext(CartContext);
                 <InfoContainer>
                     <Info>
                         <h1>MAELSTROM</h1>
-                        <p>100% MESH SHORTSLEEVES BI COLOUR</p>
+                        <p>???</p>
                         <p className="price">???€</p>
                         <Categories>
                           <img className="selected" src={`./img/14.webp`}/>
