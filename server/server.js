@@ -102,7 +102,7 @@ app.post("/create-checkout-session", async (req, res) => {
                   "key": "client_info",
                   "label": {
                     "custom": "Enter your height",
-                    "type":custom
+                    "type":"custom"
                   },
                   "type": "text"
                 }
