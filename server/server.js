@@ -99,10 +99,12 @@ app.post("/create-checkout-session", async (req, res) => {
               },
               custom_fields: [
                 {
-                  key: 'Further information',
-                  label: 'Please enter your height and weight in cm and kg',
-                  type: 'text',
-                },
+                  "key": "client_info",
+                  "label": {
+                    "custom": "Enter your height"
+                  },
+                  "type": "text"
+                }
               ],
             mode: "payment",
             success_url: `${process.env.CLIENT_URL}/success`,
