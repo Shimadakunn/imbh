@@ -33,11 +33,12 @@ const Text = styled.p`
     }
 `
 function Header() {
+    const navigate = useNavigate();
     return (
         <Foot>
             <Img className = "insta" src="./icon/insta.svg" onClick={()=>window.open('https://www.instagram.com/imbehindmyhead/', '_blank')}/>
             <Img className = "twitter" src="./icon/twitter.svg" onClick={()=>window.open('https://twitter.com/Imbehindmyhead1', '_blank')}/>
-            <Text className ="cvg">CVG</Text>
+            <Text className ="cvg"  onClick={() => {navigate("/cvg");}}>CVG</Text>
         </Foot>
     )
 }

@@ -97,6 +97,13 @@ app.post("/create-checkout-session", async (req, res) => {
             phone_number_collection: {
                 enabled: true,
               },
+              custom_fields: [
+                {
+                  key: 'Further information',
+                  label: 'Please enter your height and weight in cm and kg',
+                  type: 'text',
+                },
+              ],
             mode: "payment",
             success_url: `${process.env.CLIENT_URL}/success`,
             cancel_url: `${process.env.CLIENT_URL}`,

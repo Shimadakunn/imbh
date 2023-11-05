@@ -16,6 +16,7 @@ import Durag from './Pages/Product Pages/Durag'
 import ScarLong from './Pages/Product Pages/ScarLong'
 import JupiLong from './Pages/Product Pages/Jupi Long'
 import Success from './Pages/Success'
+import Cvg from './Components/Cvg'
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
         <Cart/>
         <Routes>
           <Route exact path="/" element={<Home/>} />
+          <Route exact path="/cvg" element={<Cvg/>} />
           <Route exact path="/shop" element={<Shop/>} />
           <Route exact path="/rosace puffer" element={<Puffer/>} />
           <Route exact path="/jupiter anorak" element={<JupiAno/>} />

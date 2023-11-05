@@ -141,7 +141,7 @@ const Info = styled.div`
         position: absolute;
         right: 50%;
         transform: translateX(50%);
-        top: 67.5%;
+        top: 72%;
         height: 3.5vh;
         width: 30vw;
         @media (max-width: 480px) {width: 30vw;font-size: 0.75rem;};
@@ -201,6 +201,16 @@ const Info = styled.div`
       top: 55%;
       transform: translate(50%, -50%);
       width: 100%;
+      &.desc{
+        @media (max-width: 480px) {font-size: 0.5rem;top: 66%;};
+        text-align: center;
+        top: 67%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.7rem;
+        color: grey;
+      }
     }
 `
 const Categories = styled.div`
@@ -292,6 +302,7 @@ const {stockData} = useContext(CartContext);
                         <p className="description">100% MESH LONGSLEEVE BI COLOUR</p>
                         <p className="price">115€</p>
                         <p  className="stock">{selectedCategorie === 12 ? stockData[11] : stockData[12]} items left</p>
+                        <div className="desc">The model is 186cm tall and wears a size M. Length = 116cm <br/>You will be able to communicate additional informations about your measurements when finalizing your order</div>
                         <div>
                           <Categories>
                             <img className={selectedCategorie === 12 ? "selected" : ""} src={`./img/12.webp`} onClick={() => setSelectedCategorie(12)}/>

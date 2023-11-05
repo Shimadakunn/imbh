@@ -145,7 +145,7 @@ const Info = styled.div`
         top: 85%;
         height: 3.5vh;
         width: 30vw;
-        @media (max-width: 480px) {width: 30vw;font-size: 0.75rem;top: 75%;};
+        @media (max-width: 480px) {width: 30vw;font-size: 0.75rem;top: 80%;};
         background-color: white;
         border: none;
         color: #10100e;
@@ -207,8 +207,9 @@ const Info = styled.div`
         @media (max-width: 480px) {top: 65%;};
       }
       &.desc{
-        @media (max-width: 480px) {font-size: 0.5rem;top: 71%;};
-        top: 78%;
+        @media (max-width: 480px) {font-size: 0.5rem;top: 74%;};
+        text-align: center;
+        top: 79%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -347,7 +348,7 @@ const {stockData} = useContext(CartContext);
                         <p className="description">100% NYLON INSIDE IS QUILTED AND FILLED WITH VIRGIN FIBERS TREATED</p>
                         <p className="price">375€</p>
                         <p  className="stock">{stockData[8]} items left</p>
-                        <div className="desc">The Model mesures 1.85cm and Wears L</div>
+                        <div className="desc">The model is 186cm tall and wears a size M. Length = 116cm<br/>You will be able to communicate additional informations about your measurements when finalizing your order</div>
                         <div>
                           <Categories>
                             <img className="selected" src={`./img/9.webp`}/>
