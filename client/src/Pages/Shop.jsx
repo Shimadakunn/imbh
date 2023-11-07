@@ -198,6 +198,9 @@ const ProductName = styled.div`
   @media (max-width: 480px) {bottom: ${({ show }) => (show ? '15%' : '5%')};
     &.product5, &.product7{bottom: ${({ show }) => (show ? '7.5%' : '2.5%')};}};
   @media (max-width: 480px) {font-size: 0.65rem;};
+  & span{
+    @media (max-width: 375px) {display: none;};
+  }
 `
 const ProductPrice = styled.div`
   position: absolute;
@@ -439,7 +442,7 @@ function Shop() {
                     {selectedCategorie !== 4 ?<ProcuctImg src="./img/3.webp" onClick={() => { navigate("/shadow hoodie")}}/>: null}
                     {selectedCategorie === 4 ? <ProcuctImg src="./img/4.webp" onClick={() => {navigate("/shadow hoodie")}}/> : null}
                     {selectedCategorie === 0 ? <ShootImg show={isHovered[2]} src="./img/3/3_2.webp" onClick={() => {isHovered[2] ? navigate("/shadow hoodie"):null;}}/>: null}
-                    <ProductName show={isHovered[2]}>SHADOW MESH HOODIE</ProductName>
+                    <ProductName show={isHovered[2]}>SHADOW <span>MESH</span> HOODIE</ProductName>
                     <ProductPrice show={isHovered[2]}>95€</ProductPrice>
                     <ProductBar show={isHovered[2]}>
                       <Button onClick={() => {navigate("/shadow hoodie");}}>
@@ -457,7 +460,7 @@ function Shop() {
                     {selectedCategorie !== 6 ?<ProcuctImg src="./img/5.webp" onClick={() => {isHovered[3] ? navigate("/shadow dress"):null;}}/>: null}
                     {selectedCategorie === 6 ? <ProcuctImg src="./img/6.webp" onClick={() => {isHovered[3] ? navigate("/shadow dress"):null;}}/> : null}
                     {selectedCategorie === 0 ?<ShootImg show={isHovered[3]} src="./img/5/5_2.webp" onClick={() => {isHovered[3] ? navigate("/shadow dress"):null;}}/>: null}
-                    <ProductName show={isHovered[3]}>SHADOW MESH DRESS</ProductName>
+                    <ProductName show={isHovered[3]}>SHADOW <span>MESH</span> DRESS</ProductName>
                     <ProductPrice show={isHovered[3]}>150€</ProductPrice>
                     <ProductBar show={isHovered[3]}>
                       <Button onClick={() => {navigate("/shadow dress");}}>
