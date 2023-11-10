@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext} from 'react';
 import {CartContext} from '../../Components/CartProvider.jsx';
 import styled from "styled-components"
+import Pop_up from '../../Components/Pop_up.jsx';
 
 const AddedProduct = styled.div`
   z-index: 1;
@@ -74,7 +75,7 @@ const Page = styled.div`
 `
 const Images = styled.div`
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
@@ -82,8 +83,8 @@ const Images = styled.div`
     border-bottom: 0px solid white;
     border-left: 0px solid white;
     @media (max-width: 480px) {grid-template-columns: 1fr;
-      grid-template-rows: repeat(2, 1fr);
-      height: 50vh;};
+      grid-template-rows: repeat(4, 1fr);
+        };
 `
 const ImageFrame = styled.div`
     aspect-ratio: 1/1.2;
@@ -99,7 +100,7 @@ const ImageFrame = styled.div`
         @media (max-width: 480px) {grid-area: 1 / 1 / 2 / 2;};
     }
     &.img2 {
-      grid-area: 2 / 1 / 3 / 2;
+      grid-area: 1 / 2 / 2 / 3;
         border-bottom: 1px solid white;
         border-left: 1px solid white;
         @media (max-width: 480px) {grid-area: 2 / 1 / 3 / 2;};
@@ -223,6 +224,15 @@ const Categories = styled.div`
         cursor: pointer;
     }
 `
+const ProductName = styled.div`
+  position: absolute;
+  left:5%;
+  transition: bottom 0.5s ease;
+  font-size: 1rem;
+  font-weight: 600;
+  bottom: 5%;
+  @media (max-width: 480px) {font-size: 0.75rem;};
+`
 function Puffer() {
     const {cartItems, setCartItems} = useContext(CartContext);
     const {stockData} = useContext(CartContext);
@@ -258,6 +268,18 @@ function Puffer() {
           };
         }
       }, [showAddedItem]);
+
+      const [display, setDisplay] = useState(Array(4).fill(false));
+      const imagePaths = [
+        `./img/10.webp`,
+        `./img/11.webp`,
+        `./img/10/10_2.webp`,
+        `./img/10/10_3.webp`
+      ];
+      const handleImageClick = (index) => {
+        setDisplay((prevDisplay) => prevDisplay.map((value, i) => (i === index ? !value : value)));
+      };
+      const displayedIndex = display.findIndex((value) => value);
  
     return (
         <>
@@ -270,29 +292,43 @@ function Puffer() {
                     <p className="price">{lastItem.price}€</p>
                 </AddedProduct>
             )}
-            <Page>
-                <Images>
-                    <ImageFrame className="img1"><img src={`./img/10/10_2.webp`}/></ImageFrame>
-                    <ImageFrame className="img2"><img src={`./img/10/10_3.webp`}/></ImageFrame>
-                    {/* <ImageFrame className="img3"><img src={`./img/1_1.webp`}/></ImageFrame>
-                    <ImageFrame className="img4"><img src={`./img/2_1.webp`}/></ImageFrame> */}
-                </Images>
-                <InfoContainer>
-                    <Info>
-                        <h1>SHADOW DURAG ({selectedCategorie === 10 ? "BLACK" : "COPPER"}) </h1>
-                        <p className="description">100% POLYESTER MAILLE WITH CROCO PATTERN</p>
-                        <p className="price">55€</p>
-                        <p  className="stock">{selectedCategorie === 10 ? stockData[9] : stockData[10]} items left</p>
-                        <div>
-                          <Categories>
-                            <img className={selectedCategorie === 10 ? "selected" : ""} src={`./img/10.webp`} onClick={() => setSelectedCategorie(10)}/>
-                            <img className={selectedCategorie === 11 ? "selected" : ""} src={`./img/11.webp`} onClick={() => setSelectedCategorie(11)}/>
-                          </Categories>
-                        </div>
-                        <button onClick={() => {if(selectedCategorie === 10 && stockData[9] !== 0 || selectedCategorie === 11 && stockData[10] !==0){addToCart({ id: selectedCategorie, name: selectedCategorie === 10 ? "DURAG (BLACK)" : "DURAG (COPPER)", price: 55})}}}>Add to Cart</button>
-                    </Info>
-                </InfoContainer>
-            </Page>
+            {display.every((value) => !value)?(
+              <Page>
+                  <Images>
+                    <ImageFrame className="img1">
+                        <img className="min" src={`./img/10.webp`} onClick={() => handleImageClick(0)}/>
+                        <ProductName>
+                          Black
+                        </ProductName>
+                      </ImageFrame>
+                      <ImageFrame className="img2">
+                        <img className="min" src={`./img/11.webp`} onClick={() => handleImageClick(1)}/>
+                        <ProductName>
+                          Copper
+                        </ProductName>
+                      </ImageFrame>
+                      <ImageFrame className="img3"><img src={`./img/10/10_2.webp`} onClick={() => handleImageClick(2)}/></ImageFrame>
+                      <ImageFrame className="img4"><img src={`./img/10/10_3.webp`} onClick={() => handleImageClick(3)}/></ImageFrame>
+                  </Images>
+                  <InfoContainer>
+                      <Info>
+                          <h1>SHADOW DURAG ({selectedCategorie === 10 ? "BLACK" : "COPPER"}) </h1>
+                          <p className="description">100% POLYESTER MAILLE WITH CROCO PATTERN</p>
+                          <p className="price">55€</p>
+                          <p  className="stock">{selectedCategorie === 10 ? stockData[9] : stockData[10]} items left</p>
+                          <div>
+                            <Categories>
+                              <img className={selectedCategorie === 10 ? "selected" : ""} src={`./img/10.webp`} onClick={() => setSelectedCategorie(10)}/>
+                              <img className={selectedCategorie === 11 ? "selected" : ""} src={`./img/11.webp`} onClick={() => setSelectedCategorie(11)}/>
+                            </Categories>
+                          </div>
+                          <button onClick={() => {if(selectedCategorie === 10 && stockData[9] !== 0 || selectedCategorie === 11 && stockData[10] !==0){addToCart({ id: selectedCategorie, name: selectedCategorie === 10 ? "DURAG (BLACK)" : "DURAG (COPPER)", price: 55})}}}>Add to Cart</button>
+                      </Info>
+                  </InfoContainer>
+              </Page>
+            ):(
+              <Pop_up paths={imagePaths} displayIndex={displayedIndex} onClose={() => setDisplay((prevDisplay) => prevDisplay.map(() => false))} />
+            )}
         </>
     );
   }

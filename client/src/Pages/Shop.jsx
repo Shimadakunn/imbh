@@ -199,7 +199,7 @@ const ProductName = styled.div`
     &.product5, &.product7{bottom: ${({ show }) => (show ? '7.5%' : '2.5%')};}};
   @media (max-width: 480px) {font-size: 0.65rem;};
   & span{
-    @media (max-width: 375px) {display: none;};
+    @media (max-width: 480px) {display: none;};
   }
 `
 const ProductPrice = styled.div`

@@ -8,6 +8,7 @@ export default {
     extend: {},
     screens: {
       'laptop': '480px',
+      'mobile': '0px'
     },
   },
   plugins: [],

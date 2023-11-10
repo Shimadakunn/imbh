@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext} from 'react';
 import {CartContext} from '../../Components/CartProvider.jsx';
 import styled from "styled-components"
+import Pop_up from '../../Components/Pop_up.jsx';
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, PerspectiveCamera  } from "@react-three/drei";
 import BPuffer from "../../Components/B_puffer.jsx"
@@ -325,9 +326,18 @@ const {stockData} = useContext(CartContext);
           };
         }
       }, [showAddedItem]);
-      useEffect(() => {
-        console.log(size);
-      },[])
+
+      const [display, setDisplay] = useState(Array(4).fill(false));
+      const imagePaths = [
+        `./img/1.webp`,
+        `./img/1/1_2.webp`,
+        `./img/1/1_4.webp`,
+        `./img/1/1_6.webp`
+      ];
+      const handleImageClick = (index) => {
+        setDisplay((prevDisplay) => prevDisplay.map((value, i) => (i === index ? !value : value)));
+      };
+      const displayedIndex = display.findIndex((value) => value);
     return (
         <>
             {showAddedItem && (
@@ -339,22 +349,23 @@ const {stockData} = useContext(CartContext);
                     <p className="price">{lastItem.price}€</p>
                 </AddedProduct>
             )}
-            <Page>
+            {display.every((value) => !value)?(
+              <Page>
                 <Images>
                     <ImageFrame className="img1">
-                      <img className="min" src={`./img/1.webp`}/>
+                      <img className="min" src={`./img/1.webp`} onClick={() => handleImageClick(0)}/>
                       <ProductName>
                         Front
                       </ProductName>
                     </ImageFrame>
                     <ImageFrame className="img2">
-                      <img className="min" src={`./img/1/1_2.webp`}/>
+                      <img className="min" src={`./img/1/1_2.webp`} onClick={() => handleImageClick(1)}/>
                       <ProductName>
                         Back
                       </ProductName>
                     </ImageFrame>
-                    <ImageFrame className="img3"><img src={`./img/1/1_4.webp`}/></ImageFrame>
-                    <ImageFrame className="img4"><img src={`./img/1/1_6.webp`}/></ImageFrame>
+                    <ImageFrame className="img3"><img src={`./img/1/1_4.webp`} onClick={() => handleImageClick(2)}/></ImageFrame>
+                    <ImageFrame className="img4"><img src={`./img/1/1_6.webp`} onClick={() => handleImageClick(3)}/></ImageFrame>
                     <ImageFrame className="img5">
                         <StyledCanvas>
                           <BPuffer/>
@@ -384,7 +395,10 @@ const {stockData} = useContext(CartContext);
                         <button onClick={() => {if(stockData[0]!==0){addToCart({ id: 1, name: 'ROSACE PUFFER', price: 400, size:"Puffer:" + size})}}}>Add to Cart</button>
                     </Info>
                 </InfoContainer>
-            </Page>
+              </Page>
+            ):(
+              <Pop_up paths={imagePaths} displayIndex={displayedIndex} onClose={() => setDisplay((prevDisplay) => prevDisplay.map(() => false))} />
+            )}
         </>
     );
   }

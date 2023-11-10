@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext} from 'react';
 import {CartContext} from '../../Components/CartProvider.jsx';
 import styled from "styled-components"
+import Pop_up from '../../Components/Pop_up.jsx';
 
 const AddedProduct = styled.div`
   z-index: 1;
@@ -314,6 +315,17 @@ const {stockData} = useContext(CartContext);
         }
       }, [showAddedItem]);
      
+      const [display, setDisplay] = useState(Array(4).fill(false));
+      const imagePaths = [
+        `./img/9.webp`,
+        `./img/9/9_2.webp`,
+        `./img/9/9_4.webp`,
+        `./img/9/9_5.webp`
+      ];
+      const handleImageClick = (index) => {
+        setDisplay((prevDisplay) => prevDisplay.map((value, i) => (i === index ? !value : value)));
+      };
+      const displayedIndex = display.findIndex((value) => value);
     return (
         <>
             {showAddedItem && (
@@ -325,22 +337,23 @@ const {stockData} = useContext(CartContext);
                     <p className="price">{lastItem.price}€</p>
                 </AddedProduct>
             )}
-            <Page>
+            {display.every((value) => !value)?(
+              <Page>
                 <Images>
                     <ImageFrame className="img1">
-                      <img className="min" src={`./img/9.webp`}/>
+                      <img className="min" src={`./img/9.webp`} onClick={() => handleImageClick(0)}/>
                       <ProductName>
                         Front
                       </ProductName>
                     </ImageFrame>
                     <ImageFrame className="img2">
-                      <img className="min" src={`./img/9/9_2.webp`}/>
+                      <img className="min" src={`./img/9/9_2.webp`} onClick={() => handleImageClick(1)}/>
                       <ProductName>
                         Back
                       </ProductName>
                     </ImageFrame>
-                    <ImageFrame className="img3"><img src={`./img/9/9_4.webp`}/></ImageFrame>
-                    <ImageFrame className="img4"><img src={`./img/9/9_5.webp`}/></ImageFrame>
+                    <ImageFrame className="img3"><img src={`./img/9/9_4.webp`} onClick={() => handleImageClick(2)}/></ImageFrame>
+                    <ImageFrame className="img4"><img src={`./img/9/9_5.webp`} onClick={() => handleImageClick(3)}/></ImageFrame>
                 </Images>
                 <InfoContainer>
                     <Info>
@@ -362,7 +375,10 @@ const {stockData} = useContext(CartContext);
                         <button onClick={() => {if(stockData[8]!==0){addToCart({ id: 9, name: "JUPITER (MICROFIBER)", price: 375,size:"Jupi Micro:" + size})}}}>Add to Cart</button>
                     </Info>
                 </InfoContainer>
-            </Page>
+              </Page>
+            ):(
+              <Pop_up paths={imagePaths} displayIndex={displayedIndex} onClose={() => setDisplay((prevDisplay) => prevDisplay.map(() => false))} />
+            )}
         </>
     );
   }
