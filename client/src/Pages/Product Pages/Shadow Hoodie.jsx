@@ -303,7 +303,7 @@ const {stockData} = useContext(CartContext);
                 </Images>
                 <InfoContainer>
                     <Info>
-                        <h1>SHADOW MESH HOODIE ({selectedCategorie === 3 ? "BLACK" : "COOPER"})</h1>
+                        <h1>SHADOW MESH HOODIE ({selectedCategorie === 3 ? "BLACK" : "COPPER"})</h1>
                         <p className="description">100% POLYESTER MAILLE WITH CROCO PATTERN</p>
                         <p className="price">95€</p>
                         <p  className="stock">{selectedCategorie === 3 ? stockData[2] : stockData[3]} items left</p>
