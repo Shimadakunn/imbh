@@ -325,9 +325,9 @@ const {stockData} = useContext(CartContext);
                         </div>
                         <button onClick={() => {
                           if(selectedCategorie === 12 && stockData[11] !== 0){
-                            addToCart({ id: selectedCategorie, name: selectedCategorie === 12 ? "SCAR LONG (DUST)" : "SCAR LONG (BLOOD)", price: 115})
+                            addToCart({ id: selectedCategorie, name: selectedCategorie === 12 ? "SCAR LONG (DUST)" : "SCAR LONG (BLOOD)", price: 115, size: "null"})
                           }else if(selectedCategorie === 13 && stockData[12] !==0){
-                            addToCart({ id: selectedCategorie, name: selectedCategorie === 12 ? "SCAR LONG (DUST)" : "SCAR LONG (BLOOD)", price: 115})
+                            addToCart({ id: selectedCategorie, name: selectedCategorie === 12 ? "SCAR LONG (DUST)" : "SCAR LONG (BLOOD)", price: 115, size: "null"})
                           }
                           }}>Add to Cart</button>
                     </Info>
