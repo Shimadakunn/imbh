@@ -4,6 +4,7 @@ import Header from './Components/Header'
 import Footer from './Components/Footer'
 import Cart from './Components/Cart'
 import Home from './Pages/Home'
+import Error from './Pages/Error'
 import Shop from './Pages/Shop'
 import Puffer from './Pages/Product Pages/Puffer'
 import JupiAno from './Pages/Product Pages/Jupi Ano'
@@ -23,10 +24,10 @@ function App() {
   return (
     <CartProvider>
       <Router>
-        <Header/>
-        <Cart/>
+        {/* <Header/>
+        <Cart/> */}
         <Routes>
-          <Route exact path="/" element={<Home/>} />
+          <Route exact path="/" element={<Error/>} />
           <Route exact path="/cvg" element={<Cvg/>} />
           <Route exact path="/shop" element={<Shop/>} />
           <Route exact path="/rosace puffer" element={<Puffer/>} />
@@ -41,7 +42,7 @@ function App() {
           <Route exact path="/scar long" element={<ScarLong/>} />
           <Route exact path="/success" element={<Success/>} />
         </Routes>
-        <Footer/>
+        {/* <Footer/> */}
       </Router>
     </CartProvider>
   )
