@@ -24,10 +24,10 @@ function App() {
   return (
     <CartProvider>
       <Router>
-        {/* <Header/>
-        <Cart/> */}
+        <Header/>
+        <Cart/>
         <Routes>
-          <Route exact path="/" element={<Error/>} />
+          <Route exact path="/" element={<Home/>} />
           <Route exact path="/cvg" element={<Cvg/>} />
           <Route exact path="/shop" element={<Shop/>} />
           <Route exact path="/rosace puffer" element={<Puffer/>} />
@@ -42,7 +42,7 @@ function App() {
           <Route exact path="/scar long" element={<ScarLong/>} />
           <Route exact path="/success" element={<Success/>} />
         </Routes>
-        {/* <Footer/> */}
+        <Footer/>
       </Router>
     </CartProvider>
   )
