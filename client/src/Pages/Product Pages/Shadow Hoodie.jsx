@@ -314,7 +314,7 @@ const {stockData} = useContext(CartContext);
                             <img className={selectedCategorie === 4 ? "selected" : ""} src={`./img/4.webp`} onClick={() => setSelectedCategorie(4)}/>
                           </Categories>
                         </div>
-                        <button onClick={() => {if(selectedCategorie === 3 && stockData[2] !== 0 || selectedCategorie === 4 && stockData[3] !==0){addToCart({ id: selectedCategorie, name: selectedCategorie === 3 ? "SHADOW HOODIE (BLACK)" : "SHADOW HOODIE (COPPER)", price: 95, size: "null"})}}}>Add to Cart</button>
+                        <button disabled onClick={() => {if(selectedCategorie === 3 && stockData[2] !== 0 || selectedCategorie === 4 && stockData[3] !==0){addToCart({ id: selectedCategorie, name: selectedCategorie === 3 ? "SHADOW HOODIE (BLACK)" : "SHADOW HOODIE (COPPER)", price: 95, size: "null"})}}}>Sold Out</button>
                     </Info>
                 </InfoContainer>
               </Page>

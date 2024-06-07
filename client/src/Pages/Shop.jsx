@@ -450,8 +450,8 @@ function Shop() {
                       </Button>
                       <Option className={selectedCategorie === 3 ? "selected" : ""} onClick={() => {setSelectedCategorie(3)}}>BLACK</Option>
                       <Option className={selectedCategorie === 4 ? "selected" : ""} onClick={() => {setSelectedCategorie(4)}}>COPPER</Option>
-                      <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 3 ? "SHADOW HOODIE (BLACK)" : "SHADOW HOODIE (COPPER)", price: 95,size:"null" }): handleToolTip(2);}}>
-                        ADD <span>TO CART</span> 
+                      <Button disabled onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 3 ? "SHADOW HOODIE (BLACK)" : "SHADOW HOODIE (COPPER)", price: 95,size:"null" }): handleToolTip(2);}}>
+                        SOLD <span>OUT</span> 
                       </Button>
                     </ProductBar>
                     <ProductToolTip className={`${addedToolTip[2]}`} show={isHovered[2]}>Select color</ProductToolTip>
@@ -468,8 +468,8 @@ function Shop() {
                       </Button>
                       <Option className={selectedCategorie === 5 ? "selected" : ""} onClick={() => {setSelectedCategorie(5)}}>BLACK</Option>
                       <Option className={selectedCategorie === 6 ? "selected" : ""} onClick={() => {setSelectedCategorie(6)}}>COPPER</Option>
-                      <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 5 ? "SHADOW DRESS (BLACK)" : "SHADOW DRESS (COPPER)", price: 150,size:"null" }): handleToolTip(3);}}>
-                        ADD <span>TO CART</span>
+                      <Button disabled onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 5 ? "SHADOW DRESS (BLACK)" : "SHADOW DRESS (COPPER)", price: 150,size:"null" }): handleToolTip(3);}}>
+                        SOLD <span>OUT</span>
                       </Button>
                     </ProductBar>
                     <ProductToolTip className={`${addedToolTip[3]}`} show={isHovered[3]}>Select color</ProductToolTip>
@@ -520,8 +520,8 @@ function Shop() {
                       </Button>
                       <Option className={selectedCategorie === 10 ? "selected" : ""} onClick={() => {setSelectedCategorie(10)}}>BLACK</Option>
                       <Option className={selectedCategorie === 11 ? "selected" : ""} onClick={() => {setSelectedCategorie(11)}}>COPPER</Option>
-                      <Button onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 10 ? "DURAG (BLACK)" : "DURAG (COPPER)", price: 55,size:"null" }): handleToolTip(6);}}>
-                        ADD <span>TO CART</span>
+                      <Button disabled onClick={() => {selectedCategorie !== 0 ? addToCart({ id: selectedCategorie, name:selectedCategorie === 10 ? "DURAG (BLACK)" : "DURAG (COPPER)", price: 55,size:"null" }): handleToolTip(6);}}>
+                        SOLD <span>OUT</span>
                       </Button>
                     </ProductBar>
                     <ProductToolTip className={`${addedToolTip[6]}`} show={isHovered[6]}>Select color</ProductToolTip>
